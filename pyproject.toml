@@ -21,5 +21,7 @@ classifiers=[
 dependencies=[
     "loguru~=0.7.2",
     "genie-flow-invoker~=0.6.0",
+    "pydantic~=2.9.2",
+    "tika~=2.6.0",
 ]
 dynamic = ["version"]

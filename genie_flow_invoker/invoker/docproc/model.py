@@ -10,7 +10,7 @@ class AbstractNamedDocument(BaseModel):
     )
 
 
-class DocumentInput(AbstractNamedDocument):
+class RawDocumentFile(AbstractNamedDocument):
     document_data: str = Field(
         description="A base64 encoded version of the document data of this file",
     )

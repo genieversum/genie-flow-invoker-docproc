@@ -4,12 +4,12 @@ from genie_flow_invoker.genie import GenieInvoker
 from genie_flow_invoker.invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
 from genie_flow_invoker.utils import get_config_value
 
-from genie_flow_invoker.invoker.docproc.model import DocumentInput, ParsedDocument
+from genie_flow_invoker.invoker.docproc.model import RawDocumentFile, ParsedDocument
 
 
 class DocumentParseInvoker(
     GenieInvoker,
-    PydanticInputDecoder[DocumentInput],
+    PydanticInputDecoder[RawDocumentFile],
     PydanticOutputEncoder[ParsedDocument],
 ):
     """

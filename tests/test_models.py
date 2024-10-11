@@ -2,7 +2,7 @@ import base64
 
 from tika import parser
 
-from genie_flow_invoker.invoker.docproc.model import ParsedDocument, DocumentInput
+from genie_flow_invoker.invoker.docproc.model import ParsedDocument, RawDocumentFile
 
 from genie_flow_invoker.invoker.docproc.parse import DocumentParseInvoker
 
@@ -31,10 +31,11 @@ def test_parse_document():
         buffer = f.read()
         buffer_b64 = base64.b64encode(buffer).decode("ascii")
 
-    input_document = DocumentInput(
+    input_document = RawDocumentFile(
         filename=document_path,
         document_data=buffer_b64,
     )
-    parsed_document = invoker.invoke(input_document.model_dump_json())
+    parsed_document_json = invoker.invoke(input_document.model_dump_json())
 
-    print(parsed_document)
+    assert "Acrostycon" in parsed_document_json
+    assert "Content-Type" in parsed_document_json

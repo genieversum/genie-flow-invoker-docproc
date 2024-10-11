@@ -1,3 +1,5 @@
+import os
+
 from pytest import fixture
 
 @fixture(scope='module')
@@ -6,4 +8,4 @@ def wilhelmus_path():
 
 @fixture(scope='module')
 def tika_url():
-    return "http://apache-tika:9998/"
+    return os.environ.get("TIKA_URL", "http://localhost:9998/")

@@ -5,4 +5,4 @@ __pycache__
 main.log
 dist/
 build/
-genie_flow_invoker_api.egg-info/
+genie_flow_invoker_*.egg-info/

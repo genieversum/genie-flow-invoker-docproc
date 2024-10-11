@@ -7,12 +7,11 @@ from genie_flow_invoker.invoker.docproc.model import ParsedDocument, RawDocument
 from genie_flow_invoker.invoker.docproc.parse import DocumentParseInvoker
 
 
-def test_process_document():
-    document_path = "resources/Wilhelmus-van-Nassouwe.pdf"
-    content = parser.from_file(document_path)
+def test_process_document(wilhelmus_path):
+    content = parser.from_file(wilhelmus_path)
 
     parsed_document = ParsedDocument(
-        filename=document_path,
+        filename=wilhelmus_path,
         document_text=content["content"],
         document_metadata=content["metadata"],
     )
@@ -21,18 +20,15 @@ def test_process_document():
     assert parsed_document.document_metadata["Content-Type"] == "application/pdf"
 
 
-def test_parse_document():
-    document_path = "resources/Wilhelmus-van-Nassouwe.pdf"
-    invoker = DocumentParseInvoker(
-        tika_service_url="http://localhost:9998",
-    )
+def test_parse_document(wilhelmus_path, tika_url):
+    invoker = DocumentParseInvoker(tika_service_url=tika_url)
 
-    with open(document_path, "rb") as f:
+    with open(wilhelmus_path, "rb") as f:
         buffer = f.read()
         buffer_b64 = base64.b64encode(buffer).decode("ascii")
 
     input_document = RawDocumentFile(
-        filename=document_path,
+        filename=wilhelmus_path,
         document_data=buffer_b64,
     )
     parsed_document_json = invoker.invoke(input_document.model_dump_json())

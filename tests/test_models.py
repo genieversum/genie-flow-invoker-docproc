@@ -7,8 +7,11 @@ from genie_flow_invoker.invoker.docproc.model import ParsedDocument, RawDocument
 from genie_flow_invoker.invoker.docproc.parse import DocumentParseInvoker
 
 
-def test_process_document(wilhelmus_path):
-    content = parser.from_file(wilhelmus_path)
+def test_process_document(wilhelmus_path, tika_url):
+    content = parser.from_file(
+        wilhelmus_path,
+        serverEndpoint=tika_url,
+    )
 
     parsed_document = ParsedDocument(
         filename=wilhelmus_path,

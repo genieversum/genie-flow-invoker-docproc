@@ -47,7 +47,7 @@ class DocumentParseInvoker(
         input_document = self._decode_input(content)
         parsed_result = parser.from_buffer(
             input_document.byte_io,
-            # serverEndpoint=self._tika_service_url,
+            serverEndpoint=self._tika_service_url,
         )
         parsed_document = ParsedDocument(
             filename=input_document.filename,

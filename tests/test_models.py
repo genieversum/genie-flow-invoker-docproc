@@ -24,12 +24,12 @@ def test_process_document():
 def test_parse_document():
     document_path = "resources/Wilhelmus-van-Nassouwe.pdf"
     invoker = DocumentParseInvoker(
-        tika_service_url="",
+        tika_service_url="http://localhost:9998",
     )
 
     with open(document_path, "rb") as f:
         buffer = f.read()
-        buffer_b64 = base64.b64encode(buffer).decode("utf-8")
+        buffer_b64 = base64.b64encode(buffer).decode("ascii")
 
     input_document = DocumentInput(
         filename=document_path,

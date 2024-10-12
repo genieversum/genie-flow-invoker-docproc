@@ -23,5 +23,7 @@ dependencies=[
     "genie-flow-invoker~=0.6.0",
     "pydantic~=2.9.2",
     "bidict~=0.23.1",
+    "pydantic~=2.9.2",
+    "tika~=2.6.0",
 ]
 dynamic = ["version"]

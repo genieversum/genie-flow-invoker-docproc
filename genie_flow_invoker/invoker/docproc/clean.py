@@ -142,8 +142,8 @@ class DocumentCleanInvoker(
             return "\n".join(detokenizer.detokenize(words) for words in sentences_words)
 
         cleaners = OrderedDict(
-            clean_multiple_newlines=lambda text: re.sub(r"\n+", "\n", text),
-            clean_multiple_spaces=lambda text: re.sub(r"\s+", " ", text),
+            clean_multiple_newlines=lambda text: re.sub(r"\n{2,}", "\n", text),
+            clean_multiple_spaces=lambda text: re.sub(r"\s{2,}", " ", text),
             clean_tabs=lambda text: re.sub(r"\t+", " ", text),
             clean_numbers=remove_numbers,
             special_term_replacements=replace_special_terms,

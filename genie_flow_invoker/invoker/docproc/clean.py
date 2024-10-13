@@ -5,9 +5,9 @@ from typing import Optional
 from loguru import logger
 from nltk import PunktSentenceTokenizer, TreebankWordTokenizer, TreebankWordDetokenizer
 
-from genie import GenieInvoker
-from invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
-from invoker.docproc.model import ParsedDocument
+from genie_flow_invoker.genie import GenieInvoker
+from genie_flow_invoker.invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
+from genie_flow_invoker.invoker.docproc.model import ParsedDocument
 
 
 SPECIAL_TERMS = {

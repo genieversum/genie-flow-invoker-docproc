@@ -1,6 +1,6 @@
 import re
 
-from invoker.docproc.clean import DocumentCleanInvoker
+from genie_flow_invoker.invoker.docproc.clean import DocumentCleanInvoker
 
 
 def test_no_cleaning(hamlet_content):

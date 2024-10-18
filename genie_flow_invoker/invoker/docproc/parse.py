@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 import backoff
 from loguru import logger
 from tika import parser
@@ -7,6 +9,8 @@ from genie_flow_invoker.invoker.docproc.codec import PydanticInputDecoder, Pydan
 from genie_flow_invoker.utils import get_config_value
 
 from genie_flow_invoker.invoker.docproc.model import RawDocumentFile, ParsedDocument
+
+from invoker.docproc.backoff_caller import BackoffCaller
 
 
 class DocumentParseInvoker(
@@ -25,8 +29,12 @@ class DocumentParseInvoker(
             backoff_max_tries=10,
     ):
         self._tika_service_url = tika_service_url
-        self._backoff_max_time = backoff_max_time
-        self._backoff_max_tries = backoff_max_tries
+        self._backoff_caller = BackoffCaller(
+            TimeoutError,
+            self.__class__,
+            backoff_max_time,
+            backoff_max_tries,
+        )
 
 
     @classmethod
@@ -74,31 +82,21 @@ class DocumentParseInvoker(
     def invoke(self, content: str) -> str:
         input_document = self._decode_input(content)
 
-        def backoff_logger(details):
-            logger.info(
-                "Backing off {wait:0.1f} seconds after {tries} tries ",
-                "for a {cls} invocation",
-                **details,
-                cls=self.__class__.__name__,
-            )
-
-        @backoff.on_exception(
-            wait_gen=backoff.fibo,
-            max_value=self._backoff_max_time,
-            max_tries=self._backoff_max_tries,
-            exception=TimeoutError,
-            on_backoff=backoff_logger,
-        )
-        def parse_with_backoff():
+        def parse():
             result = parser.from_buffer(
                 input_document.byte_io,
                 serverEndpoint=self._tika_service_url,
             )
-            if result["status_code"] in [408, 429, 500]:
+            if result["status_code"] in [
+                HTTPStatus.REQUEST_TIMEOUT,
+                HTTPStatus.TOO_MANY_REQUESTS,
+                HTTPStatus.INTERNAL_SERVER_ERROR,
+            ]:
                 logger.warning("Receiving status code {}, from Tika", result["status_code"])
                 raise TimeoutError()
+            return result
 
-        parsed_result = parse_with_backoff()
+        parsed_result = self._backoff_caller.call(parse)
         parsed_document = ParsedDocument(
             filename=input_document.filename,
             document_text=parsed_result["content"],

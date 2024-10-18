@@ -1,12 +1,14 @@
-import backoff
+from http import HTTPStatus
+
 import requests
+from genie_flow_invoker import GenieInvoker
+from genie_flow_invoker.utils import get_config_value
 from loguru import logger
 
-from genie import GenieInvoker
+from invoker.docproc.backoff_caller import BackoffCaller
 from invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
-from invoker.docproc.model import ChunkedDocument, EmbeddedChunkedDocument, VectorResponse, \
-    VectorInput, VectorInputConfig
-from utils import get_config_value
+from invoker.docproc.model import ChunkedDocument, EmbeddedChunkedDocument
+from invoker.docproc.model.vectorizer import VectorInputConfig, VectorInput, VectorResponse
 
 
 class EmbedInvoker(
@@ -16,11 +18,20 @@ class EmbedInvoker(
 ):
 
     def __init__(
-            self, text2vec_url: str, pooling_strategy: str):
+            self,
+            text2vec_url: str,
+            pooling_strategy: str,
+            backoff_max_time=61,
+            backoff_max_tries=10,
+    ):
         self._text2vec_url = text2vec_url
-        self._pooling_strategy = pooling_strategy
-        max_value = self._backoff_max_time,
-        max_tries = self._backoff_max_tries,
+        self._vector_input_config = VectorInputConfig(pooling_strategy=pooling_strategy)
+        self._backoff_caller = BackoffCaller(
+            TimeoutError,
+            self.__class__,
+            backoff_max_time,
+            backoff_max_tries,
+        )
 
     @classmethod
     def from_config(cls, config: dict):
@@ -37,44 +48,54 @@ class EmbedInvoker(
             "Pooling Strategy",
             None,
         )
-        return cls(text2vec_url, pooling_strategy)
+        backoff_max_time = get_config_value(
+            config,
+            "VECTORIZER_BACKOFF_MAX_TIME",
+            "backoff_max_time",
+            "Max backoff time (seconds)",
+            61,
+        )
+        backoff_max_tries = get_config_value(
+            config,
+            "VECTORIZER_MAX_BACKOFF_TRIES",
+            "backoff_max_tries",
+            "Max backoff tries",
+            15,
+        )
+
+        return cls(
+            text2vec_url,
+            pooling_strategy,
+            backoff_max_time,
+            backoff_max_tries,
+        )
 
     def _make_embedding_request(self, chunk: str) -> list[float]:
-        vector_input = VectorInput(
-            text=chunk,
-            config=(
-                VectorInputConfig(pooling_strategy=self._pooling_strategy)
-                if self._pooling_strategy is not None
-                else None
-            )
+
+        def request_vector(url: str, in_vec: VectorInput) -> list[float]:
+            input_json = in_vec.model_dump_json()
+            response = requests.post(url=url, json=input_json)
+            if response.status_code in [
+                HTTPStatus.REQUEST_TIMEOUT,
+                HTTPStatus.TOO_MANY_REQUESTS,
+                HTTPStatus.INTERNAL_SERVER_ERROR,
+            ]:
+                logger.warning(
+                    "Received status code {}, from embedding request. Raising a Timeout",
+                    response.status_code,
+                )
+                raise TimeoutError()
+            response.raise_for_status()
+            vector_response = VectorResponse.model_validate_json(response.json())
+            return vector_response.vector
+
+        vector_input = VectorInput(text=chunk, config=self._vector_input_config)
+
+        return self._backoff_caller.call(
+            func=request_vector,
+            url=f"{self._text2vec_url}/vectors",
+            model_json=vector_input,
         )
-
-        def backoff_logger(details):
-            logger.info(
-                "Backing off {wait:0.1f} seconds after {tries} tries ",
-                "for a {cls} invocation",
-                **details,
-                cls=self.__class__.__name__,
-            )
-
-        @backoff.on_exception(
-            wait_gen=backoff.fibo,
-            max_value=self._backoff_max_time,
-            max_tries=self._backoff_max_tries,
-            exception=TimeoutError,
-            on_backoff=backoff_logger,
-        )
-        def _request_with_backoff():
-            resp = requests.post(
-                f"{self._text2vec_url}/vectors",
-                json=vector_input.model_dump_json(),
-            )
-            resp.raise_for_status()
-            return resp
-
-        response = _request_with_backoff()
-        vector_response = VectorResponse.model_validate_json(response.json())
-        return vector_response.vector
 
     def invoke(self, content: str) -> str:
         chunked_document = self._decode_input(content)
@@ -85,7 +106,8 @@ class EmbedInvoker(
         ]
 
         result = EmbeddedChunkedDocument(
-            **(chunked_document.model_dump()),
+            filename=chunked_document.filename,
+            chunks=chunked_document.chunks,
             embeddings=vectors,
         )
 

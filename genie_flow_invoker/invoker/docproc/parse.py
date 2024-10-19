@@ -1,6 +1,5 @@
 from http import HTTPStatus
 
-import backoff
 from loguru import logger
 from tika import parser
 
@@ -11,12 +10,13 @@ from genie_flow_invoker.utils import get_config_value
 from genie_flow_invoker.invoker.docproc.model import RawDocumentFile, ParsedDocument
 
 from invoker.docproc.backoff_caller import BackoffCaller
+from invoker.docproc.model import ChunkedDocument, DocumentChunk
 
 
 class DocumentParseInvoker(
     GenieInvoker,
     PydanticInputDecoder[RawDocumentFile],
-    PydanticOutputEncoder[ParsedDocument],
+    PydanticOutputEncoder[ChunkedDocument],
 ):
     """
     Parse a binary document into text and their metadata.
@@ -97,9 +97,15 @@ class DocumentParseInvoker(
             return result
 
         parsed_result = self._backoff_caller.call(parse)
-        parsed_document = ParsedDocument(
-            filename=input_document.filename,
-            document_text=parsed_result["content"],
-            document_metadata=parsed_result["metadata"],
+        chunk = DocumentChunk(
+            content=parsed_result["content"],
+            original_span=(0, len(parsed_result["content"])),
+            hierarchy_level=0,
+            parent_id=None,
         )
-        return self._encode_output(parsed_document)
+        chunked_document = ChunkedDocument(
+            filename=input_document.filename,
+            document_metadata=parsed_result["metadata"],
+            chunks=[chunk],
+        )
+        return self._encode_output(chunked_document)

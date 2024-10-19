@@ -7,14 +7,14 @@ from loguru import logger
 
 from invoker.docproc.backoff_caller import BackoffCaller
 from invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
-from invoker.docproc.model import ChunkedDocument, EmbeddedChunkedDocument
+from invoker.docproc.model import ChunkedDocument
 from invoker.docproc.model.vectorizer import VectorInputConfig, VectorInput, VectorResponse
 
 
 class EmbedInvoker(
     GenieInvoker,
     PydanticInputDecoder[ChunkedDocument],
-    PydanticOutputEncoder[EmbeddedChunkedDocument]
+    PydanticOutputEncoder[ChunkedDocument]
 ):
 
     def __init__(
@@ -101,11 +101,11 @@ class EmbedInvoker(
         chunked_document = self._decode_input(content)
 
         vectors = [
-            self._make_embedding_request(d.document_chunk)
+            self._make_embedding_request(d.content)
             for d in chunked_document.chunks
         ]
 
-        result = EmbeddedChunkedDocument(
+        result = ChunkedDocument(
             filename=chunked_document.filename,
             chunks=chunked_document.chunks,
             embeddings=vectors,

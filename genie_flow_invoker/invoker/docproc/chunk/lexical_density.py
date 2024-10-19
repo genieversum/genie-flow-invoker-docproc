@@ -2,9 +2,10 @@ from typing import NamedTuple, Literal
 
 import nltk
 from black import Optional
-from nltk import RegexpTokenizer, WordPunctTokenizer, TreebankWordTokenizer
+from nltk import TreebankWordTokenizer
 
-from invoker.docproc.model import ParsedDocument, DocumentChunk
+from invoker.docproc.chunk.splitter import AbstractSplitter
+from invoker.docproc.model import DocumentChunk
 
 
 WordSPanTagLex = NamedTuple(
@@ -16,6 +17,8 @@ WordSPanTagLex = NamedTuple(
         ('lexical', bool),
     ]
 )
+
+LexicalSplitStrategyType = Literal["shortest", "best", "longest"]
 
 
 def calculate_lexical_density(word_span_tag: list[WordSPanTagLex]) -> float:
@@ -35,7 +38,7 @@ def calculate_lexical_density(word_span_tag: list[WordSPanTagLex]) -> float:
     return lex_count / len(word_span_tag)
 
 
-class LexicalDensitySplitter:
+class LexicalDensitySplitter(AbstractSplitter):
 
     def __init__(
             self,
@@ -43,7 +46,7 @@ class LexicalDensitySplitter:
             max_words: int,
             overlap: int,
             target_density: float,
-            strategy: Literal["shortest", "best", "longest"] = "best",
+            strategy: LexicalSplitStrategyType = "best",
     ):
         """
         A LexicalDensitySplitter splits a document into chunks according to the given
@@ -54,7 +57,7 @@ class LexicalDensitySplitter:
 
         The strategy determines if
         - the shortest chunk is found with a lexical density above `target_density`
-        - the best chunk is found with a lexical density above `target_density`
+        - the best chunk is found with the highest lexical density above `target_density`
         - the longest chunk is found with a lexical density above `target_density`
 
         :param min_words: minimal number of words that should be part of the chunk
@@ -89,10 +92,17 @@ class LexicalDensitySplitter:
         }
         self.tokenizer = TreebankWordTokenizer()
 
-    def split(self, document: ParsedDocument) -> list[DocumentChunk]:
-        words = self.tokenizer.tokenize(document.document_text)
-        word_spans = self.tokenizer.span_tokenize(document.document_text)
+    def split(self, document: DocumentChunk) -> list[DocumentChunk]:
+        words = self.tokenizer.tokenize(document.content)
+
+        base_span = document.original_span[0]
+        word_spans = [
+            (base_span + span[0], base_span + span[1])
+            for span in self.tokenizer.span_tokenize(document.content)
+        ]
+
         pos_tags = [t[1] for t in nltk.tag.pos_tag(words)]
+
         lexical_word = [
             w.lower() not in self.stopwords_set and pos_tags[i] in self.lexicographical_tags
             for i, w in enumerate(words)
@@ -133,9 +143,12 @@ class LexicalDensitySplitter:
 
         return [
             DocumentChunk(
-                filename=document.filename,
-                document_chunk=document.document_text[wst[0].span[0]:wst[-1].span[1]],
-                original_span=(wst[0].span[0], wst[-1].span[1])
+                content=document.content[
+                        (wst[0].span[0]-base_span):(wst[-1].span[1]-base_span)
+                ],
+                original_span=(wst[0].span[0], wst[-1].span[1]),
+                hierarchy_level=document.hierarchy_level + 1,
+                parent_id=document.chunk_id,
             )
             for wst in chunks
         ]

@@ -104,5 +104,6 @@ class LexicalDensitySplitInvoker(AbstractSplitterInvoker):
         max_words = config.get("max_words", 15)
         overlap = config.get("overlap", 2)
         target_density = config.get("target_density", 0.8)
+        strategy = config.get("strategy", "shortest")
         operation_level = config.get("operation_level", None)
-        return cls(min_words, max_words, overlap, target_density, operation_level)
+        return cls(min_words, max_words, overlap, target_density, strategy, operation_level)

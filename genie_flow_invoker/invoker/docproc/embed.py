@@ -100,15 +100,8 @@ class EmbedInvoker(
     def invoke(self, content: str) -> str:
         chunked_document = self._decode_input(content)
 
-        vectors = [
-            self._make_embedding_request(d.content)
-            for d in chunked_document.chunks
-        ]
+        for chunk in chunked_document.chunks:
+            vector = self._make_embedding_request(chunk.content)
+            chunk.embedding = vector
 
-        result = ChunkedDocument(
-            filename=chunked_document.filename,
-            chunks=chunked_document.chunks,
-            embeddings=vectors,
-        )
-
-        return self._encode_output(result)
+        return self._encode_output(chunked_document)

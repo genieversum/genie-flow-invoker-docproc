@@ -7,11 +7,11 @@ from loguru import logger
 class BackoffCaller:
 
     def __init__(
-            self,
-            retry_exceptions: type[Exception] | Sequence[type[Exception]],
-            logging_class: type[object],
-            backoff_max_time=61,
-            backoff_max_tries=10,
+        self,
+        retry_exceptions: type[Exception] | Sequence[type[Exception]],
+        logging_class: type[object],
+        backoff_max_time=61,
+        backoff_max_tries=10,
     ):
         self._retry_exceptions = retry_exceptions
         self._logging_class = logging_class

@@ -3,8 +3,12 @@ from typing import Optional, Iterator
 
 from genie_flow_invoker import GenieInvoker
 
-from invoker.docproc.chunk.lexical_density import LexicalDensitySplitter, LexicalSplitStrategyType
+from invoker.docproc.chunk.lexical_density import (
+    LexicalDensitySplitter,
+    LexicalSplitStrategyType,
+)
 from invoker.docproc.chunk.splitter import AbstractSplitter
+from invoker.docproc.chunk.word_splitter import FixedWordsSplitter
 from invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
 from invoker.docproc.model import ChunkedDocument, DocumentChunk
 
@@ -27,8 +31,8 @@ class AbstractSplitterInvoker(
     """
 
     def __init__(
-            self,
-            operation_level: Optional[int] = None,
+        self,
+        operation_level: Optional[int] = None,
     ):
         """
         Create a new instance.
@@ -43,8 +47,8 @@ class AbstractSplitterInvoker(
     def chunk_iterator(self, chunks: list[DocumentChunk]) -> Iterator[DocumentChunk]:
         for chunk in chunks:
             if (
-                    self._operation_level is None or
-                    chunk.hierarchy_level == self._operation_level
+                self._operation_level is None
+                or chunk.hierarchy_level == self._operation_level
             ):
                 yield chunk
 
@@ -59,18 +63,18 @@ class AbstractSplitterInvoker(
         return self._encode_output(document)
 
 
-class FixedWordCountSplitterInvoler(AbstractSplitterInvoker):
+class FixedWordCountSplitterInvoker(AbstractSplitterInvoker):
 
     def __init__(
-            self,
-            max_words: int,
-            overlap: int,
-            ignore_stopwords: bool = False,
-            drop_trailing_chunks: bool = False,
-            operation_level: Optional[int] = None
+        self,
+        max_words: int,
+        overlap: int,
+        ignore_stopwords: bool = False,
+        drop_trailing_chunks: bool = False,
+        operation_level: Optional[int] = None,
     ):
         super().__init__(operation_level)
-        self._splitter = FixedWordCountSplitterInvoler(
+        self._splitter = FixedWordsSplitter(
             max_words=max_words,
             overlap=overlap,
             ignore_stopwords=ignore_stopwords,
@@ -85,13 +89,8 @@ class FixedWordCountSplitterInvoler(AbstractSplitterInvoker):
         drop_trailing_chunks = config.get("drop_trailing_chunks", False)
         operation_level = config.get("operation_level", None)
         return cls(
-            max_words,
-            overlap,
-            ignore_stopwords,
-            drop_trailing_chunks,
-            operation_level
+            max_words, overlap, ignore_stopwords, drop_trailing_chunks, operation_level
         )
-
 
 
 class LexicalDensitySplitInvoker(AbstractSplitterInvoker):
@@ -100,13 +99,13 @@ class LexicalDensitySplitInvoker(AbstractSplitterInvoker):
     """
 
     def __init__(
-            self,
-            min_words: int,
-            max_words: int,
-            overlap: int,
-            target_density: float,
-            strategy: LexicalSplitStrategyType,
-            operation_level: Optional[int] = None,
+        self,
+        min_words: int,
+        max_words: int,
+        overlap: int,
+        target_density: float,
+        strategy: LexicalSplitStrategyType,
+        operation_level: Optional[int] = None,
     ):
         super().__init__(operation_level)
         self._splitter = LexicalDensitySplitter(
@@ -136,4 +135,6 @@ class LexicalDensitySplitInvoker(AbstractSplitterInvoker):
         target_density = config.get("target_density", 0.8)
         strategy = config.get("strategy", "shortest")
         operation_level = config.get("operation_level", None)
-        return cls(min_words, max_words, overlap, target_density, strategy, operation_level)
+        return cls(
+            min_words, max_words, overlap, target_density, strategy, operation_level
+        )

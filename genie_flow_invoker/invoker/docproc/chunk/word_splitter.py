@@ -38,11 +38,11 @@ class FixedWordsSplitter(AbstractSplitter):
     """
 
     def __init__(
-            self,
-            max_words: int,
-            overlap: int,
-            ignore_stopwords: bool = False,
-            drop_trailing_chunks: bool = False,
+        self,
+        max_words: int,
+        overlap: int,
+        ignore_stopwords: bool = False,
+        drop_trailing_chunks: bool = False,
     ):
         """
         Create a new FixedWordsSplitter instance. The `max_words` argument determines the number
@@ -93,9 +93,9 @@ class FixedWordsSplitter(AbstractSplitter):
         while start < len(filtered_words_spans):
             chunk_length = min(self._max_words, len(filtered_words_spans) - start)
             if (
-                    self._drop_smaller_chunks and
-                    previous_chunk_length < self._max_words and
-                    chunk_length < self._max_words
+                self._drop_smaller_chunks
+                and previous_chunk_length < self._max_words
+                and chunk_length < self._max_words
             ):
                 break
 

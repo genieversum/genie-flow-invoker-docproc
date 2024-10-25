@@ -4,7 +4,10 @@ from loguru import logger
 from tika import parser
 
 from genie_flow_invoker.genie import GenieInvoker
-from genie_flow_invoker.invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
+from genie_flow_invoker.invoker.docproc.codec import (
+    PydanticInputDecoder,
+    PydanticOutputEncoder,
+)
 from genie_flow_invoker.utils import get_config_value
 
 from genie_flow_invoker.invoker.docproc.model import RawDocumentFile, ParsedDocument
@@ -23,10 +26,10 @@ class DocumentParseInvoker(
     """
 
     def __init__(
-            self,
-            tika_service_url: str,
-            backoff_max_time=61,
-            backoff_max_tries=10,
+        self,
+        tika_service_url: str,
+        backoff_max_time=61,
+        backoff_max_tries=10,
     ):
         self._tika_service_url = tika_service_url
         self._backoff_caller = BackoffCaller(
@@ -35,7 +38,6 @@ class DocumentParseInvoker(
             backoff_max_time,
             backoff_max_tries,
         )
-
 
     @classmethod
     def from_config(cls, config: dict):
@@ -92,7 +94,9 @@ class DocumentParseInvoker(
                 HTTPStatus.TOO_MANY_REQUESTS,
                 HTTPStatus.INTERNAL_SERVER_ERROR,
             ]:
-                logger.warning("Receiving status code {}, from Tika", result["status_code"])
+                logger.warning(
+                    "Receiving status code {}, from Tika", result["status_code"]
+                )
                 raise TimeoutError()
             return result
 

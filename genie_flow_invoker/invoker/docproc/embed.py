@@ -8,21 +8,25 @@ from loguru import logger
 from invoker.docproc.backoff_caller import BackoffCaller
 from invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
 from invoker.docproc.model import ChunkedDocument
-from invoker.docproc.model.vectorizer import VectorInputConfig, VectorInput, VectorResponse
+from invoker.docproc.model.vectorizer import (
+    VectorInputConfig,
+    VectorInput,
+    VectorResponse,
+)
 
 
 class EmbedInvoker(
     GenieInvoker,
     PydanticInputDecoder[ChunkedDocument],
-    PydanticOutputEncoder[ChunkedDocument]
+    PydanticOutputEncoder[ChunkedDocument],
 ):
 
     def __init__(
-            self,
-            text2vec_url: str,
-            pooling_strategy: str,
-            backoff_max_time=61,
-            backoff_max_tries=10,
+        self,
+        text2vec_url: str,
+        pooling_strategy: str,
+        backoff_max_time=61,
+        backoff_max_tries=10,
     ):
         self._text2vec_url = text2vec_url
         self._vector_input_config = VectorInputConfig(pooling_strategy=pooling_strategy)
@@ -38,13 +42,13 @@ class EmbedInvoker(
         text2vec_url = get_config_value(
             config,
             "TEXT_2_VEC_URL",
-            'text2vec_url',
+            "text2vec_url",
             "Text2Vec URL",
         )
         pooling_strategy = get_config_value(
             config,
             "POOLING_STRATEGY",
-            'pooling_strategy',
+            "pooling_strategy",
             "Pooling Strategy",
             None,
         )

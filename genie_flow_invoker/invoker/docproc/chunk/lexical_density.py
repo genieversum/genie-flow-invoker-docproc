@@ -8,13 +8,13 @@ from invoker.docproc.model import DocumentChunk
 
 
 WordSPanTagLex = NamedTuple(
-    'WordSPanTagLex',
+    "WordSPanTagLex",
     [
-        ('word', str),
+        ("word", str),
         ("span", tuple[int, int]),
-        ('tag', str),
-        ('lexical', bool),
-    ]
+        ("tag", str),
+        ("lexical", bool),
+    ],
 )
 
 LexicalSplitStrategyType = Literal["shortest", "best", "longest"]
@@ -40,12 +40,12 @@ def calculate_lexical_density(word_span_tag: list[WordSPanTagLex]) -> float:
 class LexicalDensitySplitter(AbstractSplitter):
 
     def __init__(
-            self,
-            min_words: int,
-            max_words: int,
-            overlap: int,
-            target_density: float,
-            strategy: LexicalSplitStrategyType = "best",
+        self,
+        min_words: int,
+        max_words: int,
+        overlap: int,
+        target_density: float,
+        strategy: LexicalSplitStrategyType = "best",
     ):
         """
         A LexicalDensitySplitter splits a document into chunks according to the given
@@ -70,7 +70,9 @@ class LexicalDensitySplitter(AbstractSplitter):
         self.overlap = overlap
         self.target_density = target_density
         self.strategy = strategy
-        self.stopwords_set = set(word.lower() for word in nltk.corpus.stopwords.words("english"))
+        self.stopwords_set = set(
+            word.lower() for word in nltk.corpus.stopwords.words("english")
+        )
         self.lexicographical_tags = {
             "NN",
             "NNS",
@@ -103,13 +105,13 @@ class LexicalDensitySplitter(AbstractSplitter):
         pos_tags = [t[1] for t in nltk.tag.pos_tag(words)]
 
         lexical_word = [
-            w.lower() not in self.stopwords_set and pos_tags[i] in self.lexicographical_tags
+            w.lower() not in self.stopwords_set
+            and pos_tags[i] in self.lexicographical_tags
             for i, w in enumerate(words)
         ]
 
         word_span_tag: list[WordSPanTagLex] = [
-            WordSPanTagLex(*t)
-            for t in zip(words, word_spans, pos_tags, lexical_word)
+            WordSPanTagLex(*t) for t in zip(words, word_spans, pos_tags, lexical_word)
         ]
 
         start = 0
@@ -143,7 +145,7 @@ class LexicalDensitySplitter(AbstractSplitter):
         return [
             DocumentChunk(
                 content=document.content[
-                        (wst[0].span[0]-base_span):(wst[-1].span[1]-base_span)
+                    (wst[0].span[0] - base_span) : (wst[-1].span[1] - base_span)
                 ],
                 original_span=(wst[0].span[0], wst[-1].span[1]),
                 hierarchy_level=document.hierarchy_level + 1,

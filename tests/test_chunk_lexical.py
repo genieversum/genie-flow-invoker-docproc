@@ -1,7 +1,5 @@
-import json
-
 import nltk
-from nltk import TreebankWordDetokenizer, TreebankWordTokenizer
+from nltk import TreebankWordTokenizer
 
 from invoker.docproc.chunk import LexicalDensitySplitter, LexicalDensitySplitInvoker
 from invoker.docproc.model import ChunkedDocument, DocumentChunk
@@ -21,23 +19,12 @@ def test_lexical_chunk_no_meaning():
     assert len(chunks) == 0
 
 
-def test_lexical_chunk_with_meaning():
+def test_lexical_chunk_with_meaning(sweden_text):
     chunker = LexicalDensitySplitter(15, 40, 5, 0.6)
 
-    content = """
-Sweden, formally the Kingdom of Sweden, is a Nordic country located on the Scandinavian
-Peninsula in Northern Europe. It borders Norway to the west and north, and Finland to the 
-east. At 450,295 square kilometres (173,860 sq mi), Sweden is the largest Nordic country 
-and the fifth-largest country in Europe. The capital and largest city is Stockholm.
-
-Sweden has a population of 10.6 million, and a low population density of 25.5 inhabitants 
-per square kilometre (66/sq mi); 88% of Swedes reside in urban areas. They are mostly in the 
-central and southern half of the country. Sweden's urban areas together cover 1.5% of its land area. 
-Sweden has a diverse climate owing to the length of the country, which ranges from 55°N to 69°N. 
-        """
     document = DocumentChunk(
-        content=content,
-        original_span=(0, len(content)),
+        content=sweden_text,
+        original_span=(0, len(sweden_text)),
         hierarchy_level=0,
         parent_id=None,
     )

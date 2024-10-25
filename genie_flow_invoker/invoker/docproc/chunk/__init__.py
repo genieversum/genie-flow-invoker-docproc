@@ -1,5 +1,5 @@
 from abc import ABC
-from typing import Optional, Iterator, Literal
+from typing import Optional, Iterator
 
 from genie_flow_invoker import GenieInvoker
 
@@ -60,6 +60,14 @@ class AbstractSplitterInvoker(
 
         return self._encode_output(document)
 
+
+class FixedWordCountSplitterInvoler(AbstractSplitterInvoker):
+    def __init__(
+            self,
+            max_words: int,
+            operation_level: Optional[int] = None,
+    ):
+        self._max_words = max_words
 
 class LexicalDensitySplitInvoker(AbstractSplitterInvoker):
     """

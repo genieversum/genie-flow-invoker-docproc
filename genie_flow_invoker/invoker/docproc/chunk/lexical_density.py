@@ -1,7 +1,6 @@
-from typing import NamedTuple, Literal
+from typing import NamedTuple, Literal, Optional
 
 import nltk
-from black import Optional
 from nltk import TreebankWordTokenizer
 
 from invoker.docproc.chunk.splitter import AbstractSplitter

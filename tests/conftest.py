@@ -31,5 +31,40 @@ def hamlet_content_cleaned(hamlet_content):
     return cleaner.invoke(hamlet_content)
 
 @fixture(scope='module')
+def sweden_text():
+    return """
+Sweden, formally the Kingdom of Sweden, is a Nordic country located on the Scandinavian
+Peninsula in Northern Europe. It borders Norway to the west and north, and Finland to the 
+east. At 450,295 square kilometres (173,860 sq mi), Sweden is the largest Nordic country 
+and the fifth-largest country in Europe. The capital and largest city is Stockholm.
+
+Sweden has a population of 10.6 million, and a low population density of 25.5 inhabitants 
+per square kilometre (66/sq mi); 88% of Swedes reside in urban areas. They are mostly in the 
+central and southern half of the country. Sweden's urban areas together cover 1.5% of its land area. 
+Sweden has a diverse climate owing to the length of the country, which ranges from 55°N to 69°N. 
+        """
+
+@fixture(scope='module')
+def netherlands_text():
+    return """
+The Netherlands, informally Holland, is a country in Northwestern Europe, with overseas 
+territories in the Caribbean. It is the largest of the four constituent countries of the 
+Kingdom of the Netherlands. The Netherlands consists of twelve provinces; it borders Germany 
+to the east and Belgium to the south, with a North Sea coastline to the north and west. 
+It shares maritime borders with the United Kingdom, Germany, and Belgium. The official 
+language is Dutch, with West Frisian as a secondary official language in the province of 
+Friesland. Dutch, English, and Papiamento are official in the Caribbean territories.
+
+Netherlands literally means "lower countries" in reference to its low elevation and flat 
+topography, with 26% below sea level. Most of the areas below sea level, known as polders, 
+are the result of land reclamation that began in the 14th century. In the Republican period, 
+which began in 1588, the Netherlands entered a unique era of political, economic, and cultural 
+greatness, ranked among the most powerful and influential in Europe and the world; this period 
+is known as the Dutch Golden Age. During this time, its trading companies, the Dutch East 
+India Company and the Dutch West India Company, established colonies and trading posts all 
+over the world. 
+    """
+
+@fixture(scope='module')
 def tika_url():
     return os.environ.get("TIKA_URL", "http://localhost:9998/")

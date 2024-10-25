@@ -38,9 +38,7 @@ class AbstractSplitterInvoker(
         chunks of that level will be split.
         """
         self._operation_level = operation_level
-
-    def get_splitter(self) -> AbstractSplitter:
-        raise NotImplementedError("Subclasses must override this property")
+        self._splitter: Optional[AbstractSplitter] = None
 
     def chunk_iterator(self, chunks: list[DocumentChunk]) -> Iterator[DocumentChunk]:
         for chunk in chunks:
@@ -55,19 +53,46 @@ class AbstractSplitterInvoker(
 
         new_chunks = []
         for chunk in self.chunk_iterator(document.chunks):
-            new_chunks.extend(self.get_splitter().split(chunk))
+            new_chunks.extend(self._splitter.split(chunk))
         document.chunks.extend(new_chunks)
 
         return self._encode_output(document)
 
 
 class FixedWordCountSplitterInvoler(AbstractSplitterInvoker):
+
     def __init__(
             self,
             max_words: int,
-            operation_level: Optional[int] = None,
+            overlap: int,
+            ignore_stopwords: bool = False,
+            drop_trailing_chunks: bool = False,
+            operation_level: Optional[int] = None
     ):
-        self._max_words = max_words
+        super().__init__(operation_level)
+        self._splitter = FixedWordCountSplitterInvoler(
+            max_words=max_words,
+            overlap=overlap,
+            ignore_stopwords=ignore_stopwords,
+            drop_trailing_chunks=drop_trailing_chunks,
+        )
+
+    @classmethod
+    def from_config(cls, config: dict):
+        max_words = config.get("max_words", 15)
+        overlap = config.get("overlap", 2)
+        ignore_stopwords = config.get("ignore_stopwords", False)
+        drop_trailing_chunks = config.get("drop_trailing_chunks", False)
+        operation_level = config.get("operation_level", None)
+        return cls(
+            max_words,
+            overlap,
+            ignore_stopwords,
+            drop_trailing_chunks,
+            operation_level
+        )
+
+
 
 class LexicalDensitySplitInvoker(AbstractSplitterInvoker):
     """
@@ -91,9 +116,6 @@ class LexicalDensitySplitInvoker(AbstractSplitterInvoker):
             strategy=strategy,
             target_density=target_density,
         )
-
-    def get_splitter(self) -> AbstractSplitter:
-        return self._splitter
 
     @classmethod
     def from_config(cls, config: dict):

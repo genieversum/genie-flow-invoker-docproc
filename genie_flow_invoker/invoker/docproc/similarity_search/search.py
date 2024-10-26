@@ -1,4 +1,4 @@
-from typing import Optional, NamedTuple, Literal
+from typing import Literal, Optional
 
 import numpy as np
 from numpy import dot
@@ -6,32 +6,10 @@ from numpy.linalg import norm
 from sortedcontainers import SortedList
 
 from invoker.docproc.model import ChunkedDocument, DocumentChunk
-
-ChunkVector = NamedTuple(
-    "ChunkVector",
-    [
-        ("chunk", DocumentChunk),
-        ("vector", np.ndarray),
-        ("distance", Optional[float]),
-    ]
-)
+from invoker.docproc.similarity_search import ChunkVector
+from invoker.docproc.similarity_search.db import VectorDB
 
 DistanceMethodType = Literal["cosine", "euclidean", "manhattan"]
-
-def _make_db(
-        document: ChunkedDocument,
-        operation_level: Optional[int] = None,
-) -> list[ChunkVector]:
-    return [
-        ChunkVector(
-            chunk=chunk,
-            vector=np.array(chunk.embedding, dtype=np.float32),
-        )
-        for chunk in document.chunks
-        if operation_level is None or chunk.hierarchy_level == operation_level
-    ]
-
-
 _DISTANCE_OPERATORS = dict(
     cosine=lambda a,b: np.float32(1.0) - dot(a, b) / (norm(a) * norm(b)),
     euclidean=lambda a,b: norm(a-b),
@@ -48,27 +26,21 @@ class SimilaritySearcher:
             operation_level: Optional[int] = None,
             parent_strategy: Optional[Literal["include", "replace"]] = None,
     ):
-        self._db = _make_db(document, operation_level)
+        self._db = VectorDB(document)
         self._query_vector = np.array(query_vector, dtype=np.float32)
+        self._operation_level = operation_level
         self._parent_strategy = parent_strategy
-        self._chunk_map = (
-            {chunk.chunk_id: chunk for chunk in document.chunks}
-            if parent_strategy is not None
-            else None
-        )
 
-    def _order_vectors(self, method: DistanceMethodType) -> SortedList[ChunkVector]:
+    def _order_vectors(
+            self,
+            method: DistanceMethodType,
+    ) -> SortedList[ChunkVector]:
         method_fn = _DISTANCE_OPERATORS[method]
 
         ordered_vectors: SortedList[ChunkVector] = SortedList(key=lambda x: x.distance)
-        for chunk_vector in self._db:
-            ordered_vectors.append(
-                ChunkVector(
-                    chunk=chunk_vector.chunk,
-                    vector=chunk_vector.vector,
-                    distance=method_fn(self._query_vector, chunk_vector.vector),
-                )
-            )
+        for chunk_vector in self._db.get_vectors(operation_level=self._operation_level):
+            chunk_vector.distance = method_fn(chunk_vector.distance, self._query_vector)
+            ordered_vectors.append(chunk_vector)
 
         return ordered_vectors
 
@@ -85,7 +57,10 @@ class SimilaritySearcher:
 
             if self._parent_strategy == "replace":
                 ordered_vectors.clear()
-            ordered_vectors.extend(self._chunk_map[parent_id] for parent_id in parent_ids)
+            ordered_vectors.extend(
+                self._db.get_vector(parent_id).chunk
+                for parent_id in parent_ids
+            )
 
         if top is not None:
             ordered_vectors = ordered_vectors[:top]

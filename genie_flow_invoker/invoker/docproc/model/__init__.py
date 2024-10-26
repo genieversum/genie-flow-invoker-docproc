@@ -63,6 +63,10 @@ class SimilaritySearch(AbstractNamedDocument):
     query: str = Field(
         description="The similarity search query",
     )
+    operation_level: Optional[int] = Field(
+        default=None,
+        description="The level of hierarchy that the search operation should be conducted",
+    )
     horizon: Optional[float] = Field(
         default=None,
         description="The horizon of the similarity search query",

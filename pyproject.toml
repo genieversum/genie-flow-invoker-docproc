@@ -25,5 +25,7 @@ dependencies=[
     "backoff~=2.2.1",
     "tika~=2.6.0",
     "nltk~=3.9.1",
+    "numpy~=2.1.2",
+    "sortedcontainers~=2.4.0",
 ]
 dynamic = ["version"]

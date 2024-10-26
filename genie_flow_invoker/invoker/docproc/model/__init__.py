@@ -54,3 +54,24 @@ class ChunkedDocument(AbstractNamedDocument):
     chunks: list[DocumentChunk] = Field(
         description="The list of chunks of this document",
     )
+
+
+class SimilaritySearch(AbstractNamedDocument):
+    chunks: list[DocumentChunk] = Field(
+        description="The list of chunks of this document",
+    )
+    query: str = Field(
+        description="The similarity search query",
+    )
+    horizon: Optional[float] = Field(
+        default=None,
+        description="The horizon of the similarity search query",
+    )
+    top: Optional[int] = Field(
+        default=None,
+        description="The maximum number of similarity search results to return",
+    )
+    method: str = Field(
+        default="cosine",
+        description="The similarity search method",
+    )

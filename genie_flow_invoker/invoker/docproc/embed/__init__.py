@@ -1,18 +1,9 @@
-from http import HTTPStatus
-
-import requests
 from genie_flow_invoker import GenieInvoker
 from genie_flow_invoker.utils import get_config_value
-from loguru import logger
 
-from invoker.docproc.backoff_caller import BackoffCaller
 from invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
+from invoker.docproc.embed.manager import EmbeddingManager
 from invoker.docproc.model import ChunkedDocument
-from invoker.docproc.model.vectorizer import (
-    VectorInputConfig,
-    VectorInput,
-    VectorResponse,
-)
 
 
 class EmbedInvoker(
@@ -28,13 +19,11 @@ class EmbedInvoker(
         backoff_max_time=61,
         backoff_max_tries=10,
     ):
-        self._text2vec_url = text2vec_url
-        self._vector_input_config = VectorInputConfig(pooling_strategy=pooling_strategy)
-        self._backoff_caller = BackoffCaller(
-            TimeoutError,
-            self.__class__,
-            backoff_max_time,
-            backoff_max_tries,
+        self._embedding_manager = EmbeddingManager(
+            text2vec_url=text2vec_url,
+            pooling_strategy=pooling_strategy,
+            backoff_max_time=backoff_max_time,
+            backoff_max_tries=backoff_max_tries,
         )
 
     @classmethod
@@ -74,38 +63,11 @@ class EmbedInvoker(
             backoff_max_tries,
         )
 
-    def _make_embedding_request(self, chunk: str) -> list[float]:
-
-        def request_vector(url: str, in_vec: VectorInput) -> list[float]:
-            input_json = in_vec.model_dump_json()
-            response = requests.post(url=url, json=input_json)
-            if response.status_code in [
-                HTTPStatus.REQUEST_TIMEOUT,
-                HTTPStatus.TOO_MANY_REQUESTS,
-                HTTPStatus.INTERNAL_SERVER_ERROR,
-            ]:
-                logger.warning(
-                    "Received status code {}, from embedding request. Raising a Timeout",
-                    response.status_code,
-                )
-                raise TimeoutError()
-            response.raise_for_status()
-            vector_response = VectorResponse.model_validate_json(response.json())
-            return vector_response.vector
-
-        vector_input = VectorInput(text=chunk, config=self._vector_input_config)
-
-        return self._backoff_caller.call(
-            func=request_vector,
-            url=f"{self._text2vec_url}/vectors",
-            model_json=vector_input,
-        )
-
     def invoke(self, content: str) -> str:
         chunked_document = self._decode_input(content)
 
         for chunk in chunked_document.chunks:
-            vector = self._make_embedding_request(chunk.content)
+            vector = self._embedding_manager.make_embedding_request(chunk.content)
             chunk.embedding = vector
 
         return self._encode_output(chunked_document)

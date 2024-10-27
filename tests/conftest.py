@@ -1,5 +1,7 @@
+import json
 import os
 
+import requests
 from pytest import fixture
 
 from invoker.docproc.clean import DocumentCleanInvoker
@@ -68,3 +70,30 @@ over the world.
 @fixture(scope='module')
 def tika_url():
     return os.environ.get("TIKA_URL", "http://localhost:9998/")
+
+
+class MockRequestResponse:
+    def __init__(
+            self,
+            status_code=200,
+            text="",
+            json_data=None,
+    ):
+        self.status_code = status_code
+        self._text = text
+        self._json_data = json_data
+
+    def raise_for_status(self):
+        if self.status_code != 200:
+            raise requests.HTTPError(self.status_code)
+
+    @property
+    def text(self):
+        if self._text:
+            return self._text
+        if self._json_data:
+            return json.dumps(self._json_data)
+        raise ValueError("No value provided that can be returned as text")
+
+    def json(self):
+        return self._json_data

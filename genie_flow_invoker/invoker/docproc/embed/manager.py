@@ -21,7 +21,7 @@ def request_vector(url: str, in_vec: VectorInput) -> list[float]:
         )
         raise TimeoutError()
     response.raise_for_status()
-    vector_response = VectorResponse.model_validate_json(response.json())
+    vector_response = VectorResponse.model_validate_json(response.text)
     return vector_response.vector
 
 
@@ -43,11 +43,11 @@ class EmbeddingManager:
             backoff_max_tries,
         )
 
-    def make_embedding_request(self, chunk: str) -> list[float]:
-        vector_input = VectorInput(text=chunk, config=self._vector_input_config)
+    def make_embedding_request(self, text: str) -> list[float]:
+        vector_input = VectorInput(text=text, config=self._vector_input_config)
 
         return self._backoff_caller.call(
             func=request_vector,
             url=f"{self._text2vec_url}/vectors",
-            model_json=vector_input,
+            in_vec=vector_input,
         )

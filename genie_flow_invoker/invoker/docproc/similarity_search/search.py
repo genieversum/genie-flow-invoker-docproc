@@ -9,7 +9,9 @@ from invoker.docproc.model import ChunkedDocument, DocumentChunk
 from invoker.docproc.similarity_search.db import VectorDB, ChunkVector
 
 
-DistanceMethodType = Literal["cosine", "euclidean", "manhattan"]
+DistanceMethodType = Literal["cosine", "euclidian", "manhattan"]
+
+_ONE = np.float32(1.0)
 
 
 class SimilaritySearcher:
@@ -28,10 +30,10 @@ class SimilaritySearcher:
 
     @staticmethod
     def method_cosine(v1: np.ndarray, v2: np.ndarray) -> float:
-        return np.float32(1.0) - dot(v1, v2) / (norm(v1) * norm(v2))
+        return _ONE - dot(v1, v2) / (norm(v1) * norm(v2))
 
     @staticmethod
-    def method_euclidean(v1: np.ndarray, v2: np.ndarray) -> floating[Any]:
+    def method_euclidian(v1: np.ndarray, v2: np.ndarray) -> floating[Any]:
         return norm(v1-v2)
 
     @staticmethod

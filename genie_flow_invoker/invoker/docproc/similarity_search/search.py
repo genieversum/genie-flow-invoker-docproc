@@ -6,8 +6,8 @@ from numpy.linalg import norm
 from sortedcontainers import SortedList
 
 from invoker.docproc.model import ChunkedDocument, DocumentChunk
-from invoker.docproc.similarity_search import ChunkVector
-from invoker.docproc.similarity_search.db import VectorDB
+from invoker.docproc.similarity_search.db import VectorDB, ChunkVector
+
 
 DistanceMethodType = Literal["cosine", "euclidean", "manhattan"]
 _DISTANCE_OPERATORS = dict(
@@ -44,34 +44,47 @@ class SimilaritySearcher:
 
         return ordered_vectors
 
+    def _introduce_parents(self, ordered_vectors: SortedList[ChunkVector]) -> None:
+        parent_ids = {child.chunk.parent_id for child in ordered_vectors}
+
+        if self._parent_strategy == "replace":
+            ordered_vectors.clear()
+        ordered_vectors.extend(
+            self._db.get_vector(parent_id).chunk
+            for parent_id in parent_ids
+        )
+
+    @staticmethod
+    def _find_horizon_cut_point(
+            horizon: float,
+            ordered_vectors: SortedList[ChunkVector]
+    ) -> int:
+        if ordered_vectors[-1].distance < horizon:
+            return len(ordered_vectors)
+
+        for i, chunk_vector in enumerate(ordered_vectors):
+            if chunk_vector.distance >= horizon:
+                return i
+
     def calculate_similarities(
             self,
             horizon: Optional[float],
             top: Optional[int],
             method: DistanceMethodType,
     ) -> list[DocumentChunk]:
+        if len(self._db) == 0 or top == 0:
+            return []
+
         ordered_vectors = self._order_vectors(method)
 
         if self._parent_strategy is not None:
-            parent_ids = {child.chunk.parent_id for child in ordered_vectors}
-
-            if self._parent_strategy == "replace":
-                ordered_vectors.clear()
-            ordered_vectors.extend(
-                self._db.get_vector(parent_id).chunk
-                for parent_id in parent_ids
-            )
+            self._introduce_parents(ordered_vectors)
 
         if top is not None:
             ordered_vectors = ordered_vectors[:top]
 
         if horizon is not None:
-            cut_point = len(ordered_vectors)
-            for i, chunk_vector in enumerate(ordered_vectors):
-                if chunk_vector.distance >= horizon:
-                    cut_point = i
-                    break
-
+            cut_point = self._find_horizon_cut_point(horizon, ordered_vectors)
             ordered_vectors = ordered_vectors[:cut_point]
 
         return list(ordered_vectors)

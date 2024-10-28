@@ -1,9 +1,18 @@
-from typing import Optional
+from typing import Optional, NamedTuple
 
 import numpy as np
 
 from invoker.docproc.model import ChunkedDocument, DocumentChunk
-from invoker.docproc.similarity_search import ChunkVector
+
+
+ChunkVector = NamedTuple(
+    "ChunkVector",
+    [
+        ("chunk", DocumentChunk),
+        ("vector", np.ndarray),
+        ("distance", Optional[float]),
+    ]
+)
 
 
 class VectorDB:
@@ -25,6 +34,10 @@ class VectorDB:
             if chunk_vector.chunk.hierarchy_level not in self._level_index:
                 self._level_index[chunk_vector.chunk.hierarchy_level] = []
             self._level_index[chunk_vector.chunk.hierarchy_level].append(chunk_vector)
+
+    @property
+    def __len__(self):
+        return len(self._chunk_vectors)
 
     def get_vector(self, chunk_id: str) -> ChunkVector:
         return self._chunk_id_index[chunk_id]

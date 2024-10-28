@@ -5,11 +5,9 @@ from numpy import dot, floating
 from numpy.linalg import norm
 from sortedcontainers import SortedList
 
-from invoker.docproc.model import ChunkedDocument, DocumentChunk
+from invoker.docproc.model import DocumentChunk, DistanceMethodType, ChunkDistance
 from invoker.docproc.similarity_search.db import VectorDB, ChunkVector
 
-
-DistanceMethodType = Literal["cosine", "euclidian", "manhattan"]
 
 _ONE = np.float32(1.0)
 
@@ -18,13 +16,11 @@ class SimilaritySearcher:
 
     def __init__(
             self,
-            document: ChunkedDocument,
-            query_vector: np.ndarray,
+            chunks: list[DocumentChunk],
             operation_level: Optional[int] = None,
             parent_strategy: Optional[Literal["include", "replace"]] = None,
     ):
-        self._db = VectorDB(document)
-        self._query_vector = np.array(query_vector, dtype=np.float32)
+        self._db = VectorDB(chunks)
         self._operation_level = operation_level
         self._parent_strategy = parent_strategy
 
@@ -42,13 +38,14 @@ class SimilaritySearcher:
 
     def _order_vectors(
             self,
+            query_vector: np.ndarray,
             method: DistanceMethodType,
     ) -> SortedList[ChunkVector]:
         method_fn = self.__getattribute__(f"method_{method}")
 
         ordered_vectors: SortedList[ChunkVector] = SortedList(key=lambda x: x.distance)
         for chunk_vector in self._db.get_vectors(operation_level=self._operation_level):
-            chunk_vector.distance = method_fn(chunk_vector.vector, self._query_vector)
+            chunk_vector.distance = method_fn(chunk_vector.vector, query_vector)
             ordered_vectors.add(chunk_vector)
 
         return ordered_vectors
@@ -77,14 +74,15 @@ class SimilaritySearcher:
 
     def calculate_similarities(
             self,
-            horizon: Optional[float],
-            top: Optional[int],
+            query_vector: np.ndarray,
             method: DistanceMethodType,
-    ) -> list[DocumentChunk]:
+            horizon: Optional[float] = None,
+            top: Optional[int] = None,
+    ) -> list[ChunkDistance]:
         if len(self._db) == 0 or top == 0:
             return []
 
-        ordered_vectors = self._order_vectors(method)
+        ordered_vectors = self._order_vectors(query_vector, method)
 
         if self._parent_strategy is not None:
             self._introduce_parents(ordered_vectors)
@@ -96,4 +94,10 @@ class SimilaritySearcher:
             cut_point = self._find_horizon_cut_point(horizon, ordered_vectors)
             ordered_vectors = ordered_vectors[:cut_point]
 
-        return [ordered_vector.chunk for ordered_vector in ordered_vectors]
+        return [
+            ChunkDistance(
+                chunk=ordered_vector.chunk,
+                distance=float(ordered_vector.distance),
+            )
+            for ordered_vector in ordered_vectors
+        ]

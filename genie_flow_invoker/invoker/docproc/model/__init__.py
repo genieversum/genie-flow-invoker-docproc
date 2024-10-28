@@ -1,7 +1,7 @@
 import base64
 import io
 import uuid
-from typing import Optional
+from typing import Optional, Literal
 
 from pydantic import BaseModel, Field
 
@@ -56,12 +56,15 @@ class ChunkedDocument(AbstractNamedDocument):
     )
 
 
+DistanceMethodType = Literal["cosine", "euclidian", "manhattan"]
+
+
 class SimilaritySearch(AbstractNamedDocument):
     chunks: list[DocumentChunk] = Field(
         description="The list of chunks of this document",
     )
-    query: str = Field(
-        description="The similarity search query",
+    query_embedding: list[float] = Field(
+        description="The embedding of the similarity search query",
     )
     operation_level: Optional[int] = Field(
         default=None,
@@ -75,7 +78,25 @@ class SimilaritySearch(AbstractNamedDocument):
         default=None,
         description="The maximum number of similarity search results to return",
     )
-    method: str = Field(
+    parent_strategy: Optional[str] = Field(
+        default=None,
+        description="The strategy used to determine how to include parents of result chunks",
+    )
+    method: DistanceMethodType = Field(
         default="cosine",
         description="The similarity search method",
+    )
+
+
+class ChunkDistance(BaseModel):
+    chunk: DocumentChunk = Field(
+        description="The retrieved chunk",
+    )
+    distance: float = Field(
+        description="The distance of the chunk towards search query",
+    )
+
+class SimilarityResults(AbstractNamedDocument):
+    chunk_distances: list[ChunkDistance] = Field(
+        description="The list of chunks and their distances towards search query",
     )

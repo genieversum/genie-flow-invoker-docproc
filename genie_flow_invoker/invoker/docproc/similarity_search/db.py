@@ -14,15 +14,14 @@ class ChunkVector:
 
 
 class VectorDB:
-    def __init__(self, document: ChunkedDocument):
-        self.document = document
+    def __init__(self, chunks: list[DocumentChunk]):
         self._chunk_vectors = [
             ChunkVector(
                 chunk=chunk,
                 vector=np.array(chunk.embedding, dtype=np.float32),
                 distance=None,
             )
-            for chunk in document.chunks
+            for chunk in chunks
         ]
         self._chunk_id_index: dict[str, ChunkVector] = dict()
         self._level_index: dict[int, list[ChunkVector]] = dict()

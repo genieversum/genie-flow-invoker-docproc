@@ -1,7 +1,7 @@
-from typing import Literal, Optional
+from typing import Literal, Optional, Any
 
 import numpy as np
-from numpy import dot
+from numpy import dot, floating
 from numpy.linalg import norm
 from sortedcontainers import SortedList
 
@@ -10,11 +10,6 @@ from invoker.docproc.similarity_search.db import VectorDB, ChunkVector
 
 
 DistanceMethodType = Literal["cosine", "euclidean", "manhattan"]
-_DISTANCE_OPERATORS = dict(
-    cosine=lambda a,b: np.float32(1.0) - dot(a, b) / (norm(a) * norm(b)),
-    euclidean=lambda a,b: norm(a-b),
-    manhattan=lambda a,b: np.sum(np.absolute(a-b))
-)
 
 
 class SimilaritySearcher:
@@ -31,16 +26,28 @@ class SimilaritySearcher:
         self._operation_level = operation_level
         self._parent_strategy = parent_strategy
 
+    @staticmethod
+    def method_cosine(v1: np.ndarray, v2: np.ndarray) -> float:
+        return np.float32(1.0) - dot(v1, v2) / (norm(v1) * norm(v2))
+
+    @staticmethod
+    def method_euclidean(v1: np.ndarray, v2: np.ndarray) -> floating[Any]:
+        return norm(v1-v2)
+
+    @staticmethod
+    def method_manhattan(v1: np.ndarray, v2: np.ndarray) -> float:
+        return np.sum(np.absolute(v1-v2))
+
     def _order_vectors(
             self,
             method: DistanceMethodType,
     ) -> SortedList[ChunkVector]:
-        method_fn = _DISTANCE_OPERATORS[method]
+        method_fn = self.__getattribute__(f"method_{method}")
 
         ordered_vectors: SortedList[ChunkVector] = SortedList(key=lambda x: x.distance)
         for chunk_vector in self._db.get_vectors(operation_level=self._operation_level):
-            chunk_vector.distance = method_fn(chunk_vector.distance, self._query_vector)
-            ordered_vectors.append(chunk_vector)
+            chunk_vector.distance = method_fn(chunk_vector.vector, self._query_vector)
+            ordered_vectors.add(chunk_vector)
 
         return ordered_vectors
 
@@ -87,4 +94,4 @@ class SimilaritySearcher:
             cut_point = self._find_horizon_cut_point(horizon, ordered_vectors)
             ordered_vectors = ordered_vectors[:cut_point]
 
-        return list(ordered_vectors)
+        return [ordered_vector.chunk for ordered_vector in ordered_vectors]

@@ -1,18 +1,16 @@
-from typing import Optional, NamedTuple
+from dataclasses import dataclass
+from typing import Optional
 
 import numpy as np
 
 from invoker.docproc.model import ChunkedDocument, DocumentChunk
 
 
-ChunkVector = NamedTuple(
-    "ChunkVector",
-    [
-        ("chunk", DocumentChunk),
-        ("vector", np.ndarray),
-        ("distance", Optional[float]),
-    ]
-)
+@dataclass
+class ChunkVector:
+    chunk: DocumentChunk
+    vector: np.ndarray
+    distance: Optional[float]
 
 
 class VectorDB:
@@ -35,7 +33,6 @@ class VectorDB:
                 self._level_index[chunk_vector.chunk.hierarchy_level] = []
             self._level_index[chunk_vector.chunk.hierarchy_level].append(chunk_vector)
 
-    @property
     def __len__(self):
         return len(self._chunk_vectors)
 

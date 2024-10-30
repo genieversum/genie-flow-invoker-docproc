@@ -6,11 +6,8 @@ from loguru import logger
 from nltk import PunktSentenceTokenizer, TreebankWordTokenizer, TreebankWordDetokenizer
 
 from genie_flow_invoker.genie import GenieInvoker
-from genie_flow_invoker.invoker.docproc.codec import (
-    PydanticInputDecoder,
-    PydanticOutputEncoder,
-)
-from genie_flow_invoker.invoker.docproc.model import ParsedDocument
+from invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
+from invoker.docproc.model import ChunkedDocument
 
 
 SPECIAL_TERMS = {
@@ -24,12 +21,13 @@ SPECIAL_TERMS = {
 
 class DocumentCleanInvoker(
     GenieInvoker,
-    PydanticInputDecoder[ParsedDocument],
-    PydanticOutputEncoder[ParsedDocument],
+    PydanticInputDecoder[ChunkedDocument],
+    PydanticOutputEncoder[ChunkedDocument],
 ):
     """
     This invoker takes a document an applies some clean-up methods to correct for some common
-    mistakes in documents or artifacts that have been introduced by parsing a document.
+    mistakes in documents or artifacts that have been introduced by parsing a document. The
+    clean-up is applied to each and every chunk contained in the input chunked document.
 
     This invoker can do the following clean-ups:
 
@@ -144,6 +142,7 @@ class DocumentCleanInvoker(
             detokenizer = TreebankWordDetokenizer()
             return "\n".join(detokenizer.detokenize(words) for words in sentences_words)
 
+        document = self._decode_input(content)
         cleaners = OrderedDict(
             clean_multiple_newlines=lambda text: re.sub(r"\n{2,}", "\n", text),
             clean_multiple_spaces=lambda text: re.sub(r"\s{2,}", " ", text),
@@ -154,9 +153,10 @@ class DocumentCleanInvoker(
         )
         for switch, func in cleaners.items():
             if getattr(self, switch):
-                content = func(content)
+                for chunk in document.chunks:
+                    chunk.content = func(chunk.content)
 
-        return content
+        return self._encode_output(document)
 
 
 if __name__ == "__main__":

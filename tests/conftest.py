@@ -67,9 +67,69 @@ India Company and the Dutch West India Company, established colonies and trading
 over the world. 
     """
 
-@fixture(scope='module')
-def tika_url():
-    return os.environ.get("TIKA_URL", "http://localhost:9998/")
+
+@fixture(scope="session")
+def docker_compose_file():
+    return "resources/docker-compose.yaml"
+
+@fixture(scope="session")
+def docker_setup(docker_setup):
+    if "TIKA_URL" in os.environ or "T2V_URL" in os.environ:
+        return False
+    return docker_setup
+
+
+@fixture(scope="session")
+def docker_cleanup(docker_cleanup):
+    if "TIKA_URL" in os.environ or "T2V_URL" in os.environ:
+        return False
+    return docker_cleanup
+
+
+@fixture(scope="session")
+def tika_url(docker_services):
+    if "TIKA_URL" in os.environ:
+        return os.environ.get("TIKA_URL")
+
+    tika_port = docker_services.port_for("tika", 9998)
+    url = f"http://tika:{tika_port}"
+
+    def tika_is_responsive():
+        try:
+            response = requests.get(url)
+            return response.status_code == 200
+        except requests.exceptions.ConnectionError:
+            return False
+
+    docker_services.wait_until_responsive(
+        timeout=30.0,
+        pause=0.1,
+        check=tika_is_responsive
+    )
+    return url
+
+
+@fixture(scope="session")
+def t2v_url(docker_services):
+    if "T2V_URL" in os.environ:
+        return os.environ.get("T2V_URL")
+
+    t2v_port = docker_services.port_for("t2v", 8080)
+    url = f"http://t2v:{t2v_port}"
+
+    def t2v_is_responsive():
+        try:
+            response = requests.get(url)
+            return response.status_code == 200
+        except requests.exceptions.ConnectionError:
+            return False
+
+    docker_services.wait_until_responsive(
+        timeout=30.0,
+        pause=0.1,
+        check=t2v_is_responsive
+    )
+    return url
 
 
 class MockRequestResponse:

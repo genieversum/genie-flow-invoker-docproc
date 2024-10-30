@@ -89,7 +89,7 @@ class DocumentParseInvoker(
                 input_document.byte_io,
                 serverEndpoint=self._tika_service_url,
             )
-            if result["status_code"] in [
+            if result["status"] in [
                 HTTPStatus.REQUEST_TIMEOUT,
                 HTTPStatus.TOO_MANY_REQUESTS,
                 HTTPStatus.INTERNAL_SERVER_ERROR,

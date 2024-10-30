@@ -7,7 +7,7 @@ from invoker.docproc.model import RawDocumentFile, ChunkedDocument
 from invoker.docproc.parse import DocumentParseInvoker
 
 
-def test_parse_to_search(wilhelmus_path, tika_url, t2v_url):
+def test_parse_to_embedding(wilhelmus_path, tika_url, t2v_url):
     with open(wilhelmus_path, "rb") as f:
         buffer = f.read()
         buffer_b64 = base64.b64encode(buffer).decode("ascii")
@@ -44,11 +44,11 @@ def test_parse_to_search(wilhelmus_path, tika_url, t2v_url):
 
     print(chunked_document.model_dump_json(indent=2))
 
-    # invoker = EmbedInvoker(
-    #     text2vec_url=t2v_url,
-    #     pooling_strategy="mean",
-    # )
-    # embedded_document_json = invoker.invoke(chunked_document.model_dump_json())
-    # embedded_document = ChunkedDocument.model_validate_json(embedded_document_json)
-    #
-    # print(embedded_document.model_dump_json(indent=2))
+    invoker = EmbedInvoker(
+        text2vec_url=t2v_url,
+        pooling_strategy="mean",
+    )
+    embedded_document_json = invoker.invoke(chunked_document.model_dump_json())
+    embedded_document = ChunkedDocument.model_validate_json(embedded_document_json)
+
+    print(embedded_document.model_dump_json(indent=2))

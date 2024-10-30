@@ -92,7 +92,7 @@ def tika_url(docker_services):
         return os.environ.get("TIKA_URL")
 
     tika_port = docker_services.port_for("tika", 9998)
-    url = f"http://tika:{tika_port}"
+    url = f"http://localhost:{tika_port}"
 
     def tika_is_responsive():
         try:
@@ -115,11 +115,11 @@ def t2v_url(docker_services):
         return os.environ.get("T2V_URL")
 
     t2v_port = docker_services.port_for("t2v", 8080)
-    url = f"http://t2v:{t2v_port}"
+    url = f"http://localhost:{t2v_port}"
 
     def t2v_is_responsive():
         try:
-            response = requests.get(url)
+            response = requests.get(f"{url}/meta")
             return response.status_code == 200
         except requests.exceptions.ConnectionError:
             return False

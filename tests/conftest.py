@@ -46,6 +46,41 @@ central and southern half of the country. Sweden's urban areas together cover 1.
 Sweden has a diverse climate owing to the length of the country, which ranges from 55°N to 69°N. 
         """
 
+
+@fixture(scope="session")
+def pa_text():
+    return """
+We’ve been enabling leaders to unlock ingenuity to address their toughest challenges for 
+nearly 80 years.
+
+England. 1943. A time of national crisis.
+
+The men who had been manufacturing for the war effort had been called to the front lines, 
+leaving the factories empty. Our experts approached the government with an offer: to help 
+inspire and encourage women into the workforce, training them to succeed, in the most advanced 
+technological facilities of the day.
+
+This was the age of Taylorism and Fordism, the era of scientific management that treated 
+people as machines. Workers’ needs, motivations and feelings had been disregarded.
+
+Our approach was completely different. Innovative thinking. Breakthrough technology. With a 
+human-centred approach that appreciated diversity, valued individuals, and inspired teams to 
+deliver previously unachievable results. And so, PA (short for Personnel Administration) 
+was born.
+
+Since then, the innovation has continued. The first self-service parking system, the world’s 
+first private digital telephone exchange, the original brushless servo motor, and the handheld 
+tonometer. The first recordable compact discs, the disposable pregnancy test, the first 
+breath-actuated metered dose inhaler. 3G and 4G critical national infrastructure. A 
+hyperloop to revolutionise travel. Seaweed replacements for plastics. The world’s first 
+tea-sheet. Cobots in care. A smart sock that keeps babies safe.
+
+Whatever changes in PA, some things will always stay the same. Our care for our clients and 
+the customers and citizens they serve. And our dedication for the positive impact we can make 
+on the world.
+    """
+
+
 @fixture(scope='module')
 def netherlands_text():
     return """
@@ -114,7 +149,7 @@ def t2v_url(docker_services):
     if "T2V_URL" in os.environ:
         return os.environ.get("T2V_URL")
 
-    t2v_port = docker_services.port_for("t2v", 8080)
+    t2v_port = docker_services.port_for("t2v-transformers", 8080)
     url = f"http://localhost:{t2v_port}"
 
     def t2v_is_responsive():

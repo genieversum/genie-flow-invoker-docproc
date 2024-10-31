@@ -8,8 +8,8 @@ from invoker.docproc.model.vectorizer import VectorInputConfig, VectorInput, Vec
 
 
 def request_vector(url: str, in_vec: VectorInput) -> list[float]:
-    input_json = in_vec.model_dump_json()
-    response = requests.post(url=url, json=input_json)
+    input_dict = in_vec.model_dump()
+    response = requests.post(url=url, json=input_dict)
     if response.status_code in [
         HTTPStatus.REQUEST_TIMEOUT,
         HTTPStatus.TOO_MANY_REQUESTS,

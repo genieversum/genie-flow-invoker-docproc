@@ -27,6 +27,7 @@ class SimilaritySearcher:
     @staticmethod
     def method_cosine(v1: np.ndarray, v2: np.ndarray) -> float:
         return _ONE - dot(v1, v2) / (norm(v1) * norm(v2))
+        # return dot(v1, v2) / (norm(v1) * norm(v2))
 
     @staticmethod
     def method_euclidian(v1: np.ndarray, v2: np.ndarray) -> floating[Any]:

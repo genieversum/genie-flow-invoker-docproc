@@ -1,7 +1,6 @@
 from typing import Optional
 
 import numpy as np
-from _pytest.config import Config
 from genie_flow_invoker import GenieInvoker
 
 from invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder

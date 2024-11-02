@@ -72,12 +72,17 @@ def test_parse_to_search(pa_text, t2v_url):
         chunks=embedded_document.chunks,
         query_embedding=query_embedding,
         operation_level=1,
-        # horizon=0.75,
-        top=15,
+        horizon=0.75,
+        top=5,
     )
     search_query_json = search_query.model_dump_json()
     search_results_json = invoker.invoke(search_query_json)
     search_results = SimilarityResults.model_validate_json(search_results_json)
 
     for chunk_distance in search_results.chunk_distances:
-        print(chunk_distance.distance, chunk_distance.chunk.content)
+        print(f"{chunk_distance.distance} -- {chunk_distance.chunk.content}")
+
+    assert search_results is not None
+    assert 0 < len(search_results.chunk_distances) <= 5
+    assert (search_results.chunk_distances[0].distance <
+            search_results.chunk_distances[-1].distance)

@@ -12,7 +12,7 @@ from invoker.docproc.similarity_search.search import SimilaritySearcher
 
 
 @pytest.fixture
-def hamlet_chunks_with_vectors(hamlet_content_cleaned):
+def hamlet_chunks_with_vectors():
     texts = [
         "to be or not to be",
         "More matter with less art",

@@ -1,28 +1,50 @@
 import json
 import os
+from fileinput import filename
 
 import requests
 from pytest import fixture
 
-from invoker.docproc.clean import DocumentCleanInvoker
+from invoker.docproc.clean import DocumentCleanInvoker, TextCleaner
+from invoker.docproc.model import ChunkedDocument, DocumentChunk
 
 
-@fixture(scope='module')
+@fixture(scope="session")
 def wilhelmus_path():
     return "resources/Wilhelmus-van-Nassouwe.pdf"
 
-@fixture(scope='module')
+
+@fixture(scope="session")
 def hamlet_path():
     return "resources/hamlet_TXT_FolgerShakespeare.txt"
 
-@fixture(scope='module')
-def hamlet_content(hamlet_path):
+
+@fixture(scope="session")
+def hamlet_content(hamlet_path) -> str:
     with open(hamlet_path, "r") as f:
-        return f.read()
+        content = f.read()
+
+    return content
+
+
+@fixture(scope="session")
+def hamlet_document(hamlet_path, hamlet_content) -> ChunkedDocument:
+    return ChunkedDocument(
+        filename=hamlet_path,
+        chunks=[
+            DocumentChunk(
+                content=hamlet_content,
+                original_span=(0, len(hamlet_content)),
+                parent_id=None,
+                hierarchy_level=0,
+            )
+        ],
+    )
 
 @fixture(scope='module')
-def hamlet_content_cleaned(hamlet_content):
-    cleaner = DocumentCleanInvoker(
+def hamlet_content_cleaned(hamlet_path, hamlet_content) -> str:
+
+    cleaner = TextCleaner(
         clean_multiple_newlines=True,
         clean_multiple_spaces=True,
         clean_tabs=True,
@@ -30,7 +52,8 @@ def hamlet_content_cleaned(hamlet_content):
         special_term_replacements={},
         tokenize_detokenize=True,
     )
-    return cleaner.invoke(hamlet_content)
+    return cleaner.clean(hamlet_content)
+
 
 @fixture(scope='module')
 def sweden_text():

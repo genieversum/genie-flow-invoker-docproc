@@ -1,11 +1,8 @@
-from collections import OrderedDict
-import re
 from typing import Optional
 
-from loguru import logger
-from nltk import PunktSentenceTokenizer, TreebankWordTokenizer, TreebankWordDetokenizer
-
 from genie_flow_invoker.genie import GenieInvoker
+
+from invoker.docproc.clean.cleaner import TextCleaner
 from invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
 from invoker.docproc.model import ChunkedDocument
 
@@ -56,14 +53,14 @@ class DocumentCleanInvoker(
         special_term_replacements: Optional[dict] = None,
         tokenize_detokenize: bool = True,
     ):
-        self.clean_multiple_newlines = clean_multiple_newlines
-        self.clean_multiple_spaces = clean_multiple_spaces
-        self.clean_tabs = clean_tabs
-        self.clean_numbers = clean_numbers
-        self.special_term_replacements = (
-            special_term_replacements if special_term_replacements is not None else {}
+        self._cleaner = TextCleaner(
+            clean_multiple_newlines,
+            clean_multiple_spaces,
+            clean_tabs,
+            clean_numbers,
+            special_term_replacements,
+            tokenize_detokenize,
         )
-        self.tokenize_detokenize = tokenize_detokenize
 
     @classmethod
     def from_config(cls, config: dict):
@@ -118,48 +115,9 @@ class DocumentCleanInvoker(
         )
 
     def invoke(self, content: str) -> str:
-        def remove_numbers(text):
-            text = re.sub("[0-9]{5,}", "#####", text)
-            text = re.sub("[0-9]{4}", "####", text)
-            text = re.sub("[0-9]{3}", "###", text)
-            text = re.sub("[0-9]{2}", "##", text)
-            return text
-
-        def replace_special_terms(text):
-            for term, placeholder in self.special_term_replacements.items():
-                text = text.replace(term, placeholder)
-            return text
-
-        def tokenize_detokenize(text):
-            sent_tokenizer = PunktSentenceTokenizer()
-            sentences = sent_tokenizer.tokenize(text)
-
-            word_tokenizer = TreebankWordTokenizer()
-            sentences_words = [
-                word_tokenizer.tokenize(sentence) for sentence in sentences
-            ]
-
-            detokenizer = TreebankWordDetokenizer()
-            return "\n".join(detokenizer.detokenize(words) for words in sentences_words)
-
         document = self._decode_input(content)
-        cleaners = OrderedDict(
-            clean_multiple_newlines=lambda text: re.sub(r"\n{2,}", "\n", text),
-            clean_multiple_spaces=lambda text: re.sub(r"\s{2,}", " ", text),
-            clean_tabs=lambda text: re.sub(r"\t+", " ", text),
-            clean_numbers=remove_numbers,
-            special_term_replacements=replace_special_terms,
-            tokenize_detokenize=tokenize_detokenize,
-        )
-        for switch, func in cleaners.items():
-            if getattr(self, switch):
-                for chunk in document.chunks:
-                    chunk.content = func(chunk.content)
+
+        for chunk in document.chunks:
+            chunk.content = self._cleaner.clean(chunk.content)
 
         return self._encode_output(document)
-
-
-if __name__ == "__main__":
-    import nltk
-
-    nltk.download("punkt_tab")

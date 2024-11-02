@@ -15,10 +15,10 @@ _ONE = np.float32(1.0)
 class SimilaritySearcher:
 
     def __init__(
-            self,
-            chunks: list[DocumentChunk],
-            operation_level: Optional[int] = None,
-            parent_strategy: Optional[Literal["include", "replace"]] = None,
+        self,
+        chunks: list[DocumentChunk],
+        operation_level: Optional[int] = None,
+        parent_strategy: Optional[Literal["include", "replace"]] = None,
     ):
         self._db = VectorDB(chunks)
         self._operation_level = operation_level
@@ -31,16 +31,16 @@ class SimilaritySearcher:
 
     @staticmethod
     def method_euclidian(v1: np.ndarray, v2: np.ndarray) -> floating[Any]:
-        return norm(v1-v2)
+        return norm(v1 - v2)
 
     @staticmethod
     def method_manhattan(v1: np.ndarray, v2: np.ndarray) -> float:
-        return np.sum(np.absolute(v1-v2))
+        return np.sum(np.absolute(v1 - v2))
 
     def _order_vectors(
-            self,
-            query_vector: np.ndarray,
-            method: DistanceMethodType,
+        self,
+        query_vector: np.ndarray,
+        method: DistanceMethodType,
     ) -> SortedList[ChunkVector]:
         method_fn = self.__getattribute__(f"method_{method}")
 
@@ -57,14 +57,12 @@ class SimilaritySearcher:
         if self._parent_strategy == "replace":
             ordered_vectors.clear()
         ordered_vectors.extend(
-            self._db.get_vector(parent_id).chunk
-            for parent_id in parent_ids
+            self._db.get_vector(parent_id).chunk for parent_id in parent_ids
         )
 
     @staticmethod
     def _find_horizon_cut_point(
-            horizon: float,
-            ordered_vectors: SortedList[ChunkVector]
+        horizon: float, ordered_vectors: SortedList[ChunkVector]
     ) -> int:
         if ordered_vectors[-1].distance < horizon:
             return len(ordered_vectors)
@@ -74,11 +72,11 @@ class SimilaritySearcher:
                 return i
 
     def calculate_similarities(
-            self,
-            query_vector: np.ndarray,
-            method: DistanceMethodType,
-            horizon: Optional[float] = None,
-            top: Optional[int] = None,
+        self,
+        query_vector: np.ndarray,
+        method: DistanceMethodType,
+        horizon: Optional[float] = None,
+        top: Optional[int] = None,
     ) -> list[ChunkDistance]:
         if len(self._db) == 0 or top == 0:
             return []

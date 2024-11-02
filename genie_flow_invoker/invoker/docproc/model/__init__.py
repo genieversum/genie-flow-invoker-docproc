@@ -96,6 +96,7 @@ class ChunkDistance(BaseModel):
         description="The distance of the chunk towards search query",
     )
 
+
 class SimilarityResults(AbstractNamedDocument):
     chunk_distances: list[ChunkDistance] = Field(
         description="The list of chunks and their distances towards search query",

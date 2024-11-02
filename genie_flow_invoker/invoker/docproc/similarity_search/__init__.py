@@ -15,12 +15,12 @@ class SimilaritySearchInvoker(
 ):
 
     def __init__(
-            self,
-            operation_level: Optional[int] = None,
-            horizon: Optional[int] = None,
-            top: Optional[int] = None,
-            parent_strategy: Optional[str] = None,
-            method: str = "cosine",
+        self,
+        operation_level: Optional[int] = None,
+        horizon: Optional[int] = None,
+        top: Optional[int] = None,
+        parent_strategy: Optional[str] = None,
+        method: str = "cosine",
     ):
         self.operation_level = operation_level
         self.horizon = horizon
@@ -45,7 +45,13 @@ class SimilaritySearchInvoker(
 
     def invoke(self, content: str) -> str:
         search_query = self._decode_input(content)
-        for attribute in ["operation_level", "horizon", "top", "parent_strategy", "method"]:
+        for attribute in [
+            "operation_level",
+            "horizon",
+            "top",
+            "parent_strategy",
+            "method",
+        ]:
             if getattr(search_query, attribute) is None:
                 setattr(search_query, attribute, getattr(self, attribute))
 

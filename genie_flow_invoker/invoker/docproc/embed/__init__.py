@@ -86,7 +86,9 @@ class EmbedInvoker(
         try:
             chunked_document = self._decode_input(content)
         except pydantic.ValidationError as e:
-            logger.warning("Unable to parse content as ChunkedDocument, assuming it is plain text")
+            logger.warning(
+                "Unable to parse content as ChunkedDocument, assuming it is plain text"
+            )
             vector = self._embedding_manager.make_embedding_request(content)
             return json.dumps(vector)
 

@@ -4,7 +4,11 @@ import requests
 from loguru import logger
 
 from invoker.docproc.backoff_caller import BackoffCaller
-from invoker.docproc.model.vectorizer import VectorInputConfig, VectorInput, VectorResponse
+from invoker.docproc.model.vectorizer import (
+    VectorInputConfig,
+    VectorInput,
+    VectorResponse,
+)
 
 
 def request_vector(url: str, in_vec: VectorInput) -> list[float]:
@@ -28,11 +32,11 @@ def request_vector(url: str, in_vec: VectorInput) -> list[float]:
 class EmbeddingManager:
 
     def __init__(
-            self,
-            text2vec_url: str,
-            pooling_strategy: str,
-            backoff_max_time=61,
-            backoff_max_tries=10,
+        self,
+        text2vec_url: str,
+        pooling_strategy: str,
+        backoff_max_time=61,
+        backoff_max_tries=10,
     ):
         self._text2vec_url = text2vec_url
         self._vector_input_config = VectorInputConfig(pooling_strategy=pooling_strategy)

@@ -25,9 +25,7 @@ def tokenize_detokenize(text):
     sentences = sent_tokenizer.tokenize(text)
 
     word_tokenizer = TreebankWordTokenizer()
-    sentences_words = [
-        word_tokenizer.tokenize(sentence) for sentence in sentences
-    ]
+    sentences_words = [word_tokenizer.tokenize(sentence) for sentence in sentences]
 
     detokenizer = TreebankWordDetokenizer()
     return "\n".join(detokenizer.detokenize(words) for words in sentences_words)
@@ -60,8 +58,7 @@ class TextCleaner:
             clean_tabs=lambda t: re.sub(r"\t+", " ", t),
             clean_numbers=remove_numbers,
             special_term_replacements=partial(
-                replace_special_terms,
-                self.special_term_replacements
+                replace_special_terms, self.special_term_replacements
             ),
             tokenize_detokenize=tokenize_detokenize,
         )

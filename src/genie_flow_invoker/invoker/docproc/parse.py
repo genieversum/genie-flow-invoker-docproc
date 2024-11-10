@@ -10,10 +10,10 @@ from genie_flow_invoker.invoker.docproc.codec import (
 )
 from genie_flow_invoker.utils import get_config_value
 
-from genie_flow_invoker.invoker.docproc.model import RawDocumentFile, ParsedDocument
+from genie_flow_invoker.invoker.docproc.model import RawDocumentFile
 
-from invoker.docproc.backoff_caller import BackoffCaller
-from invoker.docproc.model import ChunkedDocument, DocumentChunk
+from genie_flow_invoker.invoker.docproc.backoff_caller import BackoffCaller
+from genie_flow_invoker.invoker.docproc.model import ChunkedDocument, DocumentChunk
 
 
 class DocumentParseInvoker(

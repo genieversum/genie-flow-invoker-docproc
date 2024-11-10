@@ -2,7 +2,7 @@ import json
 from typing import Optional
 
 import pydantic
-from genie_flow_invoker import GenieInvoker
+from genie_flow_invoker.genie import GenieInvoker
 from genie_flow_invoker.utils import get_config_value
 from loguru import logger
 

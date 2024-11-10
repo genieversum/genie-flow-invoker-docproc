@@ -1,7 +1,7 @@
 from abc import ABC
 from typing import Optional, Iterator
 
-from genie_flow_invoker import GenieInvoker
+from genie_flow_invoker.genie import GenieInvoker
 
 from genie_flow_invoker.invoker.docproc.chunk.lexical_density import (
     LexicalDensitySplitter,

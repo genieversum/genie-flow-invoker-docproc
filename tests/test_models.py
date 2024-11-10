@@ -2,9 +2,9 @@ import base64
 
 from tika import parser
 
-from invoker.docproc.model import ParsedDocument, RawDocumentFile
+from genie_flow_invoker.invoker.docproc.model import ParsedDocument, RawDocumentFile
 
-from invoker.docproc.parse import DocumentParseInvoker
+from genie_flow_invoker.invoker.docproc.parse import DocumentParseInvoker
 
 
 def test_process_document(wilhelmus_path, tika_url):

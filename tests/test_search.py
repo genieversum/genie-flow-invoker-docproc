@@ -5,10 +5,14 @@ from numpy import dot
 from numpy.linalg import norm
 import pytest
 
-from invoker.docproc.model import DocumentChunk, DistanceMethodType, SimilaritySearch, \
-    SimilarityResults
-from invoker.docproc.similarity_search import SimilaritySearchInvoker
-from invoker.docproc.similarity_search.search import SimilaritySearcher
+from genie_flow_invoker.invoker.docproc.model import (
+    DocumentChunk,
+    DistanceMethodType,
+    SimilaritySearch,
+    SimilarityResults,
+)
+from genie_flow_invoker.invoker.docproc.similarity_search import SimilaritySearchInvoker
+from genie_flow_invoker.invoker.docproc.similarity_search.search import SimilaritySearcher
 
 
 @pytest.fixture

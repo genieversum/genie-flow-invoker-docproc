@@ -1,11 +1,15 @@
 import json
 
-from invoker.docproc.chunk import LexicalDensitySplitInvoker
-from invoker.docproc.clean import DocumentCleanInvoker
-from invoker.docproc.embed import EmbedInvoker
-from invoker.docproc.model import ChunkedDocument, SimilaritySearch, \
-    SimilarityResults, DocumentChunk
-from invoker.docproc.similarity_search import SimilaritySearchInvoker
+from genie_flow_invoker.invoker.docproc.chunk import LexicalDensitySplitInvoker
+from genie_flow_invoker.invoker.docproc.clean import DocumentCleanInvoker
+from genie_flow_invoker.invoker.docproc.embed import EmbedInvoker
+from genie_flow_invoker.invoker.docproc.model import (
+    ChunkedDocument,
+    SimilaritySearch,
+    SimilarityResults,
+    DocumentChunk,
+)
+from genie_flow_invoker.invoker.docproc.similarity_search import SimilaritySearchInvoker
 
 
 def test_parse_to_search(pa_text, t2v_url):

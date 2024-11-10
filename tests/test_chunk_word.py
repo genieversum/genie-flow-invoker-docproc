@@ -3,8 +3,8 @@ import math
 import nltk
 from nltk import TreebankWordTokenizer
 
-from invoker.docproc.chunk.word_splitter import FixedWordsSplitter, PUNCTUATION_CHARACTERS
-from invoker.docproc.model import DocumentChunk
+from genie_flow_invoker.invoker.docproc.chunk.word_splitter import FixedWordsSplitter, PUNCTUATION_CHARACTERS
+from genie_flow_invoker.invoker.docproc.model import DocumentChunk
 
 
 def test_chunk_empty():

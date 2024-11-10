@@ -1,8 +1,11 @@
 import nltk
 from nltk import TreebankWordTokenizer
 
-from invoker.docproc.chunk import LexicalDensitySplitter, LexicalDensitySplitInvoker
-from invoker.docproc.model import ChunkedDocument, DocumentChunk
+from genie_flow_invoker.invoker.docproc.chunk import (
+    LexicalDensitySplitter,
+    LexicalDensitySplitInvoker,
+)
+from genie_flow_invoker.invoker.docproc.model import ChunkedDocument, DocumentChunk
 
 
 def test_lexical_chunk_no_meaning():

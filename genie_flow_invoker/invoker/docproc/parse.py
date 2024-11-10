@@ -105,6 +105,7 @@ class DocumentParseInvoker(
                     "Receiving status code {}, from Tika", result["status_code"]
                 )
                 raise TimeoutError()
+            return result
 
         parsed_result = parse_with_backoff()
         parsed_document = ParsedDocument(

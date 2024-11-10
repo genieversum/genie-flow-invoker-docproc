@@ -1,12 +1,11 @@
 import json
 import os
-from fileinput import filename
 
 import requests
 from pytest import fixture
 
-from invoker.docproc.clean import DocumentCleanInvoker, TextCleaner
-from invoker.docproc.model import ChunkedDocument, DocumentChunk
+from genie_flow_invoker.invoker.docproc.clean.cleaner import TextCleaner
+from genie_flow_invoker.invoker.docproc.model import ChunkedDocument, DocumentChunk
 
 
 @fixture(scope="session")

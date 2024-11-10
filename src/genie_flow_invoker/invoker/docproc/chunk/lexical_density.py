@@ -3,8 +3,8 @@ from typing import NamedTuple, Literal, Optional
 import nltk
 from nltk import TreebankWordTokenizer
 
-from invoker.docproc.chunk.splitter import AbstractSplitter
-from invoker.docproc.model import DocumentChunk
+from genie_flow_invoker.invoker.docproc.chunk.splitter import AbstractSplitter
+from genie_flow_invoker.invoker.docproc.model import DocumentChunk
 
 
 WordSPanTagLex = NamedTuple(

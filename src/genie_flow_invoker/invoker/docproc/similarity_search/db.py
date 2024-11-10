@@ -3,7 +3,7 @@ from typing import Optional
 
 import numpy as np
 
-from invoker.docproc.model import ChunkedDocument, DocumentChunk
+from genie_flow_invoker.invoker.docproc.model import ChunkedDocument, DocumentChunk
 
 
 @dataclass

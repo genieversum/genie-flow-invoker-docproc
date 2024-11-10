@@ -3,8 +3,8 @@ from http import HTTPStatus
 import requests
 from loguru import logger
 
-from invoker.docproc.backoff_caller import BackoffCaller
-from invoker.docproc.model.vectorizer import (
+from genie_flow_invoker.invoker.docproc.backoff_caller import BackoffCaller
+from genie_flow_invoker.invoker.docproc.model.vectorizer import (
     VectorInputConfig,
     VectorInput,
     VectorResponse,

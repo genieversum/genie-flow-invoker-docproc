@@ -3,9 +3,9 @@ from typing import Optional
 import numpy as np
 from genie_flow_invoker import GenieInvoker
 
-from invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
-from invoker.docproc.model import SimilaritySearch, SimilarityResults
-from invoker.docproc.similarity_search.search import SimilaritySearcher
+from genie_flow_invoker.invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
+from genie_flow_invoker.invoker.docproc.model import SimilaritySearch, SimilarityResults
+from genie_flow_invoker.invoker.docproc.similarity_search.search import SimilaritySearcher
 
 
 class SimilaritySearchInvoker(

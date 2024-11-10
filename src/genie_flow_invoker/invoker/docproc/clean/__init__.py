@@ -2,9 +2,9 @@ from typing import Optional
 
 from genie_flow_invoker.genie import GenieInvoker
 
-from invoker.docproc.clean.cleaner import TextCleaner
-from invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
-from invoker.docproc.model import ChunkedDocument
+from genie_flow_invoker.invoker.docproc.clean.cleaner import TextCleaner
+from genie_flow_invoker.invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
+from genie_flow_invoker.invoker.docproc.model import ChunkedDocument
 
 
 SPECIAL_TERMS = {

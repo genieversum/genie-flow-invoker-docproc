@@ -6,9 +6,9 @@ from genie_flow_invoker import GenieInvoker
 from genie_flow_invoker.utils import get_config_value
 from loguru import logger
 
-from invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
-from invoker.docproc.embed.manager import EmbeddingManager
-from invoker.docproc.model import ChunkedDocument
+from genie_flow_invoker.invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
+from genie_flow_invoker.invoker.docproc.embed.manager import EmbeddingManager
+from genie_flow_invoker.invoker.docproc.model import ChunkedDocument
 
 
 class EmbedInvoker(

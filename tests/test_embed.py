@@ -4,9 +4,10 @@ from http import HTTPStatus
 
 import requests
 
-from invoker.docproc.embed import EmbeddingManager, EmbedInvoker
-from invoker.docproc.model import ChunkedDocument, DocumentChunk
-from invoker.docproc.model.vectorizer import VectorResponse
+from genie_flow_invoker.invoker.docproc.embed import EmbedInvoker
+from genie_flow_invoker.invoker.docproc.embed.manager import EmbeddingManager
+from genie_flow_invoker.invoker.docproc.model import ChunkedDocument, DocumentChunk
+from genie_flow_invoker.invoker.docproc.model.vectorizer import VectorResponse
 from tests.conftest import MockRequestResponse
 
 
@@ -118,7 +119,7 @@ def test_embed_invoker(monkeypatch):
 
     embedding_invoker = EmbedInvoker(
         text2vec_url="http://localhost:8000",
-        pooling_strategy="mean",
+        poParsedDocumentoling_strategy="mean",
     )
 
     embedded_document_json = embedding_invoker.invoke(chunked_document_json)

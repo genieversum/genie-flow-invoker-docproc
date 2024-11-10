@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 import backoff
 from loguru import logger
 from tika import parser
@@ -94,8 +96,14 @@ class DocumentParseInvoker(
                 input_document.byte_io,
                 serverEndpoint=self._tika_service_url,
             )
-            if result["status_code"] in [408, 429, 500]:
-                logger.warning("Receiving status code {}, from Tika", result["status_code"])
+            if result["status"] in [
+                HTTPStatus.REQUEST_TIMEOUT,
+                HTTPStatus.TOO_MANY_REQUESTS,
+                HTTPStatus.INTERNAL_SERVER_ERROR,
+            ]:
+                logger.warning(
+                    "Receiving status code {}, from Tika", result["status_code"]
+                )
                 raise TimeoutError()
 
         parsed_result = parse_with_backoff()

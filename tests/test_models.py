@@ -2,7 +2,7 @@ import base64
 
 from tika import parser
 
-from genie_flow_invoker.invoker.docproc.model import ParsedDocument, RawDocumentFile
+from genie_flow_invoker.invoker.docproc.model import ChunkedDocument, RawDocumentFile, DocumentChunk
 
 from genie_flow_invoker.invoker.docproc.parse import DocumentParseInvoker
 
@@ -13,13 +13,20 @@ def test_process_document(wilhelmus_path, tika_url):
         serverEndpoint=tika_url,
     )
 
-    parsed_document = ParsedDocument(
+    parsed_document = ChunkedDocument(
         filename=wilhelmus_path,
-        document_text=content["content"],
+        chunks=[
+            DocumentChunk(
+                content=content["content"],
+                hierarchy_level=0,
+                parent_id=None,
+                original_span=(0, len(content["content"])),
+            )
+        ],
         document_metadata=content["metadata"],
     )
 
-    assert "Acrostycon" in parsed_document.document_text
+    assert "Acrostycon" in parsed_document.chunks[0].content
     assert parsed_document.document_metadata["Content-Type"] == "application/pdf"
 
 

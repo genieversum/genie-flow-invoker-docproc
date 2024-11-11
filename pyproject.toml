@@ -29,3 +29,9 @@ dependencies=[
     "sortedcontainers~=2.4.0",
 ]
 dynamic = ["version"]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-docker",
+]

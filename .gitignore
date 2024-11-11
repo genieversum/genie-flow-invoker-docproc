@@ -6,3 +6,4 @@ main.log
 dist/
 build/
 genie_flow_invoker_*.egg-info/
+nltk_data/

@@ -30,6 +30,9 @@ dependencies=[
 ]
 dynamic = ["version"]
 
+[project.scripts]
+init_docproc = "genie_flow_invoker.invoker.docproc.init_docproc:init"
+
 [project.optional-dependencies]
 test = [
     "pytest",

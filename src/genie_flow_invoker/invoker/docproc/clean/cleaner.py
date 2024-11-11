@@ -67,9 +67,3 @@ class TextCleaner:
                 text = func(text)
 
         return text
-
-
-if __name__ == "__main__":
-    import nltk
-
-    nltk.download("punkt_tab")

@@ -27,3 +27,11 @@ tbd
 
 ## Embedding a Document - the `DocumentEmbedInvoker`
 tbd
+
+## Installing
+Installing is done through a normal `pip install` using the appropriate package registry.
+After installing, one needs to download a number of NLTK corpora. This can be done by 
+executing the command `init_nltk_data`. This script will download the required corpora and
+place them in the standard directory (see https://www.nltk.org/data.html) which is a directory
+called `nltk_data` in the user's home directory, or if the environment variable `NLTK_DATA`
+is set, into the directory specified.

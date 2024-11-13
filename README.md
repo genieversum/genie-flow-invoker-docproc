@@ -264,6 +264,52 @@ Two parent strategies have been implemented: `include` and `replace`. The former
 include any parent of the chunks that are retrieved. The latter will drop the children and
 replace them with their parents.
 
+#### Configuration
+Configuration of this invoker follows a slightly different pattern than with the other invokers
+in this package. The `meta.yaml` file does not have to contain any parameters. There are no
+services to configure or other meta information to pass. All the configuration is done via
+the input that is sent to the invoker.
+
+However, when parameters are specified in `meta.yaml`, they form a default value and can be
+left out of the input JSON. So, if the `meta.yaml` specifies `method: cosine`, this does not
+have to be specified in the input.
+
+The following parameters are available:
+
+`filename`
+: The name of the originating file.
+
+`chunks`
+: the list of `DocumentChunk` objects to search within. These chunks need to be embedded
+(meaning that their `vector` field has been set).
+
+`query_emedding`
+: The embedding of the query to search for.
+
+`operation_level`
+: The optional hierarchy level of the chunks that should be searched within.
+
+`horizon`
+: The optional minimum distance a chunk needs to have to be included in the result.
+
+`top`
+: The optional maximum number of result chunks that will be returned.
+
+`parent_strategy`
+: The optional strategy to follow for including any parents: include or replace.
+
+`method`
+: The distance metric to be used. Can be `cosine` (the default), `euclidean` or `manhattan`.
+
+### SimilarityResults
+The resulting object contains a list of the chunks that have been found, in order of distance.
+These chunks are represented by the `DocumentChunk` object, accompanied by their distance
+towards the search vector.
+
+This information is represented in an object with the fields `chunk` and `distance`. The
+first containing the full `DocumentChunk` data and the second containing a floating point
+value representing the distance.
+
 ## Installing
 Installing is done through a normal `pip install` using the appropriate package registry.
 After installing, one needs to download a number of NLTK corpora. This can be done by 

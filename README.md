@@ -200,7 +200,69 @@ do not have lexical density more than this will not be created.
 : (default `best`) a string that can be either `shortest`, `best` or `longest`
 
 ## Embedding a Document - the `DocumentEmbedInvoker`
-tbd
+Embedding, or [Word Embedding](https://en.wikipedia.org/wiki/Word_embedding) is the process
+of creating a vector that represents a word or piece of text. Based on these vectors, text
+that is semantically close to each other, are likely to be related.
+
+The `EmbedInvoker` uses an external service to do the actual vectorization. Typically these
+are the [containers](https://github.com/weaviate/t2v-transformers-models) that Weaviate has
+put around the Huggingface text-to-vector (t2v) models. When using this embedding invoker
+there needs to be a service available that has the interface that Weaviate implemented.
+
+Input into this invoker can be either a `ChunkedDocument` or a string. If the input is a
+string, the result is the vector embedding of that string -- a list of floating values. If
+the input is a ChunkedDocument, the result is that same ChunkedDocument - but with a vector
+embedding for each and every chunk in that document.
+
+As playfully laid out in ["The Art of Pooling Embeddings"](https://blog.ml6.eu/the-art-of-pooling-embeddings-c56575114cf8)
+there are a number of different pooling strategies. The default that is implemented by Weaviate
+stands at "masked_mean" but others are available and configurable in this invoker.
+
+The following configuration parameters are available:
+
+`text2vec_url`
+: The url for the test to vector service.
+
+`pooling_strategy`
+: (default `None`) the optional pooling strategy.
+
+`backoff_max_time`
+: The maximum time this invoker should wait before re-trying a failed request.
+
+`backoff_max_tries`
+: The maximum number of retries to the service.
+
+## Similarity Search
+The `SimilaritySearchInvoker` implements the search for similar chunks in a `ChunkedDocument`.
+
+Input into this invoker is a `SimilaritySearch` object, the output is a `SimilarityResults`
+object.
+
+### SimilaritySearch
+This object contains the relevant information for conducting a similarity search. Of course
+the chunks to search in, and the query to search for. But also parameters that inform the 
+invoker on how to limit the results, how to deal with chunk parents and what distance metric
+it should use.
+
+The list of chunks is expected to be the same as the list of `DocumentChunk`s that is maintained
+in a `ChunkedDocument`. So we can just get `chunked_document.chunks` to go into that field.
+
+The query should be passed as a vector. This can be easily found using the `EmbeddingInvoker`
+where the input is just the search string. The output of that invoker (a list of floating
+values) is the search query vector.
+
+We can also instruct this invoker to only work at a certain operation level. This means that
+the search will only be conducted within chunks that have the given hierarchy level.
+
+By default, this invoker will return _all_ chunks that are searched, in descending distance
+from the search query vector. These results can be limited by specifying a horizon and/or a
+top. The first specifying the maximum distance that is still acceptable. The latter specifying
+exactly how many results are expected. The result is limited by both these factors if they are
+specified.
+
+Two parent strategies have been implemented: `include` and `replace`. The former will just
+include any parent of the chunks that are retrieved. The latter will drop the children and
+replace them with their parents.
 
 ## Installing
 Installing is done through a normal `pip install` using the appropriate package registry.

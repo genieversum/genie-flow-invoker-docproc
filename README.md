@@ -162,7 +162,7 @@ There following settings can be made:
 :  (default False) Whether to drop trailing windows that do not have enough (`max_words') words.
 
 `operation_level`
-: (default None) The level in the hierarchy that this invoker needs to be applied to.
+: (default `None`) The level in the hierarchy that this invoker needs to be applied to.
 
 ### Lexical Density Splitting
 The concept of [lexical density](https://en.wikipedia.org/wiki/Lexical_density) determines how
@@ -180,6 +180,24 @@ well as a min and max number of words in a chunk. The strategy then determines i
 or longest chunk is found that fits within these bounds (more than `min_words`, less than
 `max_words` and with a lexical density larger than `target_density`. An alternative strategy
 would be to find the chunk that has the highest density.
+
+The `LexicalDensitySplitter` has the following configurations:
+
+`min_words`
+: The minimal number of words that should go into a new chunk.
+
+`max_words`
+: The maximum number of words that go into a chunk.
+
+`overlap`
+: The number of words to skip forward before the next chunk window is started.
+
+`target_density`
+: A number between 0.0 and 1.0 that sets the threshold for the lexical density. Chunks that
+do not have lexical density more than this will not be created.
+
+`strategy`
+: (default `best`) a string that can be either `shortest`, `best` or `longest`
 
 ## Embedding a Document - the `DocumentEmbedInvoker`
 tbd

@@ -3,7 +3,10 @@ from typing import Optional
 from genie_flow_invoker.genie import GenieInvoker
 
 from genie_flow_invoker.invoker.docproc.clean.cleaner import TextCleaner
-from genie_flow_invoker.invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
+from genie_flow_invoker.invoker.docproc.codec import (
+    PydanticInputDecoder,
+    PydanticOutputEncoder,
+)
 from genie_flow_invoker.invoker.docproc.model import ChunkedDocument
 
 

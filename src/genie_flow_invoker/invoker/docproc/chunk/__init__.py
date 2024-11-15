@@ -9,7 +9,10 @@ from genie_flow_invoker.invoker.docproc.chunk.lexical_density import (
 )
 from genie_flow_invoker.invoker.docproc.chunk.splitter import AbstractSplitter
 from genie_flow_invoker.invoker.docproc.chunk.word_splitter import FixedWordsSplitter
-from genie_flow_invoker.invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
+from genie_flow_invoker.invoker.docproc.codec import (
+    PydanticInputDecoder,
+    PydanticOutputEncoder,
+)
 from genie_flow_invoker.invoker.docproc.model import ChunkedDocument, DocumentChunk
 
 

@@ -3,10 +3,18 @@ from typing import Optional
 import numpy as np
 from genie_flow_invoker.genie import GenieInvoker
 
-from genie_flow_invoker.invoker.docproc.codec import PydanticInputDecoder, PydanticOutputEncoder
-from genie_flow_invoker.invoker.docproc.model import SimilaritySearch, SimilarityResults, \
-    DocumentChunk
-from genie_flow_invoker.invoker.docproc.similarity_search.search import SimilaritySearcher
+from genie_flow_invoker.invoker.docproc.codec import (
+    PydanticInputDecoder,
+    PydanticOutputEncoder,
+)
+from genie_flow_invoker.invoker.docproc.model import (
+    SimilaritySearch,
+    SimilarityResults,
+    DocumentChunk,
+)
+from genie_flow_invoker.invoker.docproc.similarity_search.search import (
+    SimilaritySearcher,
+)
 
 
 class SimilaritySearchInvoker(

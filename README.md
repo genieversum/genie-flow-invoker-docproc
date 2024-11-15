@@ -301,6 +301,10 @@ The following parameters are available:
 `method`
 : The distance metric to be used. Can be `cosine` (the default), `euclidean` or `manhattan`.
 
+`include_vector`
+: (default False) A boolean indicating if the embedding vector of the resulting chunks
+should also be included in the output.
+
 ### SimilarityResults
 The resulting object contains a list of the chunks that have been found, in order of distance.
 These chunks are represented by the `DocumentChunk` object, accompanied by their distance
@@ -310,10 +314,13 @@ This information is represented in an object with the fields `chunk` and `distan
 first containing the full `DocumentChunk` data and the second containing a floating point
 value representing the distance.
 
+If the configuration parameter `include_vector` is `False` (the default), then the resulting
+`DocumentChunk`s will not contain their `embedding` vector.
+
 ## Installing
 Installing is done through a normal `pip install` using the appropriate package registry.
 After installing, one needs to download a number of NLTK corpora. This can be done by 
-executing the command `init_nltk_data`. This script will download the required corpora and
+executing the command `init_docproc`. This script will download the required corpora and
 place them in the standard directory (see https://www.nltk.org/data.html) which is a directory
 called `nltk_data` in the user's home directory, or if the environment variable `NLTK_DATA`
 is set, into the directory specified.

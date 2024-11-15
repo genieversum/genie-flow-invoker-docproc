@@ -86,6 +86,10 @@ class SimilaritySearch(AbstractNamedDocument):
         default="cosine",
         description="The similarity search method",
     )
+    include_vector: bool = Field(
+        default=False,
+        description="Include vectors in the resulting chunks",
+    )
 
 
 class ChunkDistance(BaseModel):

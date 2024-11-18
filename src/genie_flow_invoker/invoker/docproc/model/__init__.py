@@ -1,7 +1,7 @@
 import base64
 import io
 import uuid
-from typing import Optional, Literal
+from typing import Optional, Literal, Iterator
 
 from pydantic import BaseModel, Field
 
@@ -54,6 +54,14 @@ class ChunkedDocument(AbstractNamedDocument):
     chunks: list[DocumentChunk] = Field(
         description="The list of chunks of this document",
     )
+
+    def chunk_iterator(self, operation_level: Optional[int]) -> Iterator[DocumentChunk]:
+        for chunk in self.chunks:
+            if (
+                operation_level is None
+                or chunk.hierarchy_level == operation_level
+            ):
+                yield chunk
 
 
 DistanceMethodType = Literal["cosine", "euclidian", "manhattan"]

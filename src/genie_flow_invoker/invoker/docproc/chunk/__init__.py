@@ -47,19 +47,11 @@ class AbstractSplitterInvoker(
         self._operation_level = operation_level
         self._splitter: Optional[AbstractSplitter] = None
 
-    def chunk_iterator(self, chunks: list[DocumentChunk]) -> Iterator[DocumentChunk]:
-        for chunk in chunks:
-            if (
-                self._operation_level is None
-                or chunk.hierarchy_level == self._operation_level
-            ):
-                yield chunk
-
     def invoke(self, content: str) -> str:
         document = self._decode_input(content)
 
         new_chunks = []
-        for chunk in self.chunk_iterator(document.chunks):
+        for chunk in document.chunk_iterator(self._operation_level):
             new_chunks.extend(self._splitter.split(chunk))
         document.chunks.extend(new_chunks)
 

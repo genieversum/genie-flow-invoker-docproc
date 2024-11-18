@@ -8,6 +8,14 @@ T = TypeVar("T", bound=BaseModel)
 
 
 def extract_input_model_class(cls: Type[object]) -> Type[BaseModel]:
+    """
+    Extract the class (a subclass of pydantic.BaseModel) from the given class. This is the
+    type that has been given as the Generic type when a class inherits from either the
+    `PydanticInputDecoder` or the `PydanticOutputEncoder`.
+
+    :param cls: the class as specified
+    :return: the class that is specified as Generic type
+    """
     for c in cls.__orig_bases__:
         try:
             if issubclass(c.__origin__, AbstractInputDecoder):
@@ -15,13 +23,6 @@ def extract_input_model_class(cls: Type[object]) -> Type[BaseModel]:
         except AttributeError:
             pass
     raise ValueError(f"Cannot extract input model class from {cls}")
-
-
-# def extract_output_model_class(cls: Type[object]) -> Type[BaseModel]:
-#     for c in cls.__orig_bases__:
-#         if isinstance(c, AbstractOutputEncoder):
-#             return get_args(c)[0]
-#     raise ValueError(f"Cannot extract output model class from {cls}")
 
 
 class PydanticInputDecoder(AbstractInputDecoder, Generic[T]):

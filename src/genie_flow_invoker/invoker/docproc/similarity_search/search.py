@@ -27,6 +27,22 @@ class SimilaritySearcher:
         operation_level: Optional[int] = None,
         parent_strategy: Optional[Literal["include", "replace"]] = None,
     ):
+        """
+        A new `SimilaritySearcher` is initialized using a list of chunks and potentially
+        a specified operation level and parent strategy.
+
+        The operation level determines at which level in the chunk hierarchy are in scope
+        for the search, defaulting to `None` which means: investigate all levels of the
+        hierarchy.
+
+        The parent strategy determines whether to include or replace the parent chunks
+        of chunks that have been found. Including means their parents are added, replacing
+        means that only the parents are returned.
+
+        :param chunks: a list of chunks to search in
+        :param operation_level: an optional operation level, defaults to `None`
+        :param parent_strategy: an optional parent strategy, defaults to `None`
+        """
         self._db = VectorDB(chunks)
         self._operation_level = operation_level
         self._parent_strategy = parent_strategy
@@ -34,7 +50,6 @@ class SimilaritySearcher:
     @staticmethod
     def method_cosine(v1: np.ndarray, v2: np.ndarray) -> float:
         return _ONE - dot(v1, v2) / (norm(v1) * norm(v2))
-        # return dot(v1, v2) / (norm(v1) * norm(v2))
 
     @staticmethod
     def method_euclidian(v1: np.ndarray, v2: np.ndarray) -> floating[Any]:
@@ -85,6 +100,17 @@ class SimilaritySearcher:
         horizon: Optional[float] = None,
         top: Optional[int] = None,
     ) -> list[ChunkDistance]:
+        """
+        From the objects database (list of chunks), return the similarities with a given
+        query vector. Use the specified distance method (cosine, euclidean, manhattan) and
+        apply filters for horizon and maximum number of results.
+
+        :param query_vector: The vector to search for
+        :param method: the distance method to use
+        :param horizon: an optional horizon for the distance, default `None`
+        :param top: an optional maximum number of results to return, default `None`
+        :return: an ordered (from low to high distance) list of `ChunkDistance` objects
+        """
         if len(self._db) == 0 or top == 0:
             return []
 

@@ -9,6 +9,14 @@ are implemented:
 * *EMBED* - adding a vector embedding to a piece of text
 * *SEARCH* - given a list of vectors, find the nearest neighbors of a search-text
 
+## Installing
+Installing is done through a normal `pip install` using the appropriate package registry.
+After installing, one needs to download a number of NLTK corpora. This can be done by 
+executing the command `init_docproc`. This script will download the required corpora and
+place them in the standard directory (see https://www.nltk.org/data.html) which is a directory
+called `nltk_data` in the user's home directory, or if the environment variable `NLTK_DATA`
+is set, into the directory specified.
+
 ## The Chunked Document class
 The core of this set of invokers revolves around the `ChunkedDocument` object. This is a class
 that contains the `filename` of the original document, some possible metadata (a dict with
@@ -316,11 +324,3 @@ value representing the distance.
 
 If the configuration parameter `include_vector` is `False` (the default), then the resulting
 `DocumentChunk`s will not contain their `embedding` vector.
-
-## Installing
-Installing is done through a normal `pip install` using the appropriate package registry.
-After installing, one needs to download a number of NLTK corpora. This can be done by 
-executing the command `init_docproc`. This script will download the required corpora and
-place them in the standard directory (see https://www.nltk.org/data.html) which is a directory
-called `nltk_data` in the user's home directory, or if the environment variable `NLTK_DATA`
-is set, into the directory specified.

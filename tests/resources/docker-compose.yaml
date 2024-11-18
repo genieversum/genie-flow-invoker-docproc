@@ -1,0 +1,13 @@
+services:
+
+  tika:
+    image: apache/tika:2.9.0.0
+    ports:
+      - "9998:9998"
+
+  t2v-transformers:
+    image: cr.weaviate.io/semitechnologies/transformers-inference:sentence-transformers-multi-qa-MiniLM-L6-cos-v1
+    ports:
+      - "8080:8080"
+    environment:
+      ENABLE_CUDA: 0

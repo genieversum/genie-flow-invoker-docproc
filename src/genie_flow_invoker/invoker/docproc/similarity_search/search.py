@@ -1,4 +1,4 @@
-from typing import Literal, Optional, Any
+from typing import Literal, Optional, Any, Iterable
 
 import numpy as np
 from numpy import dot, floating
@@ -63,24 +63,16 @@ class SimilaritySearcher:
         self,
         query_vector: np.ndarray,
         method: DistanceMethodType,
+        chunks: Iterable[ChunkVector],
     ) -> SortedList[ChunkVector]:
         method_fn = self.__getattribute__(f"method_{method}")
 
         ordered_vectors: SortedList[ChunkVector] = SortedList(key=lambda x: x.distance)
-        for chunk_vector in self._db.get_vectors(operation_level=self._operation_level):
+        for chunk_vector in chunks:
             chunk_vector.distance = method_fn(chunk_vector.vector, query_vector)
             ordered_vectors.add(chunk_vector)
 
         return ordered_vectors
-
-    def _introduce_parents(self, ordered_vectors: SortedList[ChunkVector]) -> None:
-        parent_ids = {child.chunk.parent_id for child in ordered_vectors}
-
-        if self._parent_strategy == "replace":
-            ordered_vectors.clear()
-        ordered_vectors.extend(
-            self._db.get_vector(parent_id).chunk for parent_id in parent_ids
-        )
 
     @staticmethod
     def _find_horizon_cut_point(
@@ -114,17 +106,27 @@ class SimilaritySearcher:
         if len(self._db) == 0 or top == 0:
             return []
 
-        ordered_vectors = self._order_vectors(query_vector, method)
-
-        if self._parent_strategy is not None:
-            self._introduce_parents(ordered_vectors)
-
-        if top is not None:
-            ordered_vectors = ordered_vectors[:top]
+        ordered_vectors = self._order_vectors(
+            query_vector,
+            method,
+            self._db.get_vectors(operation_level=self._operation_level)
+        )
 
         if horizon is not None:
             cut_point = self._find_horizon_cut_point(horizon, ordered_vectors)
             ordered_vectors = ordered_vectors[:cut_point]
+
+        if self._parent_strategy is not None:
+            parent_ids = {child.chunk.parent_id for child in ordered_vectors}
+            parents = [self._db.get_vector(chunk_id) for chunk_id in parent_ids]
+            ordered_parents = self._order_vectors(query_vector, method, parents)
+            if self._parent_strategy == "include":
+                # include the children with their parents
+                ordered_parents.update(ordered_vectors)
+            ordered_vectors = ordered_parents
+
+        if top is not None:
+            ordered_vectors = ordered_vectors[:top]
 
         return [
             ChunkDistance(

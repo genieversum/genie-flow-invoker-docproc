@@ -39,6 +39,11 @@ class SimilaritySearcher:
         of chunks that have been found. Including means their parents are added, replacing
         means that only the parents are returned.
 
+        Note that any horizon filter is applied to the children first, before retrieving
+        their parents. The same distance measure will be used to calculate the distance for
+        the parents. When the parent strategy is `include`, both the parents and their
+        children are returned, in order of distance to the search query.
+
         :param chunks: a list of chunks to search in
         :param operation_level: an optional operation level, defaults to `None`
         :param parent_strategy: an optional parent strategy, defaults to `None`
@@ -63,12 +68,12 @@ class SimilaritySearcher:
         self,
         query_vector: np.ndarray,
         method: DistanceMethodType,
-        chunks: Iterable[ChunkVector],
+        chunk_vectors: Iterable[ChunkVector],
     ) -> SortedList[ChunkVector]:
         method_fn = self.__getattribute__(f"method_{method}")
 
         ordered_vectors: SortedList[ChunkVector] = SortedList(key=lambda x: x.distance)
-        for chunk_vector in chunks:
+        for chunk_vector in chunk_vectors:
             chunk_vector.distance = method_fn(chunk_vector.vector, query_vector)
             ordered_vectors.add(chunk_vector)
 
@@ -96,6 +101,12 @@ class SimilaritySearcher:
         From the objects database (list of chunks), return the similarities with a given
         query vector. Use the specified distance method (cosine, euclidean, manhattan) and
         apply filters for horizon and maximum number of results.
+
+        Note that `horizon` will be applied to the children first, before retrieving
+        their parents. Top is applied to the final results, potentially with parents
+        included.
+
+        The resulting list is ordered by distance to the search query.
 
         :param query_vector: The vector to search for
         :param method: the distance method to use

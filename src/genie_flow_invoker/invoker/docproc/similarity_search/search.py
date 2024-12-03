@@ -151,8 +151,9 @@ class SimilaritySearcher:
 
             if self._parent_strategy == "include":
                 logger.debug(
-                    "dropping {nr_children} to be replaced",
-                    nr_children=len(ordered_parents)
+                    "adding {nr_children} children to {nr_parents} parents",
+                    nr_children=len(ordered_vectors),
+                    nr_parents=len(ordered_parents),
                 )
                 # include the children with their parents
                 ordered_parents.update(ordered_vectors)

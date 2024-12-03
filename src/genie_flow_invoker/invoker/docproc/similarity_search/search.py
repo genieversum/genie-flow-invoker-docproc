@@ -1,6 +1,7 @@
-from typing import Literal, Optional, Any
+from typing import Literal, Optional, Any, Iterable
 
 import numpy as np
+from loguru import logger
 from numpy import dot, floating
 from numpy.linalg import norm
 from sortedcontainers import SortedList
@@ -39,6 +40,11 @@ class SimilaritySearcher:
         of chunks that have been found. Including means their parents are added, replacing
         means that only the parents are returned.
 
+        Note that any horizon filter is applied to the children first, before retrieving
+        their parents. The same distance measure will be used to calculate the distance for
+        the parents. When the parent strategy is `include`, both the parents and their
+        children are returned, in order of distance to the search query.
+
         :param chunks: a list of chunks to search in
         :param operation_level: an optional operation level, defaults to `None`
         :param parent_strategy: an optional parent strategy, defaults to `None`
@@ -63,24 +69,16 @@ class SimilaritySearcher:
         self,
         query_vector: np.ndarray,
         method: DistanceMethodType,
+        chunk_vectors: Iterable[ChunkVector],
     ) -> SortedList[ChunkVector]:
         method_fn = self.__getattribute__(f"method_{method}")
 
         ordered_vectors: SortedList[ChunkVector] = SortedList(key=lambda x: x.distance)
-        for chunk_vector in self._db.get_vectors(operation_level=self._operation_level):
+        for chunk_vector in chunk_vectors:
             chunk_vector.distance = method_fn(chunk_vector.vector, query_vector)
             ordered_vectors.add(chunk_vector)
 
         return ordered_vectors
-
-    def _introduce_parents(self, ordered_vectors: SortedList[ChunkVector]) -> None:
-        parent_ids = {child.chunk.parent_id for child in ordered_vectors}
-
-        if self._parent_strategy == "replace":
-            ordered_vectors.clear()
-        ordered_vectors.extend(
-            self._db.get_vector(parent_id).chunk for parent_id in parent_ids
-        )
 
     @staticmethod
     def _find_horizon_cut_point(
@@ -105,31 +103,76 @@ class SimilaritySearcher:
         query vector. Use the specified distance method (cosine, euclidean, manhattan) and
         apply filters for horizon and maximum number of results.
 
+        Note that `horizon` will be applied to the children first, before retrieving
+        their parents. Top is applied to the final results, potentially with parents
+        included.
+
+        The resulting list is ordered by distance to the search query.
+
         :param query_vector: The vector to search for
         :param method: the distance method to use
         :param horizon: an optional horizon for the distance, default `None`
         :param top: an optional maximum number of results to return, default `None`
         :return: an ordered (from low to high distance) list of `ChunkDistance` objects
         """
+        logger.debug(
+            "Calculating similarities with settings method {method}, "
+            "horizon {horizon}, top {top}",
+            method=method,
+            horizon=horizon,
+            top=top,
+        )
         if len(self._db) == 0 or top == 0:
+            logger.warning(
+                "Searching will have no results; "
+                "database has {db_size} chunks; top argument is set to {top}",
+                db_size=len(self._db),
+                top=top,
+            )
             return []
 
-        ordered_vectors = self._order_vectors(query_vector, method)
-
-        if self._parent_strategy is not None:
-            self._introduce_parents(ordered_vectors)
-
-        if top is not None:
-            ordered_vectors = ordered_vectors[:top]
+        ordered_vectors = self._order_vectors(
+            query_vector,
+            method,
+            self._db.get_vectors(operation_level=self._operation_level)
+        )
+        logger.debug("found {nr_chunks} from the database", nr_chunks=len(ordered_vectors))
 
         if horizon is not None:
             cut_point = self._find_horizon_cut_point(horizon, ordered_vectors)
             ordered_vectors = ordered_vectors[:cut_point]
+            logger.debug("cut because of horizon, at point {cut_point}", cut_point=cut_point)
 
-        return [
+        if self._parent_strategy is not None:
+            parent_ids = {child.chunk.parent_id for child in ordered_vectors}
+            parents = [self._db.get_vector(chunk_id) for chunk_id in parent_ids]
+            ordered_parents = self._order_vectors(query_vector, method, parents)
+            logger.debug("found {nr_parents} from the children", nr_parents=len(ordered_parents))
+
+            if self._parent_strategy == "include":
+                logger.debug(
+                    "adding {nr_children} children to {nr_parents} parents",
+                    nr_children=len(ordered_vectors),
+                    nr_parents=len(ordered_parents),
+                )
+                # include the children with their parents
+                ordered_parents.update(ordered_vectors)
+            ordered_vectors = ordered_parents
+
+        if top is not None:
+            ordered_vectors = ordered_vectors[:top]
+            logger.debug("limiting to {top} results", top=top)
+
+        result = [
             ChunkDistance(
                 chunk=ordered_vector.chunk,
                 distance=float(ordered_vector.distance),
             )
             for ordered_vector in ordered_vectors
         ]
+        logger.info(
+            "found {nr_chunks} using similarity search method",
+            nr_chunks=len(result),
+            method=method,
+        )
+        return result

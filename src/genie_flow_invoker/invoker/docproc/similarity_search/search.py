@@ -1,6 +1,7 @@
 from typing import Literal, Optional, Any, Iterable
 
 import numpy as np
+from loguru import logger
 from numpy import dot, floating
 from numpy.linalg import norm
 from sortedcontainers import SortedList
@@ -114,7 +115,20 @@ class SimilaritySearcher:
         :param top: an optional maximum number of results to return, default `None`
         :return: an ordered (from low to high distance) list of `ChunkDistance` objects
         """
+        logger.debug(
+            "Calculating similarities with settings method {method}, "
+            "horizon {horizon}, top {top}",
+            method=method,
+            horizon=horizon,
+            top=top,
+        )
         if len(self._db) == 0 or top == 0:
+            logger.warning(
+                "Searching will have no results; "
+                "database has {db_size} chunks; top argument is set to {top}",
+                db_size=len(self._db),
+                top=top,
+            )
             return []
 
         ordered_vectors = self._order_vectors(
@@ -122,27 +136,42 @@ class SimilaritySearcher:
             method,
             self._db.get_vectors(operation_level=self._operation_level)
         )
+        logger.debug("found {nr_chunks} from the database", nr_chunks=len(ordered_vectors))
 
         if horizon is not None:
             cut_point = self._find_horizon_cut_point(horizon, ordered_vectors)
             ordered_vectors = ordered_vectors[:cut_point]
+            logger.debug("cut because of horizon, at point {cut_point}", cut_point=cut_point)
 
         if self._parent_strategy is not None:
             parent_ids = {child.chunk.parent_id for child in ordered_vectors}
             parents = [self._db.get_vector(chunk_id) for chunk_id in parent_ids]
             ordered_parents = self._order_vectors(query_vector, method, parents)
+            logger.debug("found {nr_parents} from the children", nr_parents=len(ordered_parents))
+
             if self._parent_strategy == "include":
+                logger.debug(
+                    "dropping {nr_children} to be replaced",
+                    nr_children=len(ordered_parents)
+                )
                 # include the children with their parents
                 ordered_parents.update(ordered_vectors)
             ordered_vectors = ordered_parents
 
         if top is not None:
             ordered_vectors = ordered_vectors[:top]
+            logger.debug("limiting to {top} results", top=top)
 
-        return [
+        result = [
             ChunkDistance(
                 chunk=ordered_vector.chunk,
                 distance=float(ordered_vector.distance),
             )
             for ordered_vector in ordered_vectors
         ]
+        logger.info(
+            "found {nr_chunks} using similarity search method",
+            nr_chunks=len(result),
+            method=method,
+        )
+        return result

@@ -56,6 +56,9 @@ encoded representation of the binary file.
 The output is a `ChunkedDocument` that contains the same `filename`, some further meta
 data and one chunk pertaining to the complete text that has been parsed from the document.
 
+When parsing an empty document, the resulting `ChunkedDocument` will only contain the filename,
+an empty meta data dictionary and an empty list of chunks.
+
 ## Cleaning a Document - the `DocumentCleanInvoker`
 The `DocumentCleanInvoker` takes in a `ChunkedDocumetn` and "cleans' the content of it's
 chunks. The following cleaning operations have been defined:

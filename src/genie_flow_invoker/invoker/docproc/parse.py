@@ -84,6 +84,16 @@ class DocumentParseInvoker(
     def invoke(self, content: str) -> str:
         input_document = self._decode_input(content)
 
+        if input_document.document_data is None or input_document.document_data == "":
+            logger.warning("received empty document with file name {}", input_document.filename)
+            return self._encode_output(
+                ChunkedDocument(
+                    filename=input_document.filename,
+                    document_metadata=dict(),
+                    chunks=[],
+                )
+            )
+
         def parse():
             result = parser.from_buffer(
                 input_document.byte_io,

@@ -119,7 +119,10 @@ class DocumentParseInvoker(
                     parser=parsed_result.get("metadata").get("X-TIKA:Parsed-By"),
                 )
             except KeyError:
-                logger.error("parsing obtained no metadata from Tika")
+                logger.error(
+                    "parsing failed to obtained any content and "
+                    "failed to retrieve metadata from Tika"
+                )
             parsed_content = ""
         else:
             parsed_content = parsed_result["content"]

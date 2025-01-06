@@ -105,15 +105,28 @@ class DocumentParseInvoker(
                 HTTPStatus.INTERNAL_SERVER_ERROR,
             ]:
                 logger.warning(
-                    "Receiving status code {}, from Tika", result["status_code"]
+                    "Received status code {status_code}, from Tika",
+                    status_code=result["status_code"],
                 )
                 raise TimeoutError()
             return result
 
         parsed_result = self._backoff_caller.call(parse)
+        if "content" not in parsed_result or parsed_result["content"] is None:
+            try:
+                logger.warning(
+                    "parsing obtained no content from Tika using parser {parser}",
+                    parser=parsed_result.get("metadata").get("X-TIKA:Parsed-By"),
+                )
+            except KeyError:
+                logger.error("parsing obtained no metadata from Tika")
+            parsed_content = ""
+        else:
+            parsed_content = parsed_result["content"]
+
         chunk = DocumentChunk(
-            content=parsed_result["content"],
-            original_span=(0, len(parsed_result["content"])),
+            content=parsed_content,
+            original_span=(0, len(parsed_content)),
             hierarchy_level=0,
             parent_id=None,
         )

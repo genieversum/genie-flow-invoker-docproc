@@ -45,3 +45,17 @@ def test_parse_document(wilhelmus_path, tika_url):
 
     assert "Acrostycon" in parsed_document_json
     assert "Content-Type" in parsed_document_json
+
+
+def test_parse_empty_document(tika_url):
+    invoker = DocumentParseInvoker(tika_service_url=tika_url)
+
+    input_document = RawDocumentFile(
+        filename="empty.txt",
+        document_data="",
+    )
+    parsed_document_json = invoker.invoke(input_document.model_dump_json())
+    parsed_document = ChunkedDocument.model_validate_json(parsed_document_json)
+
+    assert len(parsed_document.document_metadata) == 0
+    assert len(parsed_document.chunks) == 0

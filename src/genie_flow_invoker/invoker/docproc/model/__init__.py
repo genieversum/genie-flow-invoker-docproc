@@ -56,6 +56,21 @@ class ChunkedDocument(AbstractNamedDocument):
     )
 
     def chunk_iterator(self, operation_level: Optional[int]) -> Iterator[DocumentChunk]:
+        """
+        Returns an iterator over the chunks of this document, optionally at a certain
+        operation level. If the level is specified, only the chunks with a corresponding
+        hierarchy level are returned. If the level is None, all chunks are returned. If the
+        level is negative, the operation level is calculated from the loweste level to the
+        top. Minus one then being the lowest level, minus two the level above that, etc.
+
+        :param operation_level: indicator what level of the hierarchy of chunks should be
+        returned
+        :return: an iterator over the chunks of this document
+        """
+        if operation_level is not None and operation_level < 0:
+            max_level_chunk = max(self.chunks, key=lambda x: x.hierarchy_level)
+            operation_level = max_level_chunk.hierarchy_level + operation_level + 1
+
         for chunk in self.chunks:
             if (
                 operation_level is None

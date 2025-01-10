@@ -91,6 +91,64 @@ class SimilaritySearcher:
             if chunk_vector.distance >= horizon:
                 return i
 
+    def _retrieve_parents(
+            self,
+            ordered_children: SortedList[ChunkVector],
+    ) -> list[ChunkVector]:
+        """
+        Retrieve the parent chunks of the given vectors. If no parent exists, validate if
+        they are ultimate parent or not. If not, raise an error. If they are ultimate parents,
+        they are added to the list of parents.
+
+        :param ordered_children: a list of vectors to retrieve parents for
+        :return: a list of chunk vectors of the parents of all children
+        """
+        parent_ids: set[Optional[str]] = {
+            child.chunk.parent_id
+            for child in ordered_children
+        }
+
+        if None in parent_ids:
+            parent_ids.remove(None)
+
+            orphans: list[ChunkVector] = [
+                child
+                for child in ordered_children
+                if child.chunk.parent_id is None
+            ]
+            if any(orphan.chunk.hierarchy_level != 0 for orphan in orphans):
+                logger.debug(
+                    "following chunks are not on top of the hierarchy but still "
+                    "have no parents: {orphans}",
+                    orphans=[
+                        orphan.chunk
+                        for orphan in orphans
+                        if orphan.chunk.hierarchy_level != 0
+                    ],
+                )
+                logger.error(
+                    "structural issue with chunk hierarchy; some chunks do not have a "
+                    "parent but are not at the highest hierarchical level"
+                )
+                raise ValueError("structural issue with chunk hierarchy")
+
+            logger.warning(
+                "{nr_ultimate_parents} ultimate parent(s) will not be subjected "
+                "to parent strategy {parent_strategy}",
+                nr_ultimate_parents=len(orphans),
+                parent_strategy=self._parent_strategy,
+            )
+            parent_ids.update({orphan.chunk.chunk_id for orphan in orphans})
+
+        try:
+            return [self._db.get_vector(chunk_id) for chunk_id in parent_ids]
+        except KeyError as e:
+            logger.error(
+                "structural issue with chunk hierarchy; "
+                "child refers to non-existent parent chunk"
+            )
+            raise e
+
     def calculate_similarities(
         self,
         query_vector: np.ndarray,
@@ -144,20 +202,34 @@ class SimilaritySearcher:
             logger.debug("cut because of horizon, at point {cut_point}", cut_point=cut_point)
 
         if self._parent_strategy is not None:
-            parent_ids = {child.chunk.parent_id for child in ordered_vectors}
-            parents = [self._db.get_vector(chunk_id) for chunk_id in parent_ids]
+            parents = self._retrieve_parents(ordered_vectors)
             ordered_parents = self._order_vectors(query_vector, method, parents)
             logger.debug("found {nr_parents} from the children", nr_parents=len(ordered_parents))
 
-            if self._parent_strategy == "include":
-                logger.debug(
-                    "adding {nr_children} children to {nr_parents} parents",
-                    nr_children=len(ordered_vectors),
-                    nr_parents=len(ordered_parents),
-                )
-                # include the children with their parents
-                ordered_parents.update(ordered_vectors)
-            ordered_vectors = ordered_parents
+            match self._parent_strategy:
+                case "include":
+                    logger.debug(
+                        "adding {nr_parents} parents to {nr_children} children",
+                        nr_children=len(ordered_vectors),
+                        nr_parents=len(ordered_parents),
+                    )
+                    child_ids = {chunk.chunk_id for chunk in ordered_parents}
+                    for parent in parents:
+                        if parent.chunk.chunk_id not in child_ids:
+                            ordered_vectors.add(parent)
+                case "replace":
+                    logger.debug(
+                        "replacing {nr_children} children with {nr_parents} parents",
+                        nr_children=len(ordered_vectors),
+                        nr_parents=len(ordered_parents),
+                    )
+                    ordered_vectors = ordered_parents
+                case _:
+                    logger.error(
+                        "parent strategy {parent_strategy} not recognized",
+                        parent_strategy=self._parent_strategy,
+                    )
+                    raise ValueError("invalid parent strategy")
 
         if top is not None:
             ordered_vectors = ordered_vectors[:top]

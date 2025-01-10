@@ -41,4 +41,10 @@ class VectorDB:
     def get_vectors(self, operation_level: Optional[int] = None) -> list[ChunkVector]:
         if operation_level is None:
             return self._chunk_vectors
-        return self._level_index[operation_level]
+
+        effective_level = operation_level
+        if operation_level < 0:
+            max_level = max(self._level_index.keys())
+            effective_level = max_level + operation_level + 1
+
+        return self._level_index[effective_level]

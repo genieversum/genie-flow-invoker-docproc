@@ -213,7 +213,7 @@ class SimilaritySearcher:
                         nr_children=len(ordered_vectors),
                         nr_parents=len(ordered_parents),
                     )
-                    child_ids = {chunk.chunk_id for chunk in ordered_parents}
+                    child_ids = {chunk_vector.chunk.chunk_id for chunk_vector in ordered_parents}
                     for parent in parents:
                         if parent.chunk.chunk_id not in child_ids:
                             ordered_vectors.add(parent)

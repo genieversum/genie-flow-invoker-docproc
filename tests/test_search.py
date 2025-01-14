@@ -213,6 +213,28 @@ def test_similarity_parent_replace(hamlet_chunks_with_vectors):
     assert len(similarities) == 1
 
 
+def test_similarity_only_parent(hamlet_chunks_with_vectors):
+    query_vector = np.array([1] * len(hamlet_chunks_with_vectors[0].embedding))
+
+    # remove the kids
+    hamlet_chunks_with_vectors = hamlet_chunks_with_vectors[0:1]
+
+    similarity_searcher = SimilaritySearcher(
+        chunks=hamlet_chunks_with_vectors,
+        parent_strategy="include",
+        operation_level=-1,
+    )
+
+    similarities = similarity_searcher.calculate_similarities(
+        query_vector=query_vector,
+        method="cosine",
+        top=2,
+    )
+
+    assert len(similarities) == 1
+    assert similarities[0].chunk.chunk_id == hamlet_chunks_with_vectors[0].chunk_id
+
+
 def test_similarity_parent_include(hamlet_chunks_with_vectors):
     query_vector = np.array([1] * len(hamlet_chunks_with_vectors[0].embedding))
 

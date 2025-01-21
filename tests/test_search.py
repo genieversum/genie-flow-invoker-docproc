@@ -1,3 +1,4 @@
+from collections import Counter
 from collections.abc import Callable
 
 import numpy as np
@@ -244,14 +245,17 @@ def test_similarity_parent_include(hamlet_chunks_with_vectors):
         operation_level=1,
     )
 
+    hierarchy_counts = Counter(
+        chunk_distance.hierarchy_level
+        for chunk_distance in hamlet_chunks_with_vectors
+    )
+
     similarities = similarity_searcher.calculate_similarities(
         query_vector=query_vector,
         method="cosine",
-        top=3,
-        horizon=0.2,
     )
 
-    assert len(similarities) == 3
+    assert len(similarities) == hierarchy_counts.total()
 
 
 def test_similarity_invoking(hamlet_chunks_with_vectors):

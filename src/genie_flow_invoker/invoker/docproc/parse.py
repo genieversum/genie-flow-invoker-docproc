@@ -3,17 +3,14 @@ from http import HTTPStatus
 from loguru import logger
 from tika import parser
 
+from genie_flow_invoker.doc_proc import RawDocumentFile, DocumentChunk, ChunkedDocument
 from genie_flow_invoker.genie import GenieInvoker
 from genie_flow_invoker.invoker.docproc.codec import (
     PydanticInputDecoder,
     PydanticOutputEncoder,
 )
 from genie_flow_invoker.utils import get_config_value
-
-from genie_flow_invoker.invoker.docproc.model import RawDocumentFile
-
 from genie_flow_invoker.invoker.docproc.backoff_caller import BackoffCaller
-from genie_flow_invoker.invoker.docproc.model import ChunkedDocument, DocumentChunk
 
 
 class DocumentParseInvoker(

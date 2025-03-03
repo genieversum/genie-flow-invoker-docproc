@@ -4,8 +4,7 @@ import nltk
 from nltk import TreebankWordTokenizer
 
 from genie_flow_invoker.invoker.docproc.chunk.splitter import AbstractSplitter
-from genie_flow_invoker.invoker.docproc.model import DocumentChunk
-
+from genie_flow_invoker.doc_proc import DocumentChunk
 
 WordSPanTagLex = NamedTuple(
     "WordSPanTagLex",

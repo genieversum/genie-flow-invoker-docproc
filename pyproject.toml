@@ -20,7 +20,8 @@ classifiers=[
 ]
 dependencies=[
     "loguru~=0.7.2",
-    "genie-flow-invoker~=0.6.0",
+    "genie-flow~=0.7.1",
+    "genie-flow-invoker~=0.6.2",
     "pydantic~=2.9.2",
     "backoff~=2.2.1",
     "tika~=2.6.0",

@@ -4,11 +4,10 @@ from genie_flow_invoker.invoker.docproc.chunk import LexicalDensitySplitInvoker
 from genie_flow_invoker.invoker.docproc.clean import DocumentCleanInvoker
 from genie_flow_invoker.invoker.docproc.embed import EmbedInvoker
 from genie_flow_invoker.invoker.docproc.model import (
-    ChunkedDocument,
     SimilaritySearch,
     SimilarityResults,
-    DocumentChunk,
 )
+from genie_flow_invoker.doc_proc import DocumentChunk, ChunkedDocument
 from genie_flow_invoker.invoker.docproc.similarity_search import SimilaritySearchInvoker
 
 

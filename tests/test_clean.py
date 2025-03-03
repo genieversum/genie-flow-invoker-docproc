@@ -1,7 +1,7 @@
 import re
 
 from genie_flow_invoker.invoker.docproc.clean import DocumentCleanInvoker, TextCleaner
-from genie_flow_invoker.invoker.docproc.model import ChunkedDocument
+from genie_flow_invoker.doc_proc import ChunkedDocument
 
 
 def test_no_cleaning(hamlet_content):

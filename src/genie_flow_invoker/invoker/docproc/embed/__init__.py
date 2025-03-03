@@ -11,7 +11,7 @@ from genie_flow_invoker.invoker.docproc.codec import (
     PydanticOutputEncoder,
 )
 from genie_flow_invoker.invoker.docproc.embed.manager import EmbeddingManager
-from genie_flow_invoker.invoker.docproc.model import ChunkedDocument
+from genie_flow_invoker.doc_proc import ChunkedDocument
 
 
 class EmbedInvoker(

@@ -10,8 +10,8 @@ from genie_flow_invoker.invoker.docproc.codec import (
 from genie_flow_invoker.invoker.docproc.model import (
     SimilaritySearch,
     SimilarityResults,
-    DocumentChunk,
 )
+from genie_flow_invoker.doc_proc import DocumentChunk
 from genie_flow_invoker.invoker.docproc.similarity_search.search import (
     SimilaritySearcher,
 )

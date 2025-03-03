@@ -6,7 +6,7 @@ import requests
 from pytest import fixture
 
 from genie_flow_invoker.invoker.docproc.clean.cleaner import TextCleaner
-from genie_flow_invoker.invoker.docproc.model import ChunkedDocument, DocumentChunk
+from genie_flow_invoker.doc_proc import DocumentChunk, ChunkedDocument
 
 
 @fixture

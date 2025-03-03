@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from genie_flow_invoker.invoker.docproc.model import DocumentChunk
+from genie_flow_invoker.doc_proc import DocumentChunk
 
 
 class AbstractSplitter(ABC):

@@ -1,4 +1,4 @@
-from datetime import time, datetime, timedelta
+from datetime import datetime, timedelta
 from functools import partial
 from http import HTTPStatus
 
@@ -6,7 +6,7 @@ import requests
 
 from genie_flow_invoker.invoker.docproc.embed import EmbedInvoker
 from genie_flow_invoker.invoker.docproc.embed.manager import EmbeddingManager
-from genie_flow_invoker.invoker.docproc.model import ChunkedDocument, DocumentChunk
+from genie_flow_invoker.doc_proc import DocumentChunk, ChunkedDocument
 from genie_flow_invoker.invoker.docproc.model.vectorizer import VectorResponse
 from conftest import MockRequestResponse
 

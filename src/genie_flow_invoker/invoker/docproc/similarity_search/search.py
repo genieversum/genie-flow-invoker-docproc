@@ -6,11 +6,7 @@ from numpy import dot, floating
 from numpy.linalg import norm
 from sortedcontainers import SortedList
 
-from genie_flow_invoker.invoker.docproc.model import (
-    DocumentChunk,
-    DistanceMethodType,
-    ChunkDistance,
-)
+from genie_flow_invoker.doc_proc import DocumentChunk, ChunkDistance, DistanceMethodType
 from genie_flow_invoker.invoker.docproc.similarity_search.db import (
     VectorDB,
     ChunkVector,

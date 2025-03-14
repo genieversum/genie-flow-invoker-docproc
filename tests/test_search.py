@@ -7,11 +7,10 @@ from numpy.linalg import norm
 import pytest
 
 from genie_flow_invoker.invoker.docproc.model import (
-    DocumentChunk,
-    DistanceMethodType,
     SimilaritySearch,
     SimilarityResults,
 )
+from genie_flow_invoker.doc_proc import DocumentChunk, DistanceMethodType
 from genie_flow_invoker.invoker.docproc.similarity_search import SimilaritySearchInvoker
 from genie_flow_invoker.invoker.docproc.similarity_search.search import SimilaritySearcher
 

@@ -5,7 +5,7 @@ from genie_flow_invoker.invoker.docproc.chunk import (
     LexicalDensitySplitter,
     LexicalDensitySplitInvoker,
 )
-from genie_flow_invoker.invoker.docproc.model import ChunkedDocument, DocumentChunk
+from genie_flow_invoker.doc_proc import DocumentChunk, ChunkedDocument
 
 
 def test_lexical_chunk_no_meaning():

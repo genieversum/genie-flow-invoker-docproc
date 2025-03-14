@@ -2,7 +2,7 @@ import base64
 
 from tika import parser
 
-from genie_flow_invoker.invoker.docproc.model import ChunkedDocument, RawDocumentFile, DocumentChunk
+from genie_flow_invoker.doc_proc import RawDocumentFile, DocumentChunk, ChunkedDocument
 
 from genie_flow_invoker.invoker.docproc.parse import DocumentParseInvoker
 

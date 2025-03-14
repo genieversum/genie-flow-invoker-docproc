@@ -8,8 +8,7 @@ from nltk import TreebankWordTokenizer, TreebankWordDetokenizer
 from loguru import logger
 
 from genie_flow_invoker.invoker.docproc.chunk import AbstractSplitter
-from genie_flow_invoker.invoker.docproc.model import DocumentChunk
-
+from genie_flow_invoker.doc_proc import DocumentChunk
 
 WordSpanIndex = NamedTuple(
     "WordSpanIndex",

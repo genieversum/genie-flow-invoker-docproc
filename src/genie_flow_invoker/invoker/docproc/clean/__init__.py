@@ -7,8 +7,7 @@ from genie_flow_invoker.invoker.docproc.codec import (
     PydanticInputDecoder,
     PydanticOutputEncoder,
 )
-from genie_flow_invoker.invoker.docproc.model import ChunkedDocument
-
+from genie_flow_invoker.doc_proc import ChunkedDocument
 
 SPECIAL_TERMS = {
     "i.e.": "%%IE%%",

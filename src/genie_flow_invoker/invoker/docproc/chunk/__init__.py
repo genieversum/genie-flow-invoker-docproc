@@ -133,3 +133,18 @@ class LexicalDensitySplitInvoker(AbstractSplitterInvoker):
         return cls(
             min_words, max_words, overlap, target_density, strategy, operation_level
         )
+
+
+class TranscriptSplitInvoker(AbstractSplitterInvoker):
+
+    @classmethod
+    def from_config(cls, config: dict):
+        """
+        Create a new TranscriptSplitInvoker instance from the configuration. The
+        configuration is only expected to contain the following key:
+        - `operation_level`: (int, default None) the hierarchy level
+        :param config: the configuration as ready from the meta.yaml file
+        :return: a new TranscriptSplitInvoker
+        """
+        operation_level = config.get("operation_level", None)
+        return cls(operation_level=operation_level)

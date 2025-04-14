@@ -210,6 +210,47 @@ do not have lexical density more than this will not be created.
 `strategy`
 : (default `best`) a string that can be either `shortest`, `best` or `longest`
 
+### Transcript Splitting
+A transcript in the form of a [WebVTT file](https://en.wikipedia.org/wiki/WebVTT) will be
+chunked in a chunk per speaker. So, a parent chunk containing the following:
+
+```plain
+WEBVTT
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/13-0
+00:00:03.317 --> 00:00:04.797
+<v Jochem Michiels>Maybe my English is a bit Dutch but.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/32-0
+00:00:06.807 --> 00:00:10.249
+<v Hanna Berg>OK. But before we start,
+I thought it might be good to have a</v>
+
+```
+will be split into two child-chunks, each pertaining to the captions in the example.
+
+Consecutive captions of the same speaker are merged into one `DocumentChunk`. 
+
+Every child chunk will have an `original_span` being the start and end second of the chunk.
+Also, the following custom attributes (available to Genie Flow invokers from version 0.6.4
+of the `genie-flow-invoker` package) will be added:
+
+`party_name`
+: the name of the speaker, if given in the transcript, or "UNKNOWN" if no name given.
+
+`seconds_start`
+: the second from the start of the transcript in which the statement started being made
+
+`seconds_end`
+: the second form the transcript in which the statement finished being made
+
+`duration`
+: the number of seconds the statement took being made
+
+`identifier`
+: an optional identifier if provided in the transcript 
+
+
 ## Embedding a Document - the `DocumentEmbedInvoker`
 Embedding, or [Word Embedding](https://en.wikipedia.org/wiki/Word_embedding) is the process
 of creating a vector that represents a word or piece of text. Based on these vectors, text

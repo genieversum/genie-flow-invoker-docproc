@@ -1,0 +1,3144 @@
+WEBVTT
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/13-0
+00:00:03.317 --> 00:00:04.797
+<v Jochem Michiels>Maybe my English is a bit Dutch but.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/32-0
+00:00:06.807 --> 00:00:10.249
+<v Jochem Michiels>OK. But before we start,
+I thought it might be good to have a</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/32-1
+00:00:10.249 --> 00:00:13.967
+<v Jochem Michiels>little intro across the group who we are,
+what our involvement is.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/73-0
+00:00:15.687 --> 00:00:20.515
+<v Jochem Michiels>Before we dive into what is Genie and I
+would like to hear from from the four of</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/73-1
+00:00:20.515 --> 00:00:24.151
+<v Jochem Michiels>you or maybe who could tell the story
+what it is you expect,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/73-2
+00:00:24.151 --> 00:00:28.919
+<v Jochem Michiels>because so far I only had a quick couple
+of lines of introduction about what it</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/73-3
+00:00:28.919 --> 00:00:32.077
+<v Jochem Michiels>should be.
+But I would like to hear from you what it</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/73-4
+00:00:32.077 --> 00:00:33.567
+<v Jochem Michiels>what the idea roughly is.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/100-0
+00:00:35.347 --> 00:00:41.655
+<v Jochem Michiels>I can start jogging from the Dutch office.
+Been at PA for 2 1/2 years in our data</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/100-1
+00:00:41.655 --> 00:00:46.347
+<v Jochem Michiels>science AI capability.
+Ish have done many many before it was</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/101-0
+00:00:44.807 --> 00:00:45.127
+<v Willem van Asperen>Fish.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/100-2
+00:00:46.347 --> 00:00:47.347
+<v Jochem Michiels>data science.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/151-0
+00:00:49.247 --> 00:00:54.048
+<v Jochem Michiels>I've I've done many projects with William
+on AI and implementing AI at our clients</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/151-1
+00:00:54.048 --> 00:00:58.618
+<v Jochem Michiels>started as a programmer but moved more
+towards the product owner delivery side</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/151-2
+00:00:58.618 --> 00:01:02.378
+<v Jochem Michiels>of AI and data science.
+And that's actually my role currently at</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/151-3
+00:01:02.378 --> 00:01:06.889
+<v Jochem Michiels>the junior team as well as one of the
+product owners to actually help deliver</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/151-4
+00:01:06.889 --> 00:01:09.087
+<v Jochem Michiels>with the team. These type of use case.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/171-0
+00:01:11.757 --> 00:01:15.548
+<v Jochem Michiels>I've been off for four months before,
+so I've freshly started two weeks ago,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/171-1
+00:01:15.548 --> 00:01:18.797
+<v Jochem Michiels>so fresh energy to get things started in
+the coming weeks, weeks.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/173-0
+00:01:21.347 --> 00:01:21.587
+<v Peter Mack>Good.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/220-0
+00:01:25.097 --> 00:01:30.165
+<v Willem van Asperen>Sure. Been with PA for 24 years now.
+I'm chief data scientist of BA.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/220-1
+00:01:30.165 --> 00:01:35.453
+<v Willem van Asperen>So I look after our data science and AI
+capability, not the capability.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/220-2
+00:01:35.453 --> 00:01:40.520
+<v Willem van Asperen>I don't like manage all these people.
+I just look at the cool stuff.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/220-3
+00:01:40.520 --> 00:01:43.017
+<v Willem van Asperen>So how do we do it? What do we do?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/223-0
+00:01:44.527 --> 00:01:45.487
+<v Willem van Asperen>As a consulting director.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/240-0
+00:01:47.167 --> 00:01:52.842
+<v Willem van Asperen>And I'm the the architect for the GD
+framework that we've created to enable us</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/240-1
+00:01:52.842 --> 00:01:54.207
+<v Willem van Asperen>to quickly develop.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/245-0
+00:01:55.087 --> 00:01:57.207
+<v Willem van Asperen>Smart and complex use cases.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/249-0
+00:01:59.787 --> 00:02:00.347
+<v Willem van Asperen>Seriously.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/251-0
+00:02:02.417 --> 00:02:02.577
+<v Willem van Asperen>Yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/298-0
+00:02:04.787 --> 00:02:08.358
+<v Daniel Ziekenoppasser-Powell>Yeah. Daniel, Zika. Pastor Powell,
+I'm business aix.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/298-1
+00:02:08.358 --> 00:02:13.140
+<v Daniel Ziekenoppasser-Powell>But I led the charge the last two months
+of the 2024 pulling together.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/298-2
+00:02:13.140 --> 00:02:18.394
+<v Daniel Ziekenoppasser-Powell>Genie agent use cases on behalf of Sam
+Bunting and say happy to see these now</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/298-3
+00:02:18.394 --> 00:02:23.581
+<v Daniel Ziekenoppasser-Powell>coming to life with those the week
+prioritised this being one of them across</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/298-4
+00:02:23.581 --> 00:02:25.467
+<v Daniel Ziekenoppasser-Powell>happy to see everyone again.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/300-0
+00:02:28.297 --> 00:02:28.577
+<v Jochem Michiels>Julia.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/310-0
+00:02:33.367 --> 00:02:37.687
+<v Julia Christian-Edwards>I actually let Nick go first king given I
+definitely jumped on his bandwagon.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/312-0
+00:02:40.037 --> 00:02:40.757
+<v Julia Christian-Edwards>Do you want to go?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/358-0
+00:02:45.727 --> 00:02:48.588
+<v Nick Dunlap>I am nick.
+I missed the the specific instructions</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/358-1
+00:02:48.588 --> 00:02:52.077
+<v Nick Dunlap>for the introduction,
+so I'll just copy what I heard before,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/334-0
+00:02:51.627 --> 00:02:52.107
+<v Jochem Michiels>There's no.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/358-2
+00:02:52.077 --> 00:02:54.995
+<v Nick Dunlap>which is, yeah,
+I I'm a managing consultant growth</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/358-3
+00:02:54.995 --> 00:02:57.913
+<v Nick Dunlap>strategy came over with the Cambridge
+acquisition,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/358-4
+00:02:57.913 --> 00:03:00.887
+<v Nick Dunlap>but MPA for eight years now with that TCG
+included.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/376-0
+00:03:02.447 --> 00:03:05.470
+<v Nick Dunlap>And I led the SN,
+the strategy and economics team when we</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/376-1
+00:03:05.470 --> 00:03:08.596
+<v Nick Dunlap>were coming up with the AI use cases.
+This was one of them.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/376-2
+00:03:08.596 --> 00:03:10.367
+<v Nick Dunlap>Sure was shared amongst others so.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/381-0
+00:03:12.087 --> 00:03:14.007
+<v Nick Dunlap>Excited to see it come to life?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/384-0
+00:03:16.557 --> 00:03:17.597
+<v Jochem Michiels>Thanks, ilia.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/453-0
+00:03:18.137 --> 00:03:20.896
+<v Julia Christian-Edwards>Yeah. Hi, I'm Julia.
+I sit in human insight.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/453-1
+00:03:20.896 --> 00:03:25.310
+<v Julia Christian-Edwards>And so we do a lot of work along with
+growth strategy with Nick's team.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/453-2
+00:03:25.310 --> 00:03:30.152
+<v Julia Christian-Edwards>So I'm a researcher within human insight.
+We have quantitative and qualitative</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/453-3
+00:03:30.152 --> 00:03:34.934
+<v Julia Christian-Edwards>researchers. I'm a quad specialist,
+but I've been kind of leading our efforts</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/453-4
+00:03:34.934 --> 00:03:40.083
+<v Julia Christian-Edwards>within human insight to kind of identify
+best use cases for AI within our research.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/453-5
+00:03:40.083 --> 00:03:43.577
+<v Julia Christian-Edwards>And one of the things where there's
+definitely a gap is.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/465-0
+00:03:44.367 --> 00:03:49.087
+<v Julia Christian-Edwards>Yeah, kind of analysing survey responses,
+be that qualitative or quantitative.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/529-0
+00:03:49.847 --> 00:03:53.903
+<v Julia Christian-Edwards>Quantitative data and that's where when
+kind of like, you know,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/529-1
+00:03:53.903 --> 00:03:58.783
+<v Julia Christian-Edwards>Nick was putting together these like
+propositions we realised there was kind</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/529-2
+00:03:58.783 --> 00:04:03.536
+<v Julia Christian-Edwards>of common ground there and yeah.
+So I'm kind of representing human insight</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/529-3
+00:04:03.536 --> 00:04:07.529
+<v Julia Christian-Edwards>in that context. But yeah,
+from a pure research point of view,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/529-4
+00:04:07.529 --> 00:04:12.092
+<v Julia Christian-Edwards>I suppose understanding of course that
+there's wider use cases for this</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/529-5
+00:04:12.092 --> 00:04:15.007
+<v Julia Christian-Edwards>particular tool.
+So be really interesting to.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/532-0
+00:04:15.767 --> 00:04:16.287
+<v Julia Christian-Edwards>See how that goes.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/534-0
+00:04:17.637 --> 00:04:18.317
+<v Jochem Michiels>Happy to have you.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/536-0
+00:04:19.927 --> 00:04:20.127
+<v Jochem Michiels>Peter.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/590-0
+00:04:21.357 --> 00:04:24.676
+<v Peter Mack>Yeah,
+I've been my work in energy utilities in</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/590-1
+00:04:24.676 --> 00:04:27.713
+<v Peter Mack>PNC,
+but I've previously been in Operation</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/590-2
+00:04:27.713 --> 00:04:31.667
+<v Peter Mack>licence as well,
+so I'm usually found in state critical</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/590-3
+00:04:31.667 --> 00:04:36.822
+<v Peter Mack>dirty environments helping people who do
+critical safety work for a job.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/590-4
+00:04:36.822 --> 00:04:40.918
+<v Peter Mack>So part of that is I look after the
+seller field account,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/590-5
+00:04:40.918 --> 00:04:46.637
+<v Peter Mack>which is a nuclear decommissioning site
+in West Cumbria and we did a client job.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/618-0
+00:04:47.447 --> 00:04:50.615
+<v Peter Mack>Middle of last year,
+which was helping them look at their</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/618-1
+00:04:50.615 --> 00:04:53.400
+<v Peter Mack>employee survey.
+So they use peakon same as we do.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/618-2
+00:04:53.400 --> 00:04:57.714
+<v Peter Mack>They've got an enormous amount of data.
+They had 75,000 comments one year, 75,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/618-3
+00:04:57.714 --> 00:04:59.407
+<v Peter Mack>000 comments the previous year.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/674-0
+00:05:00.027 --> 00:05:04.232
+<v Peter Mack>And I work with our colleagues in data
+science that the team is headed up by</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/674-1
+00:05:04.232 --> 00:05:06.962
+<v Peter Mack>Derek Van Gelder.
+And if several of you know him,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/674-2
+00:05:06.962 --> 00:05:09.583
+<v Peter Mack>so it was a combo absolute combo between
+P&amp;</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/674-3
+00:05:09.583 --> 00:05:13.951
+<v Peter Mack>C and data science bringing together.
+How do we help them see the wood from the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/674-4
+00:05:13.951 --> 00:05:16.681
+<v Peter Mack>trees in the survey?
+So what it can bring to this</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/674-5
+00:05:16.681 --> 00:05:20.285
+<v Peter Mack>collaboration is we've now developed a
+service, we call it 3D AI.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/674-6
+00:05:20.285 --> 00:05:24.107
+<v Peter Mack>So we've already developed a product and
+a service around this thing.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/732-0
+00:05:25.167 --> 00:05:29.301
+<v Peter Mack>So what we can bring to that is our
+knowledge of where the clients have found</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/732-1
+00:05:29.301 --> 00:05:32.163
+<v Peter Mack>the value in it.
+So there's another client that we've</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/732-2
+00:05:32.163 --> 00:05:35.025
+<v Peter Mack>deployed this on and that clients call PA
+Consulting.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/732-3
+00:05:35.025 --> 00:05:38.151
+<v Peter Mack>So we did it ourselves back in December
+on our own survey.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/732-4
+00:05:38.151 --> 00:05:42.497
+<v Peter Mack>So we've got the bait and comments from
+Helen Mullins and her team that explained</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/732-5
+00:05:42.497 --> 00:05:46.737
+<v Peter Mack>the value that they got from using our
+service 3D AI over and above the peak on</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/732-6
+00:05:46.737 --> 00:05:48.167
+<v Peter Mack>service because of regards.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/792-0
+00:05:48.817 --> 00:05:50.847
+<v Peter Mack>Employee surveys.
+And that's not everything.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/792-1
+00:05:50.847 --> 00:05:53.329
+<v Peter Mack>We're looking at.
+Some of the insights that are really</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/792-2
+00:05:53.329 --> 00:05:56.983
+<v Peter Mack>important is how we did it as a service,
+the process that we took through rather</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/792-3
+00:05:56.983 --> 00:05:59.779
+<v Peter Mack>than what pecun does,
+which is like you're having the product</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/792-4
+00:05:59.779 --> 00:06:02.847
+<v Peter Mack>whether you want it or not,
+you know you're getting it in a certain</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/792-5
+00:06:02.847 --> 00:06:04.877
+<v Peter Mack>way.
+And I'm hearing that a lot of the value</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/792-6
+00:06:04.877 --> 00:06:08.351
+<v Peter Mack>that seller field got a lot of value that
+Helen her team got is that service</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/792-7
+00:06:08.351 --> 00:06:10.877
+<v Peter Mack>elements as well as just the you're
+having the product.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/792-8
+00:06:10.877 --> 00:06:13.177
+<v Peter Mack>So hopefully I can contribute that inside
+as well.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/812-0
+00:06:14.657 --> 00:06:16.807
+<v Jochem Michiels>Cool,
+I was already interested in the link</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/812-1
+00:06:16.807 --> 00:06:20.407
+<v Jochem Michiels>between the work that Derek has done
+before, which I was familiar with.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/812-2
+00:06:20.407 --> 00:06:22.657
+<v Jochem Michiels>In this US case. So you are the link,
+Peter.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/815-0
+00:06:24.807 --> 00:06:25.647
+<v Peter Mack>Yes, exactly.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/818-0
+00:06:26.577 --> 00:06:28.137
+<v Jochem Michiels>Yeah, cool. Thanks, Susan.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/822-0
+00:06:30.147 --> 00:06:30.747
+<v Jochem Michiels>Good afternoon.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/834-0
+00:06:30.997 --> 00:06:34.735
+<v Susan Wade>But you can see why I've invited Pete to
+this call, so that's fantastic. Thank you,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/834-1
+00:06:34.735 --> 00:06:34.957
+<v Susan Wade>Pete.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/853-0
+00:06:36.607 --> 00:06:39.980
+<v Susan Wade>I am more pedantically this.
+The point of contact for people in change</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/853-1
+00:06:39.980 --> 00:06:42.877
+<v Susan Wade>and the work that Daniel kicked off at
+the end of last year.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/853-2
+00:06:42.877 --> 00:06:44.207
+<v Susan Wade>The discovery piece of work.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/906-0
+00:06:45.887 --> 00:06:50.464
+<v Susan Wade>And when we heard that this is that that
+survey Genie was one of the things survey</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/906-1
+00:06:50.464 --> 00:06:53.000
+<v Susan Wade>response.
+Jeannie was one of the foundational</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/906-2
+00:06:53.000 --> 00:06:55.701
+<v Susan Wade>things.
+I invited Pete and Michelle because that</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/906-3
+00:06:55.701 --> 00:07:00.002
+<v Susan Wade>that I think this foundational genie is
+kind of a enabler for both of the the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/906-4
+00:07:00.002 --> 00:07:02.207
+<v Susan Wade>more specific, detailed ideas that they.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/932-0
+00:07:02.767 --> 00:07:06.276
+<v Susan Wade>Proposed as part of that piece of work.
+So Pete's was around 3D AI,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/932-1
+00:07:06.276 --> 00:07:09.887
+<v Susan Wade>although I thought it was D3 AI.
+Have I been getting that wrong Pete?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/943-0
+00:07:09.677 --> 00:07:13.763
+<v Peter Mack>What they were talking about it, Susan.
+What time of day we're talking about it,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/937-0
+00:07:11.687 --> 00:07:12.087
+<v Susan Wade>What?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/943-1
+00:07:13.763 --> 00:07:14.317
+<v Peter Mack>it changes.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/946-0
+00:07:14.257 --> 00:07:16.097
+<v Susan Wade>It changes every day, I think, yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1039-0
+00:07:17.167 --> 00:07:20.707
+<v Susan Wade>Anyway, and Michelle is also and,
+and the team have proposed something</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1039-1
+00:07:20.707 --> 00:07:23.798
+<v Susan Wade>around Culture Genie,
+which which depends on some qualitative</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1039-2
+00:07:23.798 --> 00:07:26.589
+<v Susan Wade>data sources.
+So we thought that this would be a really</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1039-3
+00:07:26.589 --> 00:07:30.428
+<v Susan Wade>good foundational piece of work to start
+to get our our thinking in a linear</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1039-4
+00:07:30.428 --> 00:07:33.867
+<v Susan Wade>thinking around what does that
+foundational piece of work look like.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1039-5
+00:07:33.867 --> 00:07:37.207
+<v Susan Wade>So it can enable those more sophisticated
+solutions. So that's it.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1040-0
+00:07:38.957 --> 00:07:40.437
+<v Jochem Michiels>Thanks Michelle.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1071-0
+00:07:41.917 --> 00:07:45.879
+<v Michelle Burke>Hi everyone. Thank you for inviting me.
+So as Susan said, I yes,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1071-1
+00:07:45.879 --> 00:07:50.510
+<v Michelle Burke>I sit in people and change and my
+background is kind of specifically within</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1071-2
+00:07:50.510 --> 00:07:53.740
+<v Michelle Burke>culture change.
+So a lot of the work that we do with</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1071-3
+00:07:53.740 --> 00:07:54.837
+<v Michelle Burke>clients is around.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1091-0
+00:07:56.607 --> 00:07:58.708
+<v Michelle Burke>Culture,
+diagnostics and sort of helping them</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1091-1
+00:07:58.708 --> 00:08:02.088
+<v Michelle Burke>understand what their current culture
+looks like and how to sort of shape</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1091-2
+00:08:02.088 --> 00:08:03.367
+<v Michelle Burke>towards a desirable culture.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1111-0
+00:08:05.087 --> 00:08:08.513
+<v Michelle Burke>As part of that,
+a lot of the work that we do at the start</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1111-1
+00:08:08.513 --> 00:08:13.447
+<v Michelle Burke>is what we call looking under the surface,
+which is getting a real understanding of.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1150-0
+00:08:14.297 --> 00:08:20.313
+<v Michelle Burke>What the current culture looks like today
+based on what data is currently available.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1150-1
+00:08:20.313 --> 00:08:25.974
+<v Michelle Burke>So we do look at employee surveys like
+peak on as as Pete mentioned and lots of</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1150-2
+00:08:25.974 --> 00:08:31.777
+<v Michelle Burke>other kind of available resources that
+might be there. So we look at things like.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1172-0
+00:08:33.927 --> 00:08:38.931
+<v Michelle Burke>Glassdoor Insights LinkedIn data we also
+leverage tools which I think may be in</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1172-1
+00:08:38.931 --> 00:08:43.247
+<v Michelle Burke>human hindsights you might be familiar
+with with like port exchange.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1221-0
+00:08:44.307 --> 00:08:48.989
+<v Michelle Burke>And and kind of any other engagement
+interactive tools that we might be able</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1221-1
+00:08:48.989 --> 00:08:53.671
+<v Michelle Burke>to kind of I guess get insights from
+colleagues on their current experience.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1221-2
+00:08:53.671 --> 00:08:58.109
+<v Michelle Burke>So one of the ideas we had put forward
+was a culture genie which kind of</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1221-3
+00:08:58.109 --> 00:09:01.879
+<v Michelle Burke>consolidated all of those different
+insights to tell a story.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1221-4
+00:09:01.879 --> 00:09:05.587
+<v Michelle Burke>And obviously survey response Genie would
+kind of be a huge.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1238-0
+00:09:07.127 --> 00:09:10.696
+<v Michelle Burke>Part of that or really,
+really help us in in kind of developing</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1238-1
+00:09:10.696 --> 00:09:14.487
+<v Michelle Burke>more towards the culture GE. So yes,
+that's the sort of connection.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1243-0
+00:09:17.947 --> 00:09:20.107
+<v Jochem Michiels>Thanks. Thanks for everyone for joining.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1266-0
+00:09:21.687 --> 00:09:25.824
+<v Jochem Michiels>What I thought I thought might might be a
+good idea is that we quickly were William</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1266-1
+00:09:25.824 --> 00:09:29.567
+<v Jochem Michiels>and I or I will do a first shot and then
+ask William if I did any good job.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1317-0
+00:09:31.287 --> 00:09:35.181
+<v Jochem Michiels>To quickly explain what Genie ecosystem
+or the Genie platform is that we that we</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1317-1
+00:09:35.181 --> 00:09:39.219
+<v Jochem Michiels>have created and then I would like to ask
+one of you to elaborate a little bit more</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1317-2
+00:09:39.219 --> 00:09:42.969
+<v Jochem Michiels>on what the solution should roughly be
+and how do they need aligns and I will</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1317-3
+00:09:42.969 --> 00:09:46.671
+<v Jochem Michiels>ask Peter for the for the letter one,
+how did aligns with the work Derek has</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1317-4
+00:09:46.671 --> 00:09:47.247
+<v Jochem Michiels>done before.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1391-0
+00:09:50.317 --> 00:09:53.143
+<v Jochem Michiels>So to to start with to start with the
+first part,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1391-1
+00:09:53.143 --> 00:09:57.664
+<v Jochem Michiels>I think I wanted to pick one slide from
+the deck that we are creating to give a</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1391-2
+00:09:57.664 --> 00:10:01.733
+<v Jochem Michiels>rough idea. Over the last months,
+we have worked on the Genie ecosystem</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1391-3
+00:10:01.733 --> 00:10:05.915
+<v Jochem Michiels>that we actually made for ourselves,
+but also for our clients where Genie</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1391-4
+00:10:05.915 --> 00:10:10.606
+<v Jochem Michiels>exists or we where Genie exists or the OR
+the first building blocks to build these</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1391-5
+00:10:10.606 --> 00:10:13.771
+<v Jochem Michiels>AI solutions.
+So it's quite a technical product for our</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1391-6
+00:10:13.771 --> 00:10:14.957
+<v Jochem Michiels>clients, I would say.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1467-0
+00:10:16.027 --> 00:10:20.343
+<v Jochem Michiels>But what we see at many of our clients
+and what we try to do with MP ourselves</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1467-1
+00:10:20.343 --> 00:10:24.823
+<v Jochem Michiels>is that many of these AI solutions are
+one off solutions. They come with an idea,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1467-2
+00:10:24.823 --> 00:10:28.320
+<v Jochem Michiels>they think of a way to approach it.
+They implemented a bill it,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1467-3
+00:10:28.320 --> 00:10:31.707
+<v Jochem Michiels>but they forget, OK,
+we need to to maintain it and we need to</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1467-4
+00:10:31.707 --> 00:10:35.531
+<v Jochem Michiels>improve it for the rest of,
+for the rest of the life of its products.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1467-5
+00:10:35.531 --> 00:10:39.683
+<v Jochem Michiels>So what we try to do with Genie is to
+create a common approach to build all</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1467-6
+00:10:39.683 --> 00:10:41.267
+<v Jochem Michiels>these AI solutions. It's not.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1476-0
+00:10:42.157 --> 00:10:44.637
+<v Jochem Michiels>A click and play solution.
+It's more for the technical people.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1548-0
+00:10:45.907 --> 00:10:50.787
+<v Jochem Michiels>A scalable architecture and the
+fundamental groundwork to to create these</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1548-1
+00:10:50.787 --> 00:10:55.337
+<v Jochem Michiels>US cases where Silver Genie could be one
+of the good examples of it.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1548-2
+00:10:55.337 --> 00:10:59.821
+<v Jochem Michiels>So for the more technical departments of
+our clients and ourselves,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1548-3
+00:10:59.821 --> 00:11:03.777
+<v Jochem Michiels>it's builds the genie flow.
+The central piece where we can,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1548-4
+00:11:03.777 --> 00:11:08.723
+<v Jochem Michiels>where we have the flexibility to create
+the logic of what we wanted to do.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1548-5
+00:11:08.723 --> 00:11:13.603
+<v Jochem Michiels>It's kind of the orchestration of the
+tool that we're going to create for</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1548-6
+00:11:13.603 --> 00:11:14.987
+<v Jochem Michiels>server Genie as well.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1562-0
+00:11:15.647 --> 00:11:19.556
+<v Jochem Michiels>It's the first we need to do this.
+Then there needs to create some some</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1562-1
+00:11:19.556 --> 00:11:20.967
+<v Jochem Michiels>magic. Then we need to do.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1590-0
+00:11:22.517 --> 00:11:26.878
+<v Jochem Michiels>Or process the results in a certain way.
+Then we need to do it the next step the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1590-1
+00:11:26.878 --> 00:11:31.077
+<v Jochem Michiels>the basic building blocks allows us to
+build whatever each AI tool should do.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1622-0
+00:11:32.757 --> 00:11:35.886
+<v Jochem Michiels>Based on that,
+we can connect to all the data source,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1622-1
+00:11:35.886 --> 00:11:39.825
+<v Jochem Michiels>all the large language models.
+We can use the open AI link or large</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1622-2
+00:11:39.825 --> 00:11:43.127
+<v Jochem Michiels>language model.
+We can create a local one ourselves with</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1622-3
+00:11:43.127 --> 00:11:46.197
+<v Jochem Michiels>all the development that's going on in
+the AI space.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1661-0
+00:11:46.777 --> 00:11:50.451
+<v Jochem Michiels>So actually it gives us the flexibility
+to build much quicker.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1661-1
+00:11:50.451 --> 00:11:54.824
+<v Jochem Michiels>What we're looking for in this in this
+use case and we didn't build it for</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1661-2
+00:11:54.824 --> 00:11:57.914
+<v Jochem Michiels>ourselves.
+We built it for PA and we bring it to our</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1661-3
+00:11:57.914 --> 00:12:01.937
+<v Jochem Michiels>clients as well as with the example of
+seller field, I think, Peter.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1685-0
+00:12:03.517 --> 00:12:08.133
+<v Jochem Michiels>So we have a team of four,
+four or five people in the in the AI</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1685-1
+00:12:08.133 --> 00:12:12.677
+<v Jochem Michiels>capabilities are actually working on this
+as Daniel mentioned.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1699-0
+00:12:14.717 --> 00:12:19.969
+<v Jochem Michiels>Based on some bundings,
+we prioritised 5 use cases to build for</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1699-1
+00:12:19.969 --> 00:12:21.117
+<v Jochem Michiels>for PA itself.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1729-0
+00:12:22.207 --> 00:12:26.608
+<v Jochem Michiels>We have a team day next Thursday this
+week to actually speak about this use</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1729-1
+00:12:26.608 --> 00:12:29.792
+<v Jochem Michiels>case as well,
+so hopefully this call is a good initial</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1729-2
+00:12:29.792 --> 00:12:34.192
+<v Jochem Michiels>call for us to get a sense of what we
+need to build so I can go back to the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1729-3
+00:12:34.192 --> 00:12:37.087
+<v Jochem Michiels>team to see how, how,
+how long we think it takes.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1736-0
+00:12:38.637 --> 00:12:40.717
+<v Jochem Michiels>And scope scope properly, so we can.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1742-0
+00:12:42.677 --> 00:12:44.717
+<v Jochem Michiels>Deliver something in the upcoming 2-3
+months.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1748-0
+00:12:46.387 --> 00:12:48.027
+<v Jochem Michiels>We want to do that is a little bit in.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1793-0
+00:12:50.397 --> 00:12:54.001
+<v Jochem Michiels>A sequential approach it's I think it's
+my job to scope it in a way that's</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1793-1
+00:12:54.001 --> 00:12:57.556
+<v Jochem Michiels>feasible and to say OK with the first
+initial or the first version of the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1793-2
+00:12:57.556 --> 00:13:00.438
+<v Jochem Michiels>product should have these features.
+If we're happy with it,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1793-3
+00:13:00.438 --> 00:13:03.177
+<v Jochem Michiels>we continue with the other ones.
+If we're happy with it,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1793-4
+00:13:03.177 --> 00:13:05.483
+<v Jochem Michiels>we keep continuing with it with extra
+features.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1793-5
+00:13:05.483 --> 00:13:08.317
+<v Jochem Michiels>I think that's going to going to be my
+job for this group.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1809-0
+00:13:09.917 --> 00:13:14.793
+<v Jochem Michiels>I wanted to create every month a session
+with everyone so we can update everyone</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1809-1
+00:13:14.793 --> 00:13:15.997
+<v Jochem Michiels>on the progress but.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1824-0
+00:13:16.507 --> 00:13:21.542
+<v Jochem Michiels>Like to have with some of you one or two
+of you more regularly contact to keep</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1824-1
+00:13:21.542 --> 00:13:24.027
+<v Jochem Michiels>evolving in the in the right direction.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1827-0
+00:13:26.667 --> 00:13:28.147
+<v Jochem Michiels>Anything to add William or Daniel?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1831-0
+00:13:33.917 --> 00:13:34.917
+<v Daniel Ziekenoppasser-Powell>And he hit the.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1861-0
+00:13:37.477 --> 00:13:42.018
+<v Jochem Michiels>Then the the, the the big open question.
+Who can I give or hand it over to to</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1861-1
+00:13:42.018 --> 00:13:45.452
+<v Jochem Michiels>explain what survey,
+genie or survey Response Genie should</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1861-2
+00:13:45.452 --> 00:13:45.917
+<v Jochem Michiels>roughly?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1872-0
+00:13:48.157 --> 00:13:50.757
+<v Jochem Michiels>Be become or should roughly become.
+I would say I should say.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1889-0
+00:13:53.917 --> 00:13:58.748
+<v Nick Dunlap>I think I missed the memo on explaining
+what I wanted out of it in my intro,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1889-1
+00:13:58.748 --> 00:13:59.877
+<v Nick Dunlap>so I can kick off.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1898-0
+00:14:01.397 --> 00:14:02.997
+<v Nick Dunlap>The vision we had when we first submitted
+it.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1928-0
+00:14:05.397 --> 00:14:10.307
+<v Nick Dunlap>I think how we were thinking about it was
+just being able to take unstructured</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1928-1
+00:14:10.307 --> 00:14:15.279
+<v Nick Dunlap>textual data structure or unstructured
+textual data and be able to query it for</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1928-2
+00:14:15.279 --> 00:14:16.397
+<v Nick Dunlap>themes and quotes.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1941-0
+00:14:19.437 --> 00:14:23.797
+<v Nick Dunlap>That I think that three forms of data
+that we thought would be most interesting.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1994-0
+00:14:24.397 --> 00:14:29.326
+<v Nick Dunlap>At least from growth strategy and human
+insights likely would be on the one hand,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1994-1
+00:14:29.326 --> 00:14:34.014
+<v Nick Dunlap>you know highly structured and predict
+and contextualised data in the form of</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1994-2
+00:14:34.014 --> 00:14:36.959
+<v Nick Dunlap>you know,
+an open response within a quantitative</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1994-3
+00:14:36.959 --> 00:14:40.865
+<v Nick Dunlap>survey to a specific question.
+So everyone is answering the same</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1994-4
+00:14:40.865 --> 00:14:45.192
+<v Nick Dunlap>question or set of questions.
+And so you have a lot of context there as</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1994-5
+00:14:45.192 --> 00:14:48.197
+<v Nick Dunlap>to why they're asking.
+It's probably the easiest.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/1997-0
+00:14:49.397 --> 00:14:49.717
+<v Nick Dunlap>Version of it.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2002-0
+00:14:51.797 --> 00:14:53.997
+<v Nick Dunlap>On the other side is.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2053-0
+00:14:54.627 --> 00:15:00.286
+<v Nick Dunlap>Pulling me in social media chatter that
+you hope to uncover certain themes that I</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2053-1
+00:15:00.286 --> 00:15:06.083
+<v Nick Dunlap>think is that this is a hope maybe isn't
+the requirement, but I hope that it could.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2053-2
+00:15:06.083 --> 00:15:09.534
+<v Nick Dunlap>Do, you know,
+dumping in 2000 Reddit comments and</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2053-3
+00:15:09.534 --> 00:15:14.710
+<v Nick Dunlap>threads and whatnot and being able to
+explore for themes around, you know,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2053-4
+00:15:14.710 --> 00:15:19.747
+<v Nick Dunlap>driving, driving drivers of choice,
+pain points, preferences, et cetera.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2079-0
+00:15:20.717 --> 00:15:25.282
+<v Nick Dunlap>That's a little bit more unstructured and
+then become structured once you can</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2079-1
+00:15:25.282 --> 00:15:27.856
+<v Nick Dunlap>understand what's going on within the
+data.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2079-2
+00:15:27.856 --> 00:15:30.957
+<v Nick Dunlap>And then in the middle between those two
+I think is.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2091-0
+00:15:33.237 --> 00:15:38.292
+<v Nick Dunlap>You know,
+survey or sorry interview transcripts or</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2091-1
+00:15:38.292 --> 00:15:39.877
+<v Nick Dunlap>interview notes.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2159-0
+00:15:41.437 --> 00:15:44.462
+<v Nick Dunlap>The hope being you could drop in,
+you know,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2159-1
+00:15:44.462 --> 00:15:49.961
+<v Nick Dunlap>in humid insights and grow strategy 1
+gross strategy project I know is going to</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2159-2
+00:15:49.961 --> 00:15:54.085
+<v Nick Dunlap>have like 200 ideas,
+so it's 260 minute consumer interviews</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2159-3
+00:15:54.085 --> 00:15:59.446
+<v Nick Dunlap>and it just becomes extremely unwieldy to
+pull quotes to summarise across 200</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2159-4
+00:15:59.446 --> 00:16:04.670
+<v Nick Dunlap>responses in a in a faithful manner but
+being able to upload 200 transcript</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2159-5
+00:16:04.670 --> 00:16:05.357
+<v Nick Dunlap>documents.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2163-0
+00:16:06.477 --> 00:16:07.677
+<v Nick Dunlap>Or 200 note documents.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2194-0
+00:16:10.007 --> 00:16:15.683
+<v Nick Dunlap>And being able to have it pull together
+themes obviously guided by the person</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2194-1
+00:16:15.683 --> 00:16:21.649
+<v Nick Dunlap>running it as well as pull representative
+quotes those I think are the three main</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2194-2
+00:16:21.649 --> 00:16:26.887
+<v Nick Dunlap>use cases we thought of from gross
+strategy and and S&amp;E as a whole.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2197-0
+00:16:28.397 --> 00:16:29.117
+<v Nick Dunlap>When we when we brought this.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2225-0
+00:16:35.517 --> 00:16:39.900
+<v Jochem Michiels>Everyone agrees with this view,
+or at least it, and maybe for me,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2225-1
+00:16:39.900 --> 00:16:45.477
+<v Jochem Michiels>because I'm not too familiar which group
+everyone's exists or everyone is with MPA.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2233-0
+00:16:47.937 --> 00:16:50.697
+<v Jochem Michiels>Are you all working on the same projects
+or is this?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2237-0
+00:16:52.397 --> 00:16:53.357
+<v Jochem Michiels>Five groups over MPA.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2240-0
+00:16:53.337 --> 00:16:55.217
+<v Peter Mack>I'm definitely all working on different
+things.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2264-0
+00:16:56.717 --> 00:16:58.871
+<v Peter Mack>But for what it's worth, as a summary,
+nick,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2264-1
+00:16:58.871 --> 00:17:01.647
+<v Peter Mack>that that makes that makes sense to me.
+I mean, you know,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2264-2
+00:17:01.647 --> 00:17:04.997
+<v Peter Mack>I could argue for a fourth one or fifth
+one, but you know as a broad.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2271-0
+00:17:06.837 --> 00:17:10.202
+<v Peter Mack>Scheme of what's possible.
+I think that covers really important</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2271-1
+00:17:10.202 --> 00:17:10.517
+<v Peter Mack>areas.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2301-0
+00:17:12.757 --> 00:17:16.412
+<v Jochem Michiels>If it is what I understood as well from
+the word Derek has done,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2301-1
+00:17:16.412 --> 00:17:20.574
+<v Jochem Michiels>sometimes we do this work with PEACON,
+but if we if we do them ourselves,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2301-2
+00:17:20.574 --> 00:17:23.835
+<v Jochem Michiels>what tool do we use?
+How do we collect these answers from</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2301-3
+00:17:23.835 --> 00:17:24.397
+<v Jochem Michiels>employees?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2326-0
+00:17:25.047 --> 00:17:29.112
+<v Peter Mack>Well, I mean, just from my own experience.
+So what I've done employee survey just</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2326-1
+00:17:29.112 --> 00:17:33.127
+<v Peter Mack>out through team surveys and therefore
+you get a whole day to them that you just</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2325-0
+00:17:31.577 --> 00:17:31.977
+<v Willem van Asperen>Mm hmm mm hmm.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2326-2
+00:17:33.127 --> 00:17:34.167
+<v Peter Mack>import through Excel.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2376-0
+00:17:35.757 --> 00:17:40.935
+<v Peter Mack>So there's various ways to do it. I mean,
+so we those are when people have changed,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2376-1
+00:17:40.935 --> 00:17:45.866
+<v Peter Mack>we work with clients that are using very
+well established survey companies like</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2376-2
+00:17:45.866 --> 00:17:49.565
+<v Peter Mack>Gallup, like pecan,
+but may not be getting in spite of that</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2376-3
+00:17:49.565 --> 00:17:53.078
+<v Peter Mack>and still not be getting to the critical
+insights in it.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2376-4
+00:17:53.078 --> 00:17:57.516
+<v Peter Mack>So to what typically happens in employee
+survey world, Gallup or pecan,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2376-5
+00:17:57.516 --> 00:17:58.317
+<v Peter Mack>if it is you.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2446-0
+00:17:59.077 --> 00:18:02.363
+<v Peter Mack>The numerical data gives you the quant
+back through their prism,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2391-0
+00:18:01.677 --> 00:18:01.877
+<v Willem van Asperen>Mm hmm.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2446-1
+00:18:02.363 --> 00:18:05.395
+<v Peter Mack>right through their lens and peak on its
+40 odd dimensions.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2446-2
+00:18:05.395 --> 00:18:08.832
+<v Peter Mack>Now I don't know what the hell you do
+with 40 different dimensions.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2446-3
+00:18:08.832 --> 00:18:12.673
+<v Peter Mack>Apart from look at the one that's lowest
+and that's what typically happens.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2446-4
+00:18:12.673 --> 00:18:16.717
+<v Peter Mack>And then as regards comments and anyone
+who's had to do this recently for their</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2446-5
+00:18:16.717 --> 00:18:20.861
+<v Peter Mack>capability or know some poor person just
+gets thrown in Excel where there you go.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2446-6
+00:18:20.861 --> 00:18:24.905
+<v Peter Mack>The 3000 comments of people and change
+makes sense to those come up with action</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2445-0
+00:18:23.667 --> 00:18:24.387
+<v Jochem Michiels>And the results.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2446-7
+00:18:24.905 --> 00:18:25.157
+<v Peter Mack>plan.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2458-0
+00:18:25.997 --> 00:18:29.575
+<v Peter Mack>Which is a really possible for me.
+There's something in this just sort of</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2458-1
+00:18:29.575 --> 00:18:30.397
+<v Peter Mack>think about this.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2522-0
+00:18:31.427 --> 00:18:35.068
+<v Peter Mack>That is about the part of the value that
+this whole thing does.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2522-1
+00:18:35.068 --> 00:18:39.505
+<v Peter Mack>Is it debiases what humans will have to
+bias if you throw a large data set of</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2522-2
+00:18:39.505 --> 00:18:42.293
+<v Peter Mack>humans?
+So if you throw me even 1000 comments to</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2522-3
+00:18:42.293 --> 00:18:45.934
+<v Peter Mack>deal with, never mind 3000.
+I mean never to be going to go off.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2522-4
+00:18:45.934 --> 00:18:49.631
+<v Peter Mack>All right, there's a bunch of categories,
+call it 10 categories,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2522-5
+00:18:49.631 --> 00:18:53.784
+<v Peter Mack>and then you start to get tied.
+You start to get bored when you get into</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2522-6
+00:18:53.784 --> 00:18:55.547
+<v Peter Mack>about 200 comments. Oh, that's.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2540-0
+00:18:56.677 --> 00:18:58.932
+<v Peter Mack>That's probably about leadership.
+It's good enough. Oh,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2540-1
+00:18:58.932 --> 00:19:01.790
+<v Peter Mack>that's kind of about communication.
+It's good enough. And right there,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2540-2
+00:19:01.790 --> 00:19:02.957
+<v Peter Mack>my human bias of being tired.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2580-0
+00:19:03.627 --> 00:19:05.850
+<v Peter Mack>And viewing categories of certain way
+kicks in.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2549-0
+00:19:03.837 --> 00:19:04.037
+<v Willem van Asperen>Mm hmm.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2580-1
+00:19:05.850 --> 00:19:09.554
+<v Peter Mack>So the big part of this value is it gets
+around that because the AI doesn't get</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2580-2
+00:19:09.554 --> 00:19:13.211
+<v Peter Mack>tied and it delivers back the categories
+that are really there rather than the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2580-3
+00:19:13.211 --> 00:19:15.387
+<v Peter Mack>categories that we think it ought to be
+there.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2584-0
+00:19:16.347 --> 00:19:17.547
+<v Jochem Michiels>We've seen with other clients before.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2659-0
+00:19:16.797 --> 00:19:21.656
+<v Julia Christian-Edwards>I think that's a really. Oh, sorry.
+I I was just going to add to build on</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2588-0
+00:19:18.777 --> 00:19:18.937
+<v Peter Mack>Yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2603-0
+00:19:19.537 --> 00:19:22.937
+<v Willem van Asperen>But no, no, go ahead. Go ahead. Go ahead.
+Go ahead.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2659-1
+00:19:21.656 --> 00:19:27.040
+<v Julia Christian-Edwards>that Peter, I think that's really good.
+A really good summary of the challenge of</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2659-2
+00:19:27.040 --> 00:19:32.030
+<v Julia Christian-Edwards>like qualitative analysis, right.
+But though you describe that you know the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2659-3
+00:19:32.030 --> 00:19:35.378
+<v Julia Christian-Edwards>3000 comments,
+so that's obviously an overwhelming</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2659-4
+00:19:35.378 --> 00:19:39.712
+<v Julia Christian-Edwards>number of things to have to read through
+and classified that way.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2659-5
+00:19:39.712 --> 00:19:42.797
+<v Julia Christian-Edwards>I suppose when I think about qualitative
+data.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2668-0
+00:19:43.597 --> 00:19:46.620
+<v Julia Christian-Edwards>There's another,
+I guess category as well and that</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2668-1
+00:19:46.620 --> 00:19:48.397
+<v Julia Christian-Edwards>presents another challenge is.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2741-0
+00:19:49.417 --> 00:19:53.126
+<v Julia Christian-Edwards>In depth interviews with one person or
+two people or a small group,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2741-1
+00:19:53.126 --> 00:19:57.217
+<v Julia Christian-Edwards>so where we'll speak to someone on a
+conversation like this on zoom for an</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2741-2
+00:19:57.217 --> 00:19:59.836
+<v Julia Christian-Edwards>hour,
+maybe 90 minutes and you end up with your</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2741-3
+00:19:59.836 --> 00:20:04.254
+<v Julia Christian-Edwards>massive transcript. And as the moderator,
+you can remember like 5 things because</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2696-0
+00:20:00.857 --> 00:20:01.217
+<v Willem van Asperen>Mm hmm yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2741-4
+00:20:04.254 --> 00:20:06.872
+<v Julia Christian-Edwards>you've been, you know,
+you've been so in depth.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2741-5
+00:20:06.872 --> 00:20:10.199
+<v Julia Christian-Edwards>You have a feeling,
+you have some like Nuggets in your head,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2720-0
+00:20:07.447 --> 00:20:07.607
+<v Willem van Asperen>Yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2741-6
+00:20:10.199 --> 00:20:13.308
+<v Julia Christian-Edwards>but then you conduct twenty of these
+things or 200 Nick,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2741-7
+00:20:13.308 --> 00:20:15.817
+<v Julia Christian-Edwards>that I'm really glad I'm not on that
+project.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2765-0
+00:20:16.597 --> 00:20:19.560
+<v Julia Christian-Edwards>And you know,
+and that's just like the shave volume and</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2765-1
+00:20:19.560 --> 00:20:23.157
+<v Julia Christian-Edwards>the depth of the themes.
+So I think just really being able to like.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2831-0
+00:20:23.717 --> 00:20:28.862
+<v Julia Christian-Edwards>Uncover the like the nuances and like
+differences by respondent type and so on.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2774-0
+00:20:26.687 --> 00:20:26.887
+<v Willem van Asperen>Mm hmm.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2831-1
+00:20:28.862 --> 00:20:33.042
+<v Julia Christian-Edwards>That's really interesting too,
+something that you as like a qual</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2831-2
+00:20:33.042 --> 00:20:36.386
+<v Julia Christian-Edwards>moderator.
+You you're not able to kind of do on the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2831-3
+00:20:36.386 --> 00:20:39.087
+<v Julia Christian-Edwards>fly,
+so actually getting to that level of</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2831-4
+00:20:39.087 --> 00:20:42.303
+<v Julia Christian-Edwards>actually,
+you know people in this type of role or</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2831-5
+00:20:42.303 --> 00:20:47.448
+<v Julia Christian-Edwards>industry or whatever tended to be more
+positive about this thing or that that's</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2831-6
+00:20:47.448 --> 00:20:50.277
+<v Julia Christian-Edwards>not necessarily something that's very
+easy.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2834-0
+00:20:51.117 --> 00:20:52.157
+<v Julia Christian-Edwards>In traditional analysis.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2844-0
+00:20:53.377 --> 00:20:56.797
+<v Julia Christian-Edwards>So yeah,
+it's kind of like breadth and depth in</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2844-1
+00:20:56.797 --> 00:20:57.937
+<v Julia Christian-Edwards>core that, yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2851-0
+00:20:58.367 --> 00:21:01.127
+<v Jochem Michiels>It becomes difficult if you have many
+interviews I I think.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2920-0
+00:21:02.037 --> 00:21:05.177
+<v Julia Christian-Edwards>Yeah, totally.
+And and in my experience of just playing</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2920-1
+00:21:05.177 --> 00:21:08.766
+<v Julia Christian-Edwards>around with, you know,
+like transcripts on copilot or whatever,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2920-2
+00:21:08.766 --> 00:21:13.476
+<v Julia Christian-Edwards>it's it's really hard because you it just
+gets lost and you don't get to that depth</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2920-3
+00:21:13.476 --> 00:21:17.906
+<v Julia Christian-Edwards>and it starts to feed you the same stuff
+or it prioritises certain transcripts</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2920-4
+00:21:17.906 --> 00:21:20.709
+<v Julia Christian-Edwards>over others.
+We also have a challenge with, like,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2906-0
+00:21:18.527 --> 00:21:18.687
+<v Willem van Asperen>Yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2920-5
+00:21:20.709 --> 00:21:24.354
+<v Julia Christian-Edwards>the format of the transcripts,
+depending on what platform you're</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2920-6
+00:21:24.354 --> 00:21:27.157
+<v Julia Christian-Edwards>conducting the interviews on. And like,
+yeah, so.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2926-0
+00:21:27.957 --> 00:21:29.997
+<v Julia Christian-Edwards>It's. Yeah, there's a real need for sure.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2965-0
+00:21:29.487 --> 00:21:32.613
+<v Willem van Asperen>I don't. There's a.
+There's a reason why we have Genie,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2965-1
+00:21:32.613 --> 00:21:36.854
+<v Willem van Asperen>because copilot only brings you this far
+as soon as it becomes a little bit</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2948-0
+00:21:34.917 --> 00:21:35.677
+<v Julia Christian-Edwards>Yes, exactly.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2965-2
+00:21:36.854 --> 00:21:39.980
+<v Willem van Asperen>complex or a little bit vague.
+You need more structure.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2965-3
+00:21:39.980 --> 00:21:43.607
+<v Willem van Asperen>You need to guide it,
+and that's why we we create a genie, yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2968-0
+00:21:42.627 --> 00:21:45.027
+<v Julia Christian-Edwards>Yeah. Yeah, exactly. So thank you.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2971-0
+00:21:46.067 --> 00:21:46.227
+<v Willem van Asperen>Yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/2970-0
+00:21:46.667 --> 00:21:46.987
+<v Jochem Michiels>Susan.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3036-0
+00:21:50.467 --> 00:21:53.193
+<v Susan Wade>I won't.
+I'm really glad you brought it up. Julia.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3036-1
+00:21:53.193 --> 00:21:56.078
+<v Susan Wade>Julia 'cause.
+I just came out of a project where that</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3036-2
+00:21:56.078 --> 00:21:59.124
+<v Susan Wade>was the exact situation. 12 interviews,
+hour long. Well,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3036-3
+00:21:59.124 --> 00:22:02.864
+<v Susan Wade>hour long and then times two.
+And it you could copilot would tell you</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3036-4
+00:22:02.864 --> 00:22:06.284
+<v Susan Wade>basically the agenda,
+but they didn't tell you the content that</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3036-5
+00:22:06.284 --> 00:22:10.078
+<v Susan Wade>was discussed under those topic items.
+So I had to go in and then say,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3036-6
+00:22:10.078 --> 00:22:14.246
+<v Susan Wade>tell me one by one and interrogate.
+Tell me specifically what they what their</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3036-7
+00:22:14.246 --> 00:22:18.307
+<v Susan Wade>comments were around this. But, you know,
+managing demand, whatever it was.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3039-0
+00:22:19.077 --> 00:22:19.597
+<v Susan Wade>And then I had to.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3103-0
+00:22:20.097 --> 00:22:24.717
+<v Susan Wade>It was ended up being a multi stage kind
+of approach which wasn't consistent</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3103-1
+00:22:24.717 --> 00:22:27.477
+<v Susan Wade>across.
+So if there is a a way to get to that</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3103-2
+00:22:27.477 --> 00:22:32.517
+<v Susan Wade>depth and and the deep then the specific
+examples and quotes that can support that,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3103-3
+00:22:32.517 --> 00:22:37.197
+<v Susan Wade>that would be super helpful and I'm I
+think it's it's not just in the context</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3103-4
+00:22:37.197 --> 00:22:41.337
+<v Susan Wade>of research it is in the context of
+across streams to accelerate the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3103-5
+00:22:41.337 --> 00:22:45.717
+<v Susan Wade>beginning parts of all of our projects so
+that we can be doing this with</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3103-6
+00:22:45.717 --> 00:22:49.137
+<v Susan Wade>stakeholders.
+We could be getting the depth of insights.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3141-0
+00:22:50.197 --> 00:22:53.320
+<v Susan Wade>And ready to go.
+And as as kind of part of our Arsenal</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3141-1
+00:22:53.320 --> 00:22:56.612
+<v Susan Wade>tool kit to to,
+to scale up our teams and to get us going</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3141-2
+00:22:56.612 --> 00:22:59.224
+<v Susan Wade>faster.
+It's it's not just from in service of</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3141-3
+00:22:59.224 --> 00:23:02.573
+<v Susan Wade>research outputs,
+but it is actually accelerating our time</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3141-4
+00:23:02.573 --> 00:23:04.957
+<v Susan Wade>to be delivering outcomes for our clients.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3196-0
+00:23:05.137 --> 00:23:09.570
+<v Jochem Michiels>And I think that's exactly something we
+could that we could build into genie that</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3196-1
+00:23:09.570 --> 00:23:13.678
+<v Jochem Michiels>at first analyses the themes per each
+individual transcript and then does a</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3196-2
+00:23:13.678 --> 00:23:18.003
+<v Jochem Michiels>general analysis afterwards over all the
+themes for each individual transcript.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3196-3
+00:23:18.003 --> 00:23:22.436
+<v Jochem Michiels>So that's exactly what we had think over
+the last coming weeks are going to spend</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3196-4
+00:23:22.436 --> 00:23:25.517
+<v Jochem Michiels>a lot of time on how does it look like,
+what do we want,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3196-5
+00:23:25.517 --> 00:23:28.057
+<v Jochem Michiels>what is the first benefit that we could
+reach.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3199-0
+00:23:29.737 --> 00:23:29.937
+<v Susan Wade>Mm hmm.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3200-0
+00:23:30.117 --> 00:23:30.477
+<v Jochem Michiels>Peter.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3251-0
+00:23:30.807 --> 00:23:35.012
+<v Peter Mack>It's something I can input at the right
+time and the right time might well not be.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3251-1
+00:23:35.012 --> 00:23:39.216
+<v Peter Mack>Now is the the insights that Derek and I
+took out of the the value the clients got</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3251-2
+00:23:39.216 --> 00:23:41.495
+<v Peter Mack>out.
+Some of the things that we did with the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3251-3
+00:23:41.495 --> 00:23:45.598
+<v Peter Mack>three DI analysis as well as the the fact
+we offered it as a service rather than</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3251-4
+00:23:45.598 --> 00:23:48.435
+<v Peter Mack>just a process,
+there was something incredibly powerful</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3251-5
+00:23:48.435 --> 00:23:50.207
+<v Peter Mack>about just the voice of the people.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3282-0
+00:23:51.717 --> 00:23:53.772
+<v Peter Mack>Coming to the top,
+whatever the people are saying,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3282-1
+00:23:53.772 --> 00:23:56.309
+<v Peter Mack>so you take the pecon survey in
+Sellafield, same as us, right?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3282-2
+00:23:56.309 --> 00:23:58.605
+<v Peter Mack>45 odd questions and there's questions
+about leadership.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3282-3
+00:23:58.605 --> 00:24:01.908
+<v Peter Mack>There's questions about communications.
+What you find is that people don't answer</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3282-4
+00:24:01.908 --> 00:24:03.317
+<v Peter Mack>questions in such a linear fashion.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3353-0
+00:24:04.267 --> 00:24:07.683
+<v Peter Mack>Right. Someone might go. Leadership. Yeah.
+It's a seven. Yeah. Fine. No,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3353-1
+00:24:07.683 --> 00:24:11.379
+<v Peter Mack>not to say I think our leaders are great.
+And then there's a question later on</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3353-2
+00:24:11.379 --> 00:24:14.935
+<v Peter Mack>about process and they go, Oh my God,
+the process of so and so terrible and</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3353-3
+00:24:14.935 --> 00:24:18.771
+<v Peter Mack>that leaders haven't got a grip on this
+and they don't care about me as a person.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3353-4
+00:24:18.771 --> 00:24:22.327
+<v Peter Mack>They're talking about leadership.
+But it's talking about leadership in that</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3353-5
+00:24:22.327 --> 00:24:24.526
+<v Peter Mack>question.
+So there's something about all those</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3353-6
+00:24:24.526 --> 00:24:28.082
+<v Peter Mack>collective comments coming up into a load
+of themes that the AI determined,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3353-7
+00:24:28.082 --> 00:24:30.187
+<v Peter Mack>but the themes,
+rather than a biassed human.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3365-0
+00:24:30.997 --> 00:24:33.581
+<v Peter Mack>And there's some super powerful things
+that come out of that.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3365-1
+00:24:33.581 --> 00:24:34.997
+<v Peter Mack>The other thing that it can do is.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3420-0
+00:24:35.977 --> 00:24:40.535
+<v Peter Mack>More than just sentiment analysis,
+because also become many survey companies</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3420-1
+00:24:40.535 --> 00:24:44.855
+<v Peter Mack>now do basic sentiment analysis.
+Emotion analysis based on words that so</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3420-2
+00:24:44.855 --> 00:24:47.992
+<v Peter Mack>that person is extremely exercised about
+that thing.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3420-3
+00:24:47.992 --> 00:24:52.845
+<v Peter Mack>They're extremely sad about that thing.
+They're extremely happy about that thing.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3420-4
+00:24:52.845 --> 00:24:56.159
+<v Peter Mack>We know that from the form of words that
+they're using,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3420-5
+00:24:56.159 --> 00:25:00.657
+<v Peter Mack>there's also a thing that comes out
+around perception versus lived reality.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3431-0
+00:25:01.757 --> 00:25:05.520
+<v Peter Mack>So I might say, yeah,
+I think that P is wonderful at diversity</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3431-1
+00:25:05.520 --> 00:25:06.117
+<v Peter Mack>inclusion.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3491-0
+00:25:06.847 --> 00:25:09.775
+<v Peter Mack>That that might be. That's sort of valid,
+but my point of view,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3491-1
+00:25:09.775 --> 00:25:13.115
+<v Peter Mack>but it's not quite as valid as a
+perspective of somebody who's has first</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3491-2
+00:25:13.115 --> 00:25:16.912
+<v Peter Mack>hand experience of being on the receiving
+end of something that is either positive</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3491-3
+00:25:16.912 --> 00:25:19.199
+<v Peter Mack>or negative.
+I'd say that person has got a better</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3491-4
+00:25:19.199 --> 00:25:21.395
+<v Peter Mack>right to a voice on that than I have.
+So again,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3491-5
+00:25:21.395 --> 00:25:25.146
+<v Peter Mack>those things that got built in as well,
+that was super high value for the clients</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3491-6
+00:25:25.146 --> 00:25:27.982
+<v Peter Mack>around why we were sort of taking
+everybody's voice as equal,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3491-7
+00:25:27.982 --> 00:25:31.367
+<v Peter Mack>some voices that probably need to be
+heard a little bit more than others.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3496-0
+00:25:32.117 --> 00:25:34.197
+<v Peter Mack>That's some pretty cool things you can do
+with that.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3517-0
+00:25:34.047 --> 00:25:38.291
+<v Jochem Michiels>Isn't even what I understood from the
+Southern project that this was part of</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3517-1
+00:25:38.291 --> 00:25:41.487
+<v Jochem Michiels>the brain that we built for to analyse
+the results there.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3520-0
+00:25:45.557 --> 00:25:46.237
+<v Jochem Michiels>I think the.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3571-0
+00:25:50.187 --> 00:25:54.211
+<v Willem van Asperen>Can I can I?
+Can I just raise one observation? Because,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3529-0
+00:25:51.027 --> 00:25:51.587
+<v Jochem Michiels>Yeah, go ahead.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3571-1
+00:25:54.211 --> 00:25:57.301
+<v Willem van Asperen>Nick,
+you laid out your vision and then we</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3571-2
+00:25:57.301 --> 00:26:02.619
+<v Willem van Asperen>started the people survey vision.
+And I think there is very much there is</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3571-3
+00:26:02.619 --> 00:26:06.427
+<v Willem van Asperen>commonalities.
+But I think your use case is slightly</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3571-4
+00:26:06.427 --> 00:26:12.320
+<v Willem van Asperen>different. Your entry point is different,
+it's it's more consumer perspective and</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3571-5
+00:26:12.320 --> 00:26:14.547
+<v Willem van Asperen>strategy based on that whereas.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3589-0
+00:26:15.517 --> 00:26:19.480
+<v Willem van Asperen>The People Survey,
+I think I see I don't need to explain,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3589-1
+00:26:19.480 --> 00:26:21.597
+<v Willem van Asperen>but I think there are two very.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3595-0
+00:26:22.107 --> 00:26:24.507
+<v Willem van Asperen>Special line but different different use
+cases.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3665-0
+00:26:25.667 --> 00:26:29.504
+<v Peter Mack>The the commonality I hear. Villa is is.
+It's this bit around the voice of the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3665-1
+00:26:29.504 --> 00:26:32.903
+<v Peter Mack>people can just be heard, right,
+we we may well impose frameworks and</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3665-2
+00:26:32.903 --> 00:26:36.060
+<v Peter Mack>structures on things,
+but there's something incredibly powerful,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3665-3
+00:26:36.060 --> 00:26:40.090
+<v Peter Mack>whether it's LinkedIn, data, glass door,
+data of just you want to hear what people</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3665-4
+00:26:40.090 --> 00:26:42.810
+<v Peter Mack>really think.
+Did you know that 25% of people who chose</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3665-5
+00:26:42.810 --> 00:26:46.112
+<v Peter Mack>to offer an opinion on Mckinsey's?
+We're talking about this overall</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3665-6
+00:26:46.112 --> 00:26:48.588
+<v Peter Mack>thingatic.
+That's a very powerful thing to be able</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3665-7
+00:26:48.588 --> 00:26:52.085
+<v Peter Mack>to do. Same thing with interviews that,
+I mean interviews. Interesting.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3665-8
+00:26:52.085 --> 00:26:53.347
+<v Peter Mack>That's human bias for you.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3689-0
+00:26:54.157 --> 00:26:56.633
+<v Peter Mack>If I'm a culture person and I interview
+somebody about anything,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3689-1
+00:26:56.633 --> 00:26:59.223
+<v Peter Mack>of course I'm listening for culture.
+This AI can come back and say,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3689-2
+00:26:59.223 --> 00:27:01.699
+<v Peter Mack>do you know that 90% of the time when
+those people were talking,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3689-3
+00:27:01.699 --> 00:27:02.917
+<v Peter Mack>they were talking about process?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3704-0
+00:27:03.677 --> 00:27:06.391
+<v Peter Mack>Not culture,
+and I might blind that out because I</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3698-0
+00:27:05.467 --> 00:27:05.627
+<v Jochem Michiels>Yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3704-1
+00:27:06.391 --> 00:27:08.833
+<v Peter Mack>don't.
+I don't care about process and not my</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3704-2
+00:27:08.833 --> 00:27:11.437
+<v Peter Mack>thing. Sorry, getting excited,
+love this stuff.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3757-0
+00:27:13.157 --> 00:27:17.086
+<v Jochem Michiels>And I think, and I think William,
+that's up to us and mainly me in the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3757-1
+00:27:17.086 --> 00:27:20.904
+<v Jochem Michiels>coming week weeks to to split this out in
+different building blocks.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3757-2
+00:27:20.904 --> 00:27:25.552
+<v Jochem Michiels>Eventually we want to create a full tool,
+what are the first steps that we can take</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3757-3
+00:27:25.552 --> 00:27:29.813
+<v Jochem Michiels>to automate the part of this or to help
+on the on these type of projects and</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3757-4
+00:27:29.813 --> 00:27:34.129
+<v Jochem Michiels>obviously aware of all the other things
+that SUCHITU could do what what other</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3757-5
+00:27:34.129 --> 00:27:37.117
+<v Jochem Michiels>fields first things we can build in the
+coming weeks.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3760-0
+00:27:37.917 --> 00:27:38.597
+<v Jochem Michiels>To get started.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3809-0
+00:27:43.447 --> 00:27:48.343
+<v Jochem Michiels>I think indeed most most of what I've
+heard was either start with transcript</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3809-1
+00:27:48.343 --> 00:27:52.666
+<v Jochem Michiels>transcripts, a structure,
+or an Excel sheet as output from a survey</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3809-2
+00:27:52.666 --> 00:27:57.816
+<v Jochem Michiels>with structured and unstructured data,
+and indeed what Nick said, the the Redis,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3809-3
+00:27:57.816 --> 00:28:01.567
+<v Jochem Michiels>the social medias,
+the the other data source that we have.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3841-0
+00:28:02.927 --> 00:28:05.855
+<v Peter Mack>There's one one thing I think about is as
+a as a,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3841-1
+00:28:05.855 --> 00:28:09.719
+<v Peter Mack>maybe a pre qualifier for what the first
+use case is to go after.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3841-2
+00:28:09.719 --> 00:28:13.407
+<v Peter Mack>Is this so to what extent?
+By doing Genie are we anticipating?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3873-0
+00:28:14.957 --> 00:28:18.665
+<v Peter Mack>That we want to put this into the hands
+of of multiple people in PA to enable us</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3873-1
+00:28:18.665 --> 00:28:20.908
+<v Peter Mack>to do,
+to make either either increase efficiency</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3862-0
+00:28:18.957 --> 00:28:19.157
+<v Willem van Asperen>Mm hmm.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3873-2
+00:28:20.908 --> 00:28:24.157
+<v Peter Mack>with which we can do the work and still
+charge the same to the client.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3892-0
+00:28:25.917 --> 00:28:28.446
+<v Peter Mack>Which is one whole the whole end of
+things, right? There's all.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3892-1
+00:28:28.446 --> 00:28:31.568
+<v Peter Mack>There's a sort of efficiency end of the
+spectrums as I see it of put it in the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3892-2
+00:28:31.568 --> 00:28:32.397
+<v Peter Mack>hands of many people.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3952-0
+00:28:32.867 --> 00:28:35.931
+<v Peter Mack>Upskilled many,
+many people to do it in a self-serve way</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3952-1
+00:28:35.931 --> 00:28:40.015
+<v Peter Mack>and will become very efficient but
+potentially low quality potentially like</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3952-2
+00:28:40.015 --> 00:28:42.810
+<v Peter Mack>with Co pilot.
+The fact that everyone's got copilot</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3952-3
+00:28:42.810 --> 00:28:45.497
+<v Peter Mack>doesn't mean everyone's awesome at using
+copilot,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3952-4
+00:28:45.497 --> 00:28:49.743
+<v Peter Mack>and on the other end of the spectrum it's
+a more bespoke service that wouldn't</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3952-5
+00:28:49.743 --> 00:28:52.323
+<v Peter Mack>necessarily be put into the hands of
+everybody,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3952-6
+00:28:52.323 --> 00:28:56.354
+<v Peter Mack>but we'd take it to market as a service.
+So this is a underlying as an AI,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3952-7
+00:28:56.354 --> 00:28:57.267
+<v Peter Mack>but it still has.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3961-0
+00:28:58.117 --> 00:28:59.915
+<v Peter Mack>A domain expert,
+like whether that's human insight,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/3961-1
+00:28:59.915 --> 00:29:00.917
+<v Peter Mack>whether that's people change.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4019-0
+00:29:01.507 --> 00:29:05.512
+<v Peter Mack>Alongside data scientists who then run
+the genie that's happening underneath,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4019-1
+00:29:05.512 --> 00:29:09.620
+<v Peter Mack>and they're quite different things to my
+experience on self organ PA was it was</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4019-2
+00:29:09.620 --> 00:29:12.187
+<v Peter Mack>service end and it was sort of 75,
+000 pound £80,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4019-3
+00:29:12.187 --> 00:29:15.678
+<v Peter Mack>000 to do a service rather than down the
+other end of the spectrum,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4019-4
+00:29:15.678 --> 00:29:19.991
+<v Peter Mack>we'll probably be able to price it to fix
+the price of shops and become really good</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4019-5
+00:29:19.991 --> 00:29:23.996
+<v Peter Mack>at doing fixed price jobs quickly,
+but we may be inconsistent in our outputs.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4019-6
+00:29:23.996 --> 00:29:25.947
+<v Peter Mack>We may be inconsistent in our quality.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4051-0
+00:29:26.757 --> 00:29:29.870
+<v Peter Mack>I think getting clear on which one,
+whether that when the spectrum we see</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4051-1
+00:29:29.870 --> 00:29:33.277
+<v Peter Mack>that being is important to going right,
+therefore it's this use case you want to</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4051-2
+00:29:33.277 --> 00:29:35.338
+<v Peter Mack>go into.
+I say that because a lot of people have</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4051-3
+00:29:35.338 --> 00:29:36.557
+<v Peter Mack>come to me since we did D3AI.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4097-0
+00:29:37.057 --> 00:29:39.824
+<v Peter Mack>It's D3 by the way, and said,
+can I have it? Can I have it?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4097-1
+00:29:39.824 --> 00:29:43.467
+<v Peter Mack>And I can have what? It's a service.
+You've got to basically build into a job,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4097-2
+00:29:43.467 --> 00:29:46.326
+<v Peter Mack>but the expectation is because I think
+it's a gene it'd like.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4079-0
+00:29:45.277 --> 00:29:45.437
+<v Willem van Asperen>Yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4097-3
+00:29:46.326 --> 00:29:49.969
+<v Peter Mack>Surely we can all have that we can all
+have a play in the same way that we can</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4097-4
+00:29:49.969 --> 00:29:52.091
+<v Peter Mack>all play with ChatGPT and pay nothing for
+it.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4097-5
+00:29:52.091 --> 00:29:54.857
+<v Peter Mack>So there's a bit of a mindset internally
+around that stuff.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4119-0
+00:29:56.547 --> 00:30:00.274
+<v Jochem Michiels>Well, I would say it's the latter,
+it's it should be an add on on the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4119-1
+00:30:00.274 --> 00:30:03.787
+<v Jochem Michiels>consulting stuff that we do and make
+should make our life easier.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4135-0
+00:30:07.837 --> 00:30:12.797
+<v Susan Wade>Is it sounds like you said both the way I
+interpreted that is it sounded like both.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4204-0
+00:30:14.357 --> 00:30:18.067
+<v Susan Wade>Can I can I put forward a hypothesis?
+Because what the way I understood these</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4204-1
+00:30:18.067 --> 00:30:21.872
+<v Susan Wade>these foundational genies is that they
+are the foundational things that help us</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4204-2
+00:30:21.872 --> 00:30:24.583
+<v Susan Wade>do our jobs better,
+but then we can be using them as the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4204-3
+00:30:24.583 --> 00:30:28.388
+<v Susan Wade>foundation to build more sophisticated
+solutions that can be more client facing</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4204-4
+00:30:28.388 --> 00:30:31.908
+<v Susan Wade>and be driving more client value.
+That was my simple way of understanding</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4204-5
+00:30:31.908 --> 00:30:33.477
+<v Susan Wade>it, but my I may have that wrong.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4264-0
+00:30:36.407 --> 00:30:39.272
+<v Daniel Ziekenoppasser-Powell>Yeah,
+it's coming on that season being part of</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4210-0
+00:30:37.697 --> 00:30:38.617
+<v Willem van Asperen>Beautifully put.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4264-1
+00:30:39.272 --> 00:30:43.357
+<v Daniel Ziekenoppasser-Powell>the prioritisation matrix where we looked
+at these G&amp;E agents,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4264-2
+00:30:43.357 --> 00:30:48.294
+<v Daniel Ziekenoppasser-Powell>it's looking at the overall impact. Yeah,
+the ones that jumped to the top of ROI</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4264-3
+00:30:48.294 --> 00:30:52.927
+<v Daniel Ziekenoppasser-Powell>are because they are impacting the
+highest number of people and perhaps you</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4264-4
+00:30:52.927 --> 00:30:56.158
+<v Daniel Ziekenoppasser-Powell>know that left hand of the scale you just
+described.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4264-5
+00:30:56.158 --> 00:31:00.607
+<v Daniel Ziekenoppasser-Powell>They are giving a small boost to a large
+number of people as opposed to.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4288-0
+00:31:00.627 --> 00:31:03.888
+<v Susan Wade>It's a big deal with with that level of
+investment with far,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4275-0
+00:31:01.437 --> 00:31:02.637
+<v Daniel Ziekenoppasser-Powell>A high end boost to a smaller.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4288-1
+00:31:03.888 --> 00:31:06.347
+<v Susan Wade>I mean leading it through its next
+evolution.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4292-0
+00:31:05.717 --> 00:31:08.077
+<v Daniel Ziekenoppasser-Powell>Not to say they are completely distinct
+application.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4319-0
+00:31:10.507 --> 00:31:13.086
+<v Jochem Michiels>Yeah.
+And I think that that's also something we</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4310-0
+00:31:10.547 --> 00:31:13.067
+<v Susan Wade>K That's really helpful. So what?
+What what what's?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4307-0
+00:31:10.957 --> 00:31:11.117
+<v Peter Mack>Yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4319-1
+00:31:13.086 --> 00:31:17.385
+<v Jochem Michiels>need to find out in the coming weeks.
+What what is it exactly that we should go</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4319-2
+00:31:17.385 --> 00:31:17.707
+<v Jochem Michiels>after?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4375-0
+00:31:19.817 --> 00:31:24.479
+<v Jochem Michiels>And I think that brings me,
+at least to the question put in the chat</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4375-1
+00:31:24.479 --> 00:31:28.803
+<v Jochem Michiels>and I mentioned before,
+I would like to have spent more time on</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4348-0
+00:31:28.677 --> 00:31:29.677
+<v Susan Wade>Picture of you behind you.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4375-2
+00:31:28.803 --> 00:31:34.140
+<v Jochem Michiels>this topic at the exactly detail out.
+What are the things we are going to make</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4357-0
+00:31:32.837 --> 00:31:33.837
+<v Susan Wade>We don't.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4375-3
+00:31:34.140 --> 00:31:39.612
+<v Jochem Michiels>being aware that I think we'll take some
+sessions this week and next week of two</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4377-0
+00:31:36.997 --> 00:31:39.518
+<v Susan Wade>Did she?
+Did she put it there so we could all see</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4377-1
+00:31:39.518 --> 00:31:40.677
+<v Susan Wade>it? That's really nice.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4375-4
+00:31:39.612 --> 00:31:40.017
+<v Jochem Michiels>hours.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4409-0
+00:31:41.557 --> 00:31:44.796
+<v Jochem Michiels>So who would be?
+Who can I ask to volunteer to draught or</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4409-1
+00:31:44.796 --> 00:31:47.533
+<v Jochem Michiels>to create a story around?
+What is this use case?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4409-2
+00:31:47.533 --> 00:31:51.386
+<v Jochem Michiels>How can we break it up in smaller pieces
+where I will play the role?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4409-3
+00:31:51.386 --> 00:31:53.117
+<v Jochem Michiels>What can genie? What can AI do?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4427-0
+00:31:53.807 --> 00:31:56.681
+<v Jochem Michiels>And yeah, I I,
+I or I would ask from you to play the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4427-1
+00:31:56.681 --> 00:31:59.120
+<v Jochem Michiels>role.
+What's beneficial for PA and how do we</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4427-2
+00:31:59.120 --> 00:32:00.367
+<v Jochem Michiels>deliver these projects.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4442-0
+00:32:04.147 --> 00:32:08.963
+<v Jochem Michiels>Does one of you have time in his,
+his or her agenda? The coming week,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4442-1
+00:32:08.963 --> 00:32:11.027
+<v Jochem Michiels>weeks to work on this with me?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4482-0
+00:32:14.847 --> 00:32:18.448
+<v Peter Mack>Actually, could have.
+I just want to make sure that I'm broad</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4448-0
+00:32:15.247 --> 00:32:15.447
+<v Julia Christian-Edwards>It.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4482-1
+00:32:18.448 --> 00:32:21.585
+<v Peter Mack>enough in what I bring in though,
+so I don't want to.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4482-2
+00:32:21.585 --> 00:32:24.837
+<v Peter Mack>I will confess I've got a rather narrow
+PP and C remit,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4482-3
+00:32:24.837 --> 00:32:29.484
+<v Peter Mack>and I've developed a product that I love,
+so you're bound to get all that bias.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4482-4
+00:32:29.484 --> 00:32:33.607
+<v Peter Mack>So I'm not necessarily going to be that
+person to think super broadly.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4487-0
+00:32:35.117 --> 00:32:36.397
+<v Peter Mack>Across all the potential use cases.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4490-0
+00:32:37.627 --> 00:32:37.787
+<v Jochem Michiels>Yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4494-0
+00:32:38.437 --> 00:32:39.637
+<v Peter Mack>So with that caveat, I.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4514-0
+00:32:41.547 --> 00:32:45.420
+<v Julia Christian-Edwards>Yeah, it's going to need a few of us,
+I reckon. Right. Like to bring. Yeah,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4510-0
+00:32:41.647 --> 00:32:43.967
+<v Peter Mack>I would planning to bring over. Yeah,
+exactly.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4514-1
+00:32:45.420 --> 00:32:45.827
+<v Julia Christian-Edwards>because.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4557-0
+00:32:47.597 --> 00:32:50.345
+<v Julia Christian-Edwards>Yeah.
+So maybe it's a couple of us and like,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4557-1
+00:32:50.345 --> 00:32:53.886
+<v Julia Christian-Edwards>yeah, I mean yeah,
+because I'd be happy to play a role in</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4526-0
+00:32:50.797 --> 00:32:50.957
+<v Jochem Michiels>Good.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4557-2
+00:32:53.886 --> 00:32:58.587
+<v Julia Christian-Edwards>that. I think it's it's like you though,
+even like for human insight I need.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4557-3
+00:32:58.587 --> 00:33:02.250
+<v Julia Christian-Edwards>I just want to yeah,
+think about whether within the team as</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4557-4
+00:33:02.250 --> 00:33:05.058
+<v Julia Christian-Edwards>well.
+There's anyone I want to bring on board</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4557-5
+00:33:05.058 --> 00:33:07.317
+<v Julia Christian-Edwards>to just help scope out that thinking.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4572-0
+00:33:09.107 --> 00:33:12.439
+<v Julia Christian-Edwards>What? What do you think?
+So what's the ask in the first instance,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4564-0
+00:33:09.217 --> 00:33:09.577
+<v Jochem Michiels>It took it.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4572-1
+00:33:12.439 --> 00:33:13.347
+<v Julia Christian-Edwards>it's like writing.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4575-0
+00:33:14.917 --> 00:33:15.797
+<v Julia Christian-Edwards>I'm just trying to think.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4660-0
+00:33:17.267 --> 00:33:20.683
+<v Jochem Michiels>Didn't you ask her what I what I want to
+do in the this week,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4660-1
+00:33:20.683 --> 00:33:24.538
+<v Jochem Michiels>next week and the week after,
+I think is to understand better what is</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4660-2
+00:33:24.538 --> 00:33:28.890
+<v Jochem Michiels>the exact solution that we can build?
+What is the whole dream and what are the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4612-0
+00:33:26.467 --> 00:33:26.627
+<v Julia Christian-Edwards>Yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4660-3
+00:33:28.890 --> 00:33:31.534
+<v Jochem Michiels>first five or two 2-3 things that we can
+build.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4622-0
+00:33:31.377 --> 00:33:31.937
+<v Julia Christian-Edwards>Yeah. OK.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4660-4
+00:33:31.534 --> 00:33:35.941
+<v Jochem Michiels>So but before me to understand what is
+needed because sometimes AI is seen as a</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4660-5
+00:33:35.941 --> 00:33:39.576
+<v Jochem Michiels>magic box you throw things in and then
+things magically come out.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4660-6
+00:33:39.576 --> 00:33:44.093
+<v Jochem Michiels>I need to get a better understanding of
+what is exactly because AI often is not a</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4660-7
+00:33:44.093 --> 00:33:47.067
+<v Jochem Michiels>magic box it's just a thing that does
+what you asked.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4726-0
+00:33:47.427 --> 00:33:51.208
+<v Jochem Michiels>Or ask it to do so.
+I want to get a better grip of what is</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4726-1
+00:33:51.208 --> 00:33:56.142
+<v Jochem Michiels>exactly that we need to build so I
+understand the magic box of throwing data</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4726-2
+00:33:56.142 --> 00:34:00.948
+<v Jochem Michiels>in and getting user results out.
+But what is it exactly that we could help</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4726-3
+00:34:00.948 --> 00:34:06.202
+<v Jochem Michiels>with or augment or automate with a genie?
+Because you will see and I will explain</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4726-4
+00:34:06.202 --> 00:34:11.265
+<v Jochem Michiels>in the upcoming sessions that AI is most
+often not the magic box that we want,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4726-5
+00:34:11.265 --> 00:34:13.507
+<v Jochem Michiels>but a box that needs firm guidance.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4728-0
+00:34:14.317 --> 00:34:14.477
+<v Julia Christian-Edwards>Yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4754-0
+00:34:17.587 --> 00:34:22.135
+<v Jochem Michiels>So that that's what I wanted to to to to
+find out in upcoming sessions to what is</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4754-1
+00:34:22.135 --> 00:34:24.187
+<v Jochem Michiels>exactly that that we are looking for.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4779-0
+00:34:25.577 --> 00:34:27.748
+<v Julia Christian-Edwards>Yeah, cool. I think. Yeah.
+As with anything,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4779-1
+00:34:27.748 --> 00:34:31.413
+<v Julia Christian-Edwards>I think it'll be it'll become easier as
+we start writing something and that</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4779-2
+00:34:31.413 --> 00:34:34.017
+<v Julia Christian-Edwards>everyone can kind of build on. But yeah,
+that's cool.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4826-0
+00:34:33.697 --> 00:34:36.070
+<v Jochem Michiels>That would mean, I think,
+in upcoming weeks,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4826-1
+00:34:36.070 --> 00:34:39.867
+<v Jochem Michiels>so I will invite at least you,
+Peter and Julia for a couple of sessions</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4826-2
+00:34:39.867 --> 00:34:43.558
+<v Jochem Michiels>to detail the the solution.
+After that I will set up a structure with</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4826-3
+00:34:43.558 --> 00:34:47.777
+<v Jochem Michiels>everyone where monthly catch up on this
+is the progress is what we have done to</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4826-4
+00:34:47.777 --> 00:34:51.890
+<v Jochem Michiels>align with everyone how it's going and
+are we still going in the in the right</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4826-5
+00:34:51.890 --> 00:34:52.417
+<v Jochem Michiels>direction.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4852-0
+00:34:54.607 --> 00:34:57.090
+<v Peter Mack>Michelle, do you? I don't know.
+Put you on the spot,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4833-0
+00:34:54.677 --> 00:34:56.357
+<v Julia Christian-Edwards>I mean, obviously, Oh yeah.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4852-1
+00:34:57.090 --> 00:35:01.024
+<v Peter Mack>but you're going to have any capacity for
+this because I know that your use case is</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4852-2
+00:35:01.024 --> 00:35:03.413
+<v Peter Mack>different.
+I recall that a lot of people voted for</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4852-3
+00:35:03.413 --> 00:35:03.647
+<v Peter Mack>your.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4885-0
+00:35:05.477 --> 00:35:08.683
+<v Peter Mack>Culture Genie,
+when we did this sort of evaluation with</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4885-1
+00:35:08.683 --> 00:35:12.519
+<v Peter Mack>PNC and I know it's been,
+we've been talking about this glass door</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4885-2
+00:35:12.519 --> 00:35:15.210
+<v Peter Mack>and blood fish bowl thing for a while
+P&amp;C.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4885-3
+00:35:15.210 --> 00:35:17.957
+<v Peter Mack>So I don't want to want to make sure
+that's it.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4884-0
+00:35:15.927 --> 00:35:16.287
+<v Michelle Burke>Yep.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4947-0
+00:35:19.437 --> 00:35:24.086
+<v Michelle Burke>So I didn't know we got lots of votes for
+the culture genie. That's great, but yes,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4947-1
+00:35:24.086 --> 00:35:27.351
+<v Michelle Burke>I'm really happy to.
+I just dropped a message in the chat,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4947-2
+00:35:27.351 --> 00:35:30.948
+<v Michelle Burke>so I'm happy to feed in.
+I am a bit restricted with capacity for</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4947-3
+00:35:30.948 --> 00:35:33.937
+<v Michelle Burke>the next few weeks just with some other
+client stuff,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4947-4
+00:35:33.937 --> 00:35:38.087
+<v Michelle Burke>but really helping really happy to help
+them sidelines if if I'll join the</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4947-5
+00:35:38.087 --> 00:35:42.293
+<v Michelle Burke>meetings I can and then kind of go into
+the documents and feed in if that's</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4947-6
+00:35:42.293 --> 00:35:42.957
+<v Michelle Burke>helpful too.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4949-0
+00:35:44.757 --> 00:35:45.357
+<v Jochem Michiels>Yeah. Perfect.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4976-0
+00:35:46.917 --> 00:35:50.347
+<v Nick Dunlap>Yeah, I'm in.
+I'm in a similar boat to Michelle and I'm</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4958-0
+00:35:48.497 --> 00:35:49.177
+<v Susan Wade>It's pretty helpful.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4976-1
+00:35:50.347 --> 00:35:53.226
+<v Nick Dunlap>also happy to try and send the analyst I
+make,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4976-2
+00:35:53.226 --> 00:35:56.717
+<v Nick Dunlap>do all the work I allude to us trying to
+do in my stead.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4975-0
+00:35:55.817 --> 00:35:56.817
+<v Jochem Michiels>Your internal brain.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/4980-0
+00:35:58.757 --> 00:35:59.797
+<v Nick Dunlap>If I can't make it.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5033-0
+00:36:02.267 --> 00:36:05.771
+<v Jochem Michiels>OK. Because I think it it is,
+it might be good to or have work before</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5033-1
+00:36:05.771 --> 00:36:09.925
+<v Jochem Michiels>with other product teams is that we have
+a couple of direct contact points if I if</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5033-2
+00:36:09.925 --> 00:36:13.178
+<v Jochem Michiels>I have a small question,
+how should this work if we have a small</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5033-3
+00:36:13.178 --> 00:36:17.132
+<v Jochem Michiels>group of people that we can agree with
+quickly and then on the monthly or less</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5033-4
+00:36:17.132 --> 00:36:21.337
+<v Jochem Michiels>regular basis we have an update on what's
+how it's going and all the decisions that</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5033-5
+00:36:21.337 --> 00:36:21.987
+<v Jochem Michiels>we have made.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5045-0
+00:36:23.557 --> 00:36:27.557
+<v Jochem Michiels>To keep for the development team the the
+pace in developing the actual tool.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5047-0
+00:36:30.437 --> 00:36:30.837
+<v Jochem Michiels>OK.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5063-0
+00:36:31.477 --> 00:36:34.755
+<v Jochem Michiels>I think this is it for me for for today.
+I just wanted to kick this off.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5063-1
+00:36:34.755 --> 00:36:37.717
+<v Jochem Michiels>Let let everyone know that we are going
+to get started with this.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5070-0
+00:36:39.237 --> 00:36:40.799
+<v Jochem Michiels>Peter,
+I think or hopefully everyone is excited</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5070-1
+00:36:40.799 --> 00:36:41.157
+<v Jochem Michiels>as you are.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5086-0
+00:36:43.477 --> 00:36:46.978
+<v Jochem Michiels>And just to get things going in this week,
+next week and the week after and</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5086-1
+00:36:46.978 --> 00:36:49.557
+<v Jochem Michiels>hopefully to build some great server
+response, Jeannie.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5103-0
+00:36:50.747 --> 00:36:54.049
+<v Susan Wade>Before we go, can I just ask,
+did we bottom out the question about if</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5103-1
+00:36:54.049 --> 00:36:55.747
+<v Susan Wade>our inputs are our only survey data?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5109-0
+00:36:57.277 --> 00:36:58.917
+<v Susan Wade>Or are they also transcripts from
+interviews?</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5180-0
+00:37:00.127 --> 00:37:04.814
+<v Jochem Michiels>I think that it will depend on the exact
+use case is that we are going to define,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5136-0
+00:37:03.277 --> 00:37:04.997
+<v Susan Wade>OK, OK.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5180-1
+00:37:04.814 --> 00:37:08.929
+<v Jochem Michiels>so I would what I will try to do in the
+next session is to just to see.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5180-2
+00:37:08.929 --> 00:37:12.130
+<v Jochem Michiels>This is our vision.
+It exists of these building blocks,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5180-3
+00:37:12.130 --> 00:37:16.131
+<v Jochem Michiels>maybe the first one is the needs getting
+structure around Excel data.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5180-4
+00:37:16.131 --> 00:37:19.846
+<v Jochem Michiels>The next building block is doing some the
+magic with interviews,</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5180-5
+00:37:19.846 --> 00:37:24.647
+<v Jochem Michiels>transcripts and then the block afterwards
+can be the open-ended social media input.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5202-0
+00:37:25.437 --> 00:37:29.031
+<v Jochem Michiels>So we structure it 1 by 1 and we go after
+each of these use case one by one.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5202-1
+00:37:29.031 --> 00:37:32.577
+<v Jochem Michiels>But that's I need a little bit more
+details to actually say something about</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5202-2
+00:37:32.577 --> 00:37:32.717
+<v Jochem Michiels>it.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5205-0
+00:37:34.637 --> 00:37:35.797
+<v Susan Wade>Thanks. Thank you.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5249-0
+00:37:38.217 --> 00:37:40.799
+<v Peter Mack>Susan,
+I can imagine if the principle is more</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5249-1
+00:37:40.799 --> 00:37:44.728
+<v Peter Mack>people to have access to something useful
+that'll lighten their load.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5249-2
+00:37:44.728 --> 00:37:49.329
+<v Peter Mack>I suspect that all people across PA do an
+interview transcripts for a living than</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5249-3
+00:37:49.329 --> 00:37:52.977
+<v Peter Mack>they are doing surveys. Sorry,
+unless you've a few minutes like.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5252-0
+00:37:55.107 --> 00:37:56.267
+<v Julia Christian-Edwards>And if I agree with you.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5263-0
+00:38:01.447 --> 00:38:05.158
+<v Jochem Michiels>OK. Thanks, everyone.
+Great to get this started and we'll speak</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5260-0
+00:38:03.757 --> 00:38:03.957
+<v Peter Mack>OK.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5263-1
+00:38:05.158 --> 00:38:05.447
+<v Jochem Michiels>soon.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5286-0
+00:38:06.137 --> 00:38:09.817
+<v Julia Christian-Edwards>So that's it. Bye.
+Thank you for putting this in. Bye.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5283-0
+00:38:07.037 --> 00:38:09.157
+<v Willem van Asperen>Very good. Thanks a lot. Thanks folks.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5282-0
+00:38:07.467 --> 00:38:07.587
+<v Nick Dunlap>Now.</v>
+
+ec4ac57d-840f-4f63-a0c1-808e3e218362/5285-0
+00:38:09.357 --> 00:38:09.637
+<v Jochem Michiels>But.</v>

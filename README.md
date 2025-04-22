@@ -231,6 +231,10 @@ will be split into two child-chunks, each pertaining to the captions in the exam
 
 Consecutive captions of the same speaker are merged into one `DocumentChunk`. 
 
+> NOTE: The splitter expects a correctly formatted WebVTT file. Prepending this
+> chunker with any other chunker, that will wreck the WebVTT format, will result in
+> empty child chunks and warnings.
+
 Every child chunk will have an `original_span` being the start and end second of the chunk.
 Also, the following custom attributes (available to Genie Flow invokers from version 0.6.4
 of the `genie-flow-invoker` package) will be added:

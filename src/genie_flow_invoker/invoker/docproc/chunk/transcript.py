@@ -43,7 +43,13 @@ class TranscriptSplitter(AbstractSplitter):
             document_stream = StringIO(parent_chunk.content)
             captions = webvtt.read_buffer(document_stream)
         except MalformedFileError:
-            logger.warning("Could not parse document as webvtt.")
+            logger.debug(
+                "Could not parse a document chunk as WebVTT, "
+                "starting with '{doc_start}' and ending with '{doc_end}' ",
+                doc_start=parent_chunk.content[:100],
+                doc_end=parent_chunk.content[-100:],
+            )
+            logger.warning("Could not parse document as WebVTT.")
             return []
 
         chunks: list[DocumentChunk] = list()

@@ -19,15 +19,15 @@ classifiers=[
     'Operating System :: OS Independent',
 ]
 dependencies=[
-    "loguru~=0.7.2",
-    "genie-flow~=0.7.1",
+    "loguru~=0.7",
+    "genie-flow~=0.8.0.beta",
     "genie-flow-invoker~=0.6.2",
-    "pydantic~=2.10.6",
-    "backoff~=2.2.1",
-    "tika~=2.6.0",
-    "nltk~=3.9.1",
-    "numpy~=2.1.2",
-    "sortedcontainers~=2.4.0",
+    "pydantic~=2.10",
+    "backoff~=2.2",
+    "tika~=2.6",
+    "nltk~=3.9",
+    "numpy~=2.1",
+    "sortedcontainers~=2.4",
 ]
 dynamic = ["version"]
 

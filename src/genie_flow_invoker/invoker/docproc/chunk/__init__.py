@@ -8,6 +8,7 @@ from genie_flow_invoker.invoker.docproc.chunk.lexical_density import (
     LexicalSplitStrategyType,
 )
 from genie_flow_invoker.invoker.docproc.chunk.splitter import AbstractSplitter
+from genie_flow_invoker.invoker.docproc.chunk.transcript import TranscriptSplitter
 from genie_flow_invoker.invoker.docproc.chunk.word_splitter import FixedWordsSplitter
 from genie_flow_invoker.invoker.docproc.codec import (
     PydanticInputDecoder,
@@ -136,6 +137,10 @@ class LexicalDensitySplitInvoker(AbstractSplitterInvoker):
 
 
 class TranscriptSplitInvoker(AbstractSplitterInvoker):
+
+    def __init__(self, operation_level: Optional[int] = None):
+        super().__init__(operation_level)
+        self._splitter = TranscriptSplitter()
 
     @classmethod
     def from_config(cls, config: dict):

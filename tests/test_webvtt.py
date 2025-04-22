@@ -47,8 +47,8 @@ def test_read_zoom_webvtt(zoom_vtt):
     assert len(children) == 20
     for child in children:
         assert child.custom_properties["party_name"] == "UNKNOWN"
-    assert children[0].content.startswith("Workers link. Now you can play the streets.")
-    assert children[-1].content.startswith("I like the icons. Red is a very good color")
+    assert children[0].content.startswith("Workers link.\nNow you can play the streets.")
+    assert children[-1].content.startswith("I like the icons.\nRed is a very good color")
 
 
 def test_read_non_webvtt(sweden_text):

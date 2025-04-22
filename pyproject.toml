@@ -19,7 +19,7 @@ classifiers=[
     'Operating System :: OS Independent',
 ]
 dependencies=[
-    "loguru~=0.7.2",
+    "loguru~=0.7",
     "genie-flow~=0.7.1",
     "genie-flow-invoker~=0.6.4",
     "pydantic~=2.10.6",

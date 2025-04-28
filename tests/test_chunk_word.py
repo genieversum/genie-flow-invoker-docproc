@@ -35,7 +35,7 @@ def test_exact_overlap_count():
         parent_id=None,
     )
     splitter = FixedWordsSplitter(
-        max_words=15,
+        max_words=5,
         overlap=5,
     )
 
@@ -53,7 +53,7 @@ def test_overlap_plus_one():
         parent_id=None,
     )
     splitter = FixedWordsSplitter(
-        max_words=15,
+        max_words=5,
         overlap=5,
     )
 
@@ -160,3 +160,19 @@ def test_drop_stopwords():
         words = chunk.content.split(" ")
         assert words[0] not in nltk.corpus.stopwords.words("english")
         assert words[-1] not in nltk.corpus.stopwords.words("english")
+
+
+def test_chunk_word_punctuation(sweden_text):
+    document = DocumentChunk(
+        original_span=(0, len(sweden_text)),
+        hierarchy_level=0,
+        content=sweden_text,
+        parent_id=None,
+    )
+    splitter = FixedWordsSplitter(
+        max_words=15,
+        overlap=5,
+        ignore_stopwords=False,
+        drop_trailing_chunks=False,
+        break_on_punctuation=True,
+    )

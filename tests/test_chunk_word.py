@@ -1,4 +1,5 @@
 import math
+import re
 
 import nltk
 from nltk import TreebankWordTokenizer
@@ -183,3 +184,16 @@ def test_chunk_word_punctuation(sweden_text):
         drop_trailing_chunks=False,
         break_on_punctuation=True,
     )
+
+    chunks = splitter.split(document)
+
+    assert chunks[0].content.startswith("Sweden")
+    assert chunks[0].content.endswith("Northern Europe.")
+    assert len(chunks[0].content.split(" ")) > 15
+
+    assert chunks[1].content.startswith("It borders")
+    assert len(chunks[1].content.split(" ")) < 15
+
+    for chunk in chunks:
+        assert re.match("[A-Z]", chunk.content[0]) is not None
+        assert chunk.content.endswith(".")

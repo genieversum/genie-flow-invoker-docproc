@@ -141,7 +141,7 @@ class FixedWordsSplitter(AbstractSplitter):
             return _scan_till_sentence_break(end, words_spans, 1)
 
         # else, scan backwards to the end of the last full sentence
-        return _scan_till_sentence_break(end, words_spans, -1)
+        return _scan_till_sentence_break(end, words_spans, -1) - 1
 
     def _determine_chunk_start(
             self,
@@ -167,7 +167,7 @@ class FixedWordsSplitter(AbstractSplitter):
         if not self._break_on_punctuation:
             return new_start
 
-        new_start = _scan_till_sentence_break(new_start, words_spans, 1)
+        new_start = _scan_till_sentence_break(new_start, words_spans, 1) + 1
         if new_start > last_word_idx:
             return None
 
@@ -252,7 +252,7 @@ class FixedWordsSplitter(AbstractSplitter):
         try:
             if (
                     self._break_on_punctuation
-                    and words_spans[first_word_idx + 1].word in PUNCTUATION_CHARACTERS
+                    and words_spans[last_word_idx + 1].word in PUNCTUATION_CHARACTERS
             ):
                 return words_spans[first_word_idx : last_word_idx + 2]
         except IndexError:

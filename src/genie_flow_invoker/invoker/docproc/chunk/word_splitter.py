@@ -36,18 +36,21 @@ def _scan_till_sentence_break(
     If the scan goes beyond the list bounds, the appropriate boundary value is returned.
     If the start position is already at a sentence break, the scan will return that position.
 
-    :param idx: the starting position to scan from.
-    :param words_spans: the list of WordSpanIndex tuples.
-    :param direction: the direction to scan in. 1 for forward, -1 for backward.
-    :return: the index of the first sentence break found.
+    :param idx: The starting position to scan from.
+    :param words_spans: The list of WordSpanIndex tuples.
+    :param direction: The direction to scan in. 1 for forward, -1 for backward.
+    :return: The index of the first sentence break found.
     """
+    first_word_idx = 0
+    last_word_idx = len(words_spans) - 1
+
     try:
         previous_sentence = words_spans[idx].sentence_index
         while words_spans[idx + direction].sentence_index == previous_sentence:
             idx += direction
-        return idx - direction
+        return idx
     except IndexError:
-        return len(words_spans) - 1 if direction > 0 else 0
+        return last_word_idx if direction > 0 else first_word_idx
 
 
 class FixedWordsSplitter(AbstractSplitter):
@@ -122,11 +125,12 @@ class FixedWordsSplitter(AbstractSplitter):
         :return: The last index that should be included in the `words_spans` list.
         """
         start_sentence_index = words_spans[start].sentence_index
+        last_word_idx = len(words_spans) - 1
         end = start + self._max_words - 1
 
         # we are at or passed the end of the list, return the last index
-        if end >= len(words_spans) - 1:
-            return len(words_spans) - 1
+        if end > last_word_idx:
+            return last_word_idx
 
         # no need to break on punctuation, return the end index
         if not self._break_on_punctuation:
@@ -136,7 +140,7 @@ class FixedWordsSplitter(AbstractSplitter):
         if words_spans[end].sentence_index == start_sentence_index:
             return _scan_till_sentence_break(end, words_spans, 1)
 
-        # scan backwards to the end of the last full sentence
+        # else, scan backwards to the end of the last full sentence
         return _scan_till_sentence_break(end, words_spans, -1)
 
     def _determine_chunk_start(
@@ -154,16 +158,19 @@ class FixedWordsSplitter(AbstractSplitter):
         :param words_spans: the list of WordSpanIndex tuples.
         :return: the optional next start index.
         """
-        new_start = start + self._overlap + 1
-        if new_start >= len(words_spans):
+        new_start = start + self._overlap
+        last_word_idx = len(words_spans) - 1
+
+        if new_start > last_word_idx:
             return None
 
         if not self._break_on_punctuation:
             return new_start
 
         new_start = _scan_till_sentence_break(new_start, words_spans, 1)
-        if new_start >= len(words_spans) - 1:
+        if new_start > last_word_idx:
             return None
+
         return new_start
 
     def _tokenize(self, content: str) -> list[WordSpanIndex]:
@@ -182,21 +189,21 @@ class FixedWordsSplitter(AbstractSplitter):
         sentence_spans = list(self.sentence_splitter.span_tokenize(content))
 
         words_spans: list[WordSpanIndex] = []
+        word_idx = 0
         for sentence_idx, sentence in enumerate(sentences):
             words = self.word_splitter.tokenize(sentence)
             word_spans = list(self.word_splitter.span_tokenize(sentence))
             span_origin = sentence_spans[sentence_idx][0]
-            words_spans.extend(
-                [
+            for word, span in zip(words, word_spans):
+                words_spans.append(
                     WordSpanIndex(
                         word=word,
                         span=(span_origin + span[0], span_origin + span[1]),
                         word_index=word_idx,
                         sentence_index=sentence_idx,
                     )
-                    for word_idx, word, span in zip(range(len(words)), words, word_spans)
-                ]
-            )
+                )
+                word_idx += 1
         return words_spans
 
     def _detokenize(self, words_spans: list[WordSpanIndex]) -> str:
@@ -220,6 +227,39 @@ class FixedWordsSplitter(AbstractSplitter):
             )
         return "\n".join(sentences.values())
 
+    def _map_back_to_unfiltered(
+            self,
+            filtered_words_spans: list[WordSpanIndex],
+            words_spans: list[WordSpanIndex],
+            start_idx: int,
+            end_idx: int,
+    ):
+        """
+        Maps the chunk that is identified by the given start and end indices back to the
+        original unfiltered words_spans list.
+
+        If breaking on punctuation is enabled, add a possible punctuation mark at the end of
+        the last word in the chunk, if it is present in the original unfiltered words_spans.
+
+        :param filtered_words_spans: the filtered words_spans list
+        :param words_spans: The original unfiltered words_spans list
+        :param start_idx: The start index of the chunk
+        :param end_idx: the end index of the chunk
+        :return: a splice of the original unfiltered words_spans list that contains the chunk
+        """
+        first_word_idx = filtered_words_spans[start_idx].word_index
+        last_word_idx = filtered_words_spans[end_idx].word_index
+        try:
+            if (
+                    self._break_on_punctuation
+                    and words_spans[first_word_idx + 1].word in PUNCTUATION_CHARACTERS
+            ):
+                return words_spans[first_word_idx : last_word_idx + 2]
+        except IndexError:
+            pass
+
+        return words_spans[first_word_idx : last_word_idx + 1]
+
     def split(self, document: DocumentChunk) -> list[DocumentChunk]:
         words_spans = self._tokenize(document.content)
 
@@ -230,31 +270,46 @@ class FixedWordsSplitter(AbstractSplitter):
         ]
 
         chunks: list[DocumentChunk] = []
-        start = 0
-        while start is not None and start < len(filtered_words_spans):
-            chunk_end = self._determine_chunk_end(start, filtered_words_spans)
+        chunk_start: Optional[int] = 0
+        first_smaller_chunk_seen = False
+        while chunk_start is not None and chunk_start < len(filtered_words_spans):
+            chunk_end = self._determine_chunk_end(chunk_start, filtered_words_spans)
 
-            filtered_chunk = filtered_words_spans[start : chunk_end + 1]
-            chunk_word_spans = words_spans[
-                filtered_chunk[0].word_index : filtered_chunk[-1].word_index + 1
-            ]
+            chunk_word_spans = self._map_back_to_unfiltered(
+                filtered_words_spans,
+                words_spans,
+                chunk_start,
+                chunk_end,
+            )
             chunk_content = self._detokenize(chunk_word_spans)
+            chunk_start = self._determine_chunk_start(chunk_start, filtered_words_spans)
+
+            if self._drop_smaller_chunks and len(chunk_word_spans) < self._max_words:
+                if first_smaller_chunk_seen:
+                    logger.debug(
+                        "ignoring chunk because it is smaller than the max words: '{chunk_content}'",
+                        chunk_content=chunk_content,
+                    )
+                    continue
+                else:
+                    first_smaller_chunk_seen = True
+
             logger.debug(
-                "chunked chunk {parent_id} into words: {chunk_content}",
+                "chunked chunk {parent_id} into words: '{chunk_content}'",
                 parent_id=document.chunk_id,
                 chunk_content=chunk_content,
             )
 
-            words_chunk = DocumentChunk(
-                parent_id=document.chunk_id,
-                content=chunk_content,
-                original_span=(
-                    chunk_word_spans[0].span[0],
-                    chunk_word_spans[-1].span[1],
-                ),
-                hierarchy_level=document.hierarchy_level + 1,
+            chunks.append(
+                DocumentChunk(
+                    parent_id=document.chunk_id,
+                    content=chunk_content,
+                    original_span=(
+                        chunk_word_spans[0].span[0],
+                        chunk_word_spans[-1].span[1],
+                    ),
+                    hierarchy_level=document.hierarchy_level + 1,
+                )
             )
-            chunks.append(words_chunk)
-            start = self._determine_chunk_start(start, filtered_words_spans)
 
         return chunks

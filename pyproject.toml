@@ -27,6 +27,7 @@ dependencies=[
     "nltk~=3.9",
     "numpy~=2.1",
     "sortedcontainers~=2.4",
+    "webvtt-py~=0.5",
 ]
 dynamic = ["version"]
 

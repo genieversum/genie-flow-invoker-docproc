@@ -8,6 +8,7 @@ from genie_flow_invoker.invoker.docproc.chunk.lexical_density import (
     LexicalSplitStrategyType,
 )
 from genie_flow_invoker.invoker.docproc.chunk.splitter import AbstractSplitter
+from genie_flow_invoker.invoker.docproc.chunk.transcript import TranscriptSplitter
 from genie_flow_invoker.invoker.docproc.chunk.word_splitter import FixedWordsSplitter
 from genie_flow_invoker.invoker.docproc.codec import (
     PydanticInputDecoder,
@@ -133,3 +134,22 @@ class LexicalDensitySplitInvoker(AbstractSplitterInvoker):
         return cls(
             min_words, max_words, overlap, target_density, strategy, operation_level
         )
+
+
+class TranscriptSplitInvoker(AbstractSplitterInvoker):
+
+    def __init__(self, operation_level: Optional[int] = None):
+        super().__init__(operation_level)
+        self._splitter = TranscriptSplitter()
+
+    @classmethod
+    def from_config(cls, config: dict):
+        """
+        Create a new TranscriptSplitInvoker instance from the configuration. The
+        configuration is only expected to contain the following key:
+        - `operation_level`: (int, default None) the hierarchy level
+        :param config: the configuration as ready from the meta.yaml file
+        :return: a new TranscriptSplitInvoker
+        """
+        operation_level = config.get("operation_level", None)
+        return cls(operation_level=operation_level)

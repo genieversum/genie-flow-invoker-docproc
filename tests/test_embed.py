@@ -67,6 +67,8 @@ def test_embedding_mgr_timeout(monkeypatch):
     mgr = EmbeddingManager(
         text2vec_url="http://localhost:8000",
         pooling_strategy="mean",
+        backoff_max_time=1,
+        backoff_max_tries=5,
     )
 
     monkeypatch.setattr(

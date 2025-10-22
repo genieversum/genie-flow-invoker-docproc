@@ -35,7 +35,7 @@ classifiers=[
 ]
 dependencies=[
     "loguru~=0.7",
-    "genie-flow-invoker~=0.6.4",
+    "genie-flow-invoker",
     "pydantic~=2.11",
     "backoff~=2.2",
     "tika~=2.6",
